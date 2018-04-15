@@ -1,0 +1,147 @@
+<!DOCTYPE html> 
+<html lang="en">
+
+<!-- Mirrored from www.cs.sfu.ca/CourseCentral/165/common/study-guide/files/position.html?style=1 by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 27 Feb 2018 02:42:08 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head> 
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width" />
+<script src="../../../../../../cmpt165.csil.sfu.ca/js/jquery-3.2.1.js"></script>
+<script src="position-example.js"></script>
+<link rel="stylesheet" href="position-common.css" />
+<link rel="stylesheet" href="position1.css" id="demostyle" />
+<title>Positioning Example</title>
+</head> 
+<body>
+<h1>Positioning Example</h1>
+
+<div class="form">
+Stylesheet:
+<select id="style">
+<option value="0">no style</option>
+<option value="1" selected="selected">1: float</option>
+<option value="2">2: float + clear</option>
+<option value="3">3: absolute</option>
+<option value="4">4: absolute + transparency</option>
+<option value="5">5: absolute  + careful sizing</option>
+<option value="6">6: float+clear and media selector</option>
+</select>
+
+Width:
+<select id="width">
+<option value="guide">as in Guide screenshots</option>
+<option value="natural">my browser's width</option>
+<option value="phone">phone screen width</option>
+</select>
+</div>
+
+
+<main>
+
+<section id="p1">
+<h2>Part 1</h2>
+<figure id="happy"><img src="happy.png" alt="Happy Face" /></figure>
+<p>This is a page that we can use to test various ways of positioning
+content. We'll work with the happy face image.</p>
+</section>
+
+<section id="p2">
+<h2>Part 2</h2>
+<p>In the second paragraph, there is also no meaningful content. This
+text doesn't really have much purpose, it's just filler.</p>
+</section>
+
+</main>
+
+
+<p>This CSS code is being applied above:</p>
+<div id="css-code">
+<blockquote id="code-position1">
+<pre class="brush: css">figure {
+  margin: 0.5em;
+}
+#happy {
+  float: right;
+}</pre>
+</blockquote>
+<blockquote id="code-position2">
+<pre class="brush: css">figure {
+  margin: 0.5em;
+}
+#happy {
+  float: right;
+}
+section {
+  clear: both;
+}</pre>
+</blockquote>
+<blockquote id="code-position3">
+<pre class="brush: css">figure {
+  margin: 0.5em;
+}
+#happy {
+  position: absolute;
+  top: 0;
+  right: 0;
+}</pre>
+</blockquote>
+<blockquote id="code-position4">
+<pre class="brush: css">figure {
+  margin: 0.5em;
+}
+#happy {
+  position: absolute;
+  top: 0;
+  right: 0;
+  opacity: 0.33;
+  z-index: -1;
+}</pre>
+</blockquote>
+<blockquote id="code-position5">
+<pre class="brush: css">#happy {
+  position: absolute;
+  top: 0.5em;
+  left: 0;
+  width: 100%;
+  margin: 0;
+  text-align: center;
+}
+#happy img {
+  width: 3em;
+  height: 3em;
+}
+main&gt;section:first-child {
+  margin-top: 4em;
+}</pre>
+</blockquote>
+<blockquote id="code-position6">
+<pre class="brush: css">figure {
+  margin: 0.5em;
+}
+/*
+NOTE: the media selector won't work with the demo's JS width selector,
+since the max-width is still large. Resize your browser window or try
+on a smartphone.
+*/
+#happy {
+  float: right;
+}
+@media (max-width: 480px) {
+  #happy {
+    float: none;
+    text-align: center;
+  }
+}
+@media print {
+  figure {
+    display: none;
+  }
+}</pre>
+</blockquote>
+</div>
+
+
+</body>
+
+<!-- Mirrored from www.cs.sfu.ca/CourseCentral/165/common/study-guide/files/position.html?style=1 by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 27 Feb 2018 02:42:09 GMT -->
+</html>

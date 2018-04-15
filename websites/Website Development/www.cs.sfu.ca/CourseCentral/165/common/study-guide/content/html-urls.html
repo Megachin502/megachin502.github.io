@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en" class="section">
+
+<!-- Mirrored from www.cs.sfu.ca/CourseCentral/165/common/study-guide/content/html-urls.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 27 Feb 2018 02:41:22 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700%7CSource+Sans+Pro:400,400i,700,700i" />
+  <link rel="stylesheet" href="../assets/reset.css" />
+  <link rel="stylesheet" href="../assets/shCore.css" />
+  <link rel="stylesheet" href="../assets/shThemeDefault.css" />
+  <link rel="stylesheet" href="../style.css" />
+  <script src="../assets/shCore.js"></script>
+  <script src="../assets/shBrushXml-custom.js"></script>
+  <script src="../assets/shBrushCss.js"></script>
+  <script src="../assets/shBrushJScript.js"></script>
+  <script src="../assets/js.cookie.js"></script>
+  <script src="../assets/guide_setup.js"></script>
+  <title>URLs: Links and Images</title>
+</head>
+<body>
+<header>
+  <div class="breadcrumbs">
+<a href="../index.html">CMPT 165 Study Guide</a>
+ &rarr; <a href="html.html" class="xref">Markup and HTML</a>
+ &rarr; URLs: Links and Images
+</div>
+  <h1>URLs: Links and Images</h1>
+</header>
+<main id="main">
+
+
+<p id="url">We have seen that in an <code class="html">&lt;a&gt;</code> element, the <code class="html">href</code> attribute use used to give the destination of the link. This destination is a <dfn>URL</dfn>, but there is more to say about that, and we should have a look now.</p>
+
+<p id="img">URLs are also used to refer to images so they can be displayed on the page. The <code class="html dfn">&lt;img&gt;</code> tag is used to insert images into a page like this:</p>
+
+<blockquote id="code-img1">
+<pre class="brush: html">&lt;p&gt;&lt;img src="http://example.com/vacation.jpg" alt="My vacation" /&gt;&lt;/p&gt;</pre>
+</blockquote>
+
+<p>The <code class="html">src</code> attribute is used to give the URL of the image. The <code class="html">alt</code> attribute gives alternate text: text that can be displayed in place of the image if it can't be loaded (because it can't be found on the server, or network problems, or any other reason). Both of these attributes should be specified and the tag is empty, since it just marks the place an image should go, but doesn't have any content.</p>
+
+<section id="absolute">
+<h2>Absolute URLs</h2>
+
+<p id="absol">The URLs that we have seen so far are <dfn>absolute URLs</dfn>. Absolute URLs contain a scheme, server, and path as described in the topic <a href="www-http.html#fig-url" class="xref">The Web and HTTP</a> (but the path may be empty).</p>
+
+<p>Absolute URLs can be used to locate a piece of content on the web with no other information or context.</p>
+
+</section>
+
+<section id="relative">
+<h2>Relative URLs</h2>
+
+<p id="relat">In HTML, you can also refer to content by giving its position relative to the page you're looking at. These <dfn>relative URLs</dfn> give information like &ldquo;in the same folder, find the page <code class="file">nextpage.html</code>&rdquo; or &ldquo;look in the folder <code class="file">images</code> for the image <code class="file">selfie.jpg</code>&rdquo;.</p>
+
+<aside id="directory">The words <dfn>folder</dfn> and <dfn>directory</dfn> are synonyms for us: we'll say &ldquo;folder&rdquo; but either is acceptable.</aside>
+
+<aside class="lynda">Lynda.com video: <a class="lynda" href="https://www.lynda.com/HTML-tutorials/Using-relative-URLs/47603/54579-4.html" data-path="/HTML-tutorials/Using-relative-URLs/47603/54579-4.html">Using relative URLs</a>. <span class="help">[<a href="../lynda.html">Lynda.com help</a>]</span> </aside>
+
+
+<section id="same-folder">
+<h3>In the same folder</h3>
+
+<p>The simplest relative URL is the one that specifies &ldquo;look in the same folder&rdquo;. To do that, you simply specify the filename:</p>
+
+<blockquote id="code-rel1">
+<pre class="brush: html">&lt;a href="nextpage.html"&gt;next page&lt;/a&gt;
+&lt;img src="happy.png" alt="happy face" /&gt;</pre>
+</blockquote>
+
+<p>The first line creates a link to the page <code class="file">nextpage.html</code> in the <em>same folder</em> as the HTML page that contains that link. The second line references an image <code class="file">happy.png</code> in the same folder.</p>
+
+<p>The nice thing about relative URLs is that they will work between pages on your site, no matter where that site is. You can create a link <code class="html">&lt;a href="menu.html"&gt;</code> that you want to take you back to your site's menu: it will work when you're editing the files on your computer and it will work after you have uploaded the site to a web server.</p>
+</section>
+
+<section id="into-folder">
+<h3>Into a folder</h3>
+
+<p>Referring to files in the same folder is straightforward enough, but you will often want to organize your files into a folder structure. Suppose we have organized our HTML and images into folders like this:</p>
+<figure id="fig-directory-structure" class="block"><img src="../figures/directory-structure.svg" alt="Example folder structure for a web site" width="220" height="344" /><figcaption>Example folder structure for a web site&nbsp;<a href="../references.html">*</a></figcaption></figure>
+
+<p>If we want to link from <code class="file">menu.html</code> to <code class="file">about.html</code> like the above: <code class="html">&lt;a href="about.html"&gt;about me&lt;/a&gt;</code>.</p>
+
+<p>But what if we want to link into a folder: link from <code class="file">menu.html</code> to <code class="file">europe.html</code> in the <code class="file">vacations</code> folder. We can put code like this in our <code class="file">menu.html</code>:</p>
+
+<blockquote id="code-links1">
+<pre class="brush: html">&lt;a href="vacations/europe.html"&gt;European vacation&lt;/a&gt;</pre>
+</blockquote>
+
+<p id="dirsep">What this means to the web browser is &ldquo;start where the current file (<code class="file">menu.html</code>) is; move into the <code class="file">vacations</code> folder and find <code class="file">europe.html</code>.&rdquo; Note that the folder and file names are separated by a <dfn>slash</dfn> (<dfn>/</dfn>), not a backslash (\) or other character. Slash is the only character used to separate folders in URLs.</p>
+
+<p>We can also move in multiple folder levels by giving each folder to enter. Again, if we were adding code to <code class="file">menu.html</code>, we could link to or include the image <code class="file">eiffel.jpg</code> like this:</p>
+
+<blockquote id="code-links2">
+<pre class="brush: html">&lt;a href="vacations/pictures/eiffel.jpg"&gt;us at the Eiffel Tower&lt;/a&gt;
+&lt;img src="vacations/pictures/eiffel.jpg" alt="Eiffel Tower" /&gt;</pre>
+</blockquote>
+
+<p>These would create a link (first line: user clicks the words &ldquo;us at the Eiffel Tower&rdquo; to go to the image itself) and embed the image (second line: image appears on the <code class="file">menu.html</code> page itself).</p>
+
+<p>Remember that relative URLs depend on where the page itself is in the folder structure. If we wanted to do the same thing on the <code class="file">europe.html</code> page, the code would be this since we start inside the <code class="file">vacations</code> folder.</p>
+
+<blockquote id="code-links3">
+<pre class="brush: html">&lt;a href="pictures/eiffel.jpg"&gt;us at the Eiffel Tower&lt;/a&gt;
+&lt;img src="pictures/eiffel.jpg" alt="Eiffel Tower" /&gt;</pre>
+</blockquote>
+
+</section>
+
+
+<section id="up-folder">
+<h3>Up a level</h3>
+
+<p>The above lets us descend into folders, but we will also need to move up out of them. For example, if we're working on <code class="file">math.html</code> and want to make a link back to the menu.</p>
+
+<p id="dotdot">What we have to express to the browser is &ldquo;move up out of this folder (<code class="file">courses</code>) and find <code class="file">menu.html</code>.&rdquo; We can use the special folder name &ldquo;<dfn><code class="file">..</code></dfn>&rdquo; to do this: the web browser will understand it as &ldquo;move up a level&rdquo;. A link to the menu one level up is expressed like this:</p>
+
+<blockquote id="code-links4">
+<pre class="brush: html">&lt;a href="../menu.html"&gt;back to the menu&lt;/a&gt;</pre>
+</blockquote>
+
+We can do the same thing to move up two levels. We could put this on <code class="file">geog.html</code> (inside both <code class="file">courses</code> and <code class="file">last-semester</code>):
+
+<blockquote id="code-links5">
+<pre class="brush: html">&lt;a href="../../menu.html"&gt;back to the menu&lt;/a&gt;</pre>
+</blockquote>
+
+<p>This link will tell the browser to go up a level (out of <code class="file">last-semester</code>), up again (out of <code class="file">courses</code>), and find the file <code class="file">menu.html</code>.</p>
+
+<p>We can combine these to traverse the folder structure. Again, suppose we're working on <code class="file">geog.html</code>. This would insert the image <code class="file">big-ben.jpg</code>:</p>
+
+<blockquote id="code-links6">
+<pre class="brush: html">&lt;img src="../../vacations/pictures/big-ben.jpg"
+alt="Big Ben in London" /&gt;</pre>
+</blockquote>
+
+</section>
+
+<section id="summary">
+<h3>Summary</h3>
+
+<p>The rules of relative URLs may seem complicated at first, but remember that they will save you effort in the long term. All of these relative URLs will work when you're editing the site on your computer, and they will continue to work after you upload everything to a web server (as long as you keep the folder structure the same).</p>
+
+</section>
+
+
+
+</section>
+<section id="case">
+<h2>Case-Sensitivity</h2>
+
+<p>URLs are <dfn id="case-sens">case sensitive</dfn>. That means that the URL <code class="url">page.html</code> is a <em>different</em> URL than <code class="url">Page.html</code> or <code class="url">PAGE.HTML</code>.</p>
+
+<p>That means that the URLs you use must match your files. This can be difficult since both Windows and Mac computer are case insensitive: the file names <code class="file">page.html</code> and <code class="file">Page.html</code> are considered to be the same.</p>
+
+<p>That means that if you use the HTML <code class="html">&lt;a href="page.html"&gt;</code> to refer to a file you have named <code class="file">Page.html</code>, then <em>it will work on your computer but not on a web server</em>. Make sure your URLs and filenames match (probably by using lowercase everywhere).</p>
+
+</section>
+
+
+</main>
+<footer>
+<a href="../index.html">CMPT 165 Study Guide</a>
+<div class="license">
+Copyright &copy; 2015&ndash;2016 Greg Baker
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="CC by-SA" src="../assets/cc-by-sa.svg" /></a>
+</div>
+</footer>
+</body>
+
+<!-- Mirrored from www.cs.sfu.ca/CourseCentral/165/common/study-guide/content/html-urls.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 27 Feb 2018 02:41:22 GMT -->
+</html>

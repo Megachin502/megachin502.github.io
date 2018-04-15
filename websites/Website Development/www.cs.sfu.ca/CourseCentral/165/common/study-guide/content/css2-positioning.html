@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en" class="section">
+
+<!-- Mirrored from www.cs.sfu.ca/CourseCentral/165/common/study-guide/content/css2-positioning.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 27 Feb 2018 02:41:49 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700%7CSource+Sans+Pro:400,400i,700,700i" />
+  <link rel="stylesheet" href="../assets/reset.css" />
+  <link rel="stylesheet" href="../assets/shCore.css" />
+  <link rel="stylesheet" href="../assets/shThemeDefault.css" />
+  <link rel="stylesheet" href="../style.css" />
+  <script src="../assets/shCore.js"></script>
+  <script src="../assets/shBrushXml-custom.js"></script>
+  <script src="../assets/shBrushCss.js"></script>
+  <script src="../assets/shBrushJScript.js"></script>
+  <script src="../assets/js.cookie.js"></script>
+  <script src="../assets/guide_setup.js"></script>
+  <title>Positioning in CSS</title>
+</head>
+<body>
+<header>
+  <div class="breadcrumbs">
+<a href="../index.html">CMPT 165 Study Guide</a>
+ &rarr; <a href="css2.html" class="xref">More CSS</a>
+ &rarr; Positioning in CSS
+</div>
+  <h1>Positioning in CSS</h1>
+</header>
+<main id="main">
+
+
+<p>Most of the work we have done with CSS is fairly simple: changing fonts, colours, spacing, and borders. All of those changes are useful and necessary, but not the <em>hard</em> part of CSS.</p>
+
+<p>Things become more interesting when you start moving stuff around the page.</p>
+
+<section id="float">
+<h2>The <code class="css dfn">float</code> Property</h2>
+
+<p>The easiest way to move content is the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/float" id="float-property"><code class="css">float</code> property</a>. It will take content and move it to the left or right sides of the page.</p>
+
+<aside>Asides like this are floated to the right in this Guide's CSS.</aside>
+
+<p>When floated content moves, whatever content follows it will move up, and flow around it. That means that the floated content will move to the side of the page, and other text will avoid overlapping with it.</p>
+
+<p>As an example of <code class="css">float</code> (and later CSS properties in this topic), we will use an HTML page structured like this:</p>
+
+<blockquote id="code-position-condensed">
+<pre class="brush: html">&lt;section id="p1"&gt;
+&lt;h2&gt;Part 1&lt;/h2&gt;
+&lt;figure id="happy"&gt;…&lt;/figure&gt;
+&lt;p&gt;…&lt;/p&gt;
+&lt;/section&gt;
+&lt;section id="p2"&gt;
+&lt;h2&gt;Part 2&lt;/h2&gt;
+&lt;p&gt;…&lt;/p&gt;
+&lt;/section&gt;</pre>
+</blockquote>
+
+<p>To illustrate how <code class="css">float</code> works, we will apply this CSS:</p>
+
+<blockquote id="code-position1-4">
+<pre class="brush: css">#happy {
+  float: right;
+}</pre>
+</blockquote>
+
+<p>The resulting page will look like this:</p>
+
+<figure id="fig-position1" class="block"><img src="../figures/position1.png" alt="Page with float applied" width="553" height="208" /><figcaption>Page with float applied</figcaption></figure>
+
+<p>You can see <a href="../files/positiona998.html?style=1">this example</a> in your browser if you like. You can select the different stylesheets described here, and experiment with the width of the content to see how that affects the layout.</p>
+
+<p>As you can see, the <code class="html">&lt;figure&gt;</code> is moved to the right of the page, and text that comes after it avoids overlapping it, but below the figure, it extends back to the right side of the page.</p>
+
+<aside>More <code class="css">float</code> intros: <a href="https://css-tricks.com/all-about-floats/">All About Floats</a>, <a href="https://www.smashingmagazine.com/2007/05/css-float-theory-things-you-should-know/">CSS Float Theory</a></aside>
+
+<p>Also note: the vertical position of the figure hasn't changed: it is immediately below the first <code class="html">&lt;h2&gt;</code>, where you'd expect it. It only moved to the right. The following paragraph moved up and had its lines re-wrapped.</p>
+
+</section>
+
+<section id="clear">
+<h2>The <code class="css dfn">clear</code> Property</h2>
+
+<p>When floating some content like that, it's common to not necessarily know exactly what will follow. If you have a large floating block, it may be difficult to predict how it will interact with the content that follows.</p>
+
+<p>In the above example, you can see that the second section starts while the floating content is still to its right. It would be unusual to start another section of the page while the content from the previous section is still there: it would be nice to move the following content down below the floating figure.</p>
+
+<p>The <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/clear"><code class="css">clear</code> property</a> does just this: it tells the browser that you want to move a piece of content <em>down</em> until there is nothing floating beside it: either to the left, right, or both sides.</p>
+
+<p>To solve the problem of starting a new section with content floating content still beside it, we can do something like this in CSS:</p>
+
+<blockquote id="code-position2-4">
+<pre class="brush: css">#happy {
+  float: right;
+}
+section {
+  clear: both;
+}</pre>
+</blockquote>
+
+<p>It will look like this in the browser, with the following <code class="html">&lt;section&gt;</code> moved down until there is nothing floating on either its left or right:</p>
+
+<figure id="fig-position2" class="block"><img src="../figures/position2.png" alt="Page with float and clear applied" width="553" height="251" /><figcaption>Page with float and clear applied</figcaption></figure>
+
+<p>We could have also specified <code class="css">clear: right</code> in this case, since there is nothing floating on the left. It's probably more complete to specify <code class="css">both</code>: we wouldn't want to start a section with anything floating on the left if we did that later on some other page. You can experiment with <a href="../files/position655a.html?style=2">this example</a> as well.</p>
+
+<p>The <code class="css">float</code> and <code class="css">clear</code> properties are good at what they do. There are, however,  many visual design ideas that you could want to implement which are very difficult to map onto float operations. In those cases, we need to reach for a more powerful tool&hellip;</p>
+
+</section>
+
+
+<section id="position">
+<h2>The <code class="css dfn">position</code> Property</h2>
+
+<p>The <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/position"><code class="css">position</code> property</a> is both more powerful and more dangerous than <code class="css">float</code> and <code class="css">clear</code>.</p>
+
+<p id="move">Setting <code class="css">position: absolute</code> on an element lets you use the CSS properties <code class="css dfn">top</code>, <code class="css dfn">bottom</code>, <code class="css dfn">left</code>, and <code class="css dfn">right</code> to move the element around the page to exactly where you want it. For example, setting <code class="css">top: 1em</code> move the element so its top is <code class="css">1em</code> from the top of the page.</p>
+
+<p>This sounds easy. For example, we can move the image to the top-right of the page like this:</p>
+
+<blockquote id="code-position3-4">
+<pre class="brush: css">#happy {
+  position: absolute;
+  top: 0;
+  right: 0;
+}</pre>
+</blockquote>
+
+<p>That will display like this. You can experiment with <a href="../files/position28f0.html?style=3">this example</a> and the following ones as well.</p>
+
+<figure id="fig-position3" class="block"><img src="../figures/position3.png" alt="Page with positioning gone wrong" width="561" height="107" /><figcaption>Page with positioning gone wrong</figcaption></figure>
+
+<p>You can see the problem with <code class="css">position</code>: as soon as you start positioning content, it is taken out of the normal flow of content on the page and will overlap other content. This is something you have to be <strong>very</strong> aware of when using <code class="css">position</code>: you need to think of all of the possible ways your content can overlap on different devices and window sizes.</p>
+
+<p>There are still some ways absolute positioning can be useful. For example, we could allow overlap, but make it look okay with <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/opacity" id="opacity"><code class="css dfn">opacity</code></a> to make the content translucent.</p>
+
+<blockquote id="code-position4-4">
+<pre class="brush: css">#happy {
+  position: absolute;
+  top: 0;
+  right: 0;
+  opacity: 0.33;
+  z-index: -1;
+}</pre>
+</blockquote>
+
+<p>The negative <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/z-index" id="z-index"><code class="css dfn">z-index</code></a> value moves the figure <em>behind</em> the other content. That seems reasonable: we can allow content to overlap, but it's okay because of the other styling done to it:</p>
+
+<figure id="fig-position4" class="block"><img src="../figures/position4.png" alt="Page with positioning and transparency" width="561" height="107" /><figcaption>Page with positioning and transparency</figcaption></figure>
+
+<p>Another good use of absolute positioning: moving content around when you know <em>exactly</em> how much space you have to work with. For example, here we will move the figure up to the top of the page: this technique might be useful for a menu or page header (with page title, logo, and menu).</p>
+
+<blockquote id="code-position5-1">
+<pre class="brush: css">#happy {
+  position: absolute;
+  top: 0.5em;
+  left: 0;
+  width: 100%;
+  margin: 0;
+  text-align: center;
+}
+#happy img {
+  width: 3em;
+  height: 3em;
+}
+main&gt;section:first-child {
+  margin-top: 4em;
+}</pre>
+</blockquote>
+
+<p>Here, the figure is at the top of the page, taking its entire width. The image (only content in it) is sized it's exactly <code class="css">3em</code> high.</p>
+
+<figure id="fig-position5" class="block"><img src="../figures/position5.png" alt="Page with positioning and careful sizing" width="525" height="151" /><figcaption>Page with positioning and careful sizing</figcaption></figure>
+
+<p>There will be no overlap as long as we make sure the following content has a top margin <code class="css">3em</code> or larger. Selecting that first <code class="html">&lt;section&gt;</code> was tricky because of the way the HTML was structured, but it does express the intention here.</p>
+
+<p>There are other values that can be given to <code class="css">position</code>. The default is <code class="css">static</code>. Using <code class="css">position: relative</code> works like <code class="css">static</code> but you can adjust the position of the element relative to where it would have naturally been.</p>
+
+<p>Setting <code class="css">position: fixed</code> is like <code class="css">absolute</code>, but relative to the window: fixed things won't move as the user scrolls. There is even more opportunity for unwanted content overlap that way.</p>
+
+<p>The position you give (with <code class="css">top</code>, <code class="css">left</code>, etc) for an absolutely positioned element is usually relative to the entire page: the top of the entire page, left of the page, etc. This is not true if any element that contains the positioned one is itself positioned. This trick has been used on the <a href="../files/position.html">the example</a> page to get things floating/positioned within the example: the <code class="html">&lt;main&gt;</code> has <code class="css">position: relative</code> applied, not to move it but to make it contain floated/positioned thing within it.</p>
+
+</section>
+
+
+
+<section id="difficult">
+<h2>Positioning Difficulties</h2>
+
+<p>As you may have noticed in this section (and while doing the assignments), positioning things the way you want in CSS can be difficult.</p>
+
+<p>Using <code class="css">float</code> is easy enough if you're doing what it was designed for: floating figures beside other content. If you are lucky enough to know exactly how big your content is, then <code class="css">position</code> can be used without too much trouble.</p>
+
+<p>There are many other ways you might want to arrange content though, where isn't not immediately obvious how to achieve them with <code class="css">float</code> or <code class="css">position</code>: a menu in a column to the left of other content; a photo gallery with three columns of images (but 2 on smaller screens); links styled like &ldquo;tabs&rdquo; above a section of content; and many more.</p>
+
+<p>In <a href="css2-frameworks.html" class="xref">CSS Frameworks</a>, we will explore some tools that will make it easier to position and style content.</p>
+
+</section>
+
+
+
+
+</main>
+<footer>
+<a href="../index.html">CMPT 165 Study Guide</a>
+<div class="license">
+Copyright &copy; 2015&ndash;2016 Greg Baker
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="CC by-SA" src="../assets/cc-by-sa.svg" /></a>
+</div>
+</footer>
+</body>
+
+<!-- Mirrored from www.cs.sfu.ca/CourseCentral/165/common/study-guide/content/css2-positioning.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 27 Feb 2018 02:41:51 GMT -->
+</html>

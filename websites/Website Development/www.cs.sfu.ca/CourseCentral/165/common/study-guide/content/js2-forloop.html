@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en" class="section">
+
+<!-- Mirrored from www.cs.sfu.ca/CourseCentral/165/common/study-guide/content/js2-forloop.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 27 Feb 2018 02:41:40 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700%7CSource+Sans+Pro:400,400i,700,700i" />
+  <link rel="stylesheet" href="../assets/reset.css" />
+  <link rel="stylesheet" href="../assets/shCore.css" />
+  <link rel="stylesheet" href="../assets/shThemeDefault.css" />
+  <link rel="stylesheet" href="../style.css" />
+  <script src="../assets/shCore.js"></script>
+  <script src="../assets/shBrushXml-custom.js"></script>
+  <script src="../assets/shBrushCss.js"></script>
+  <script src="../assets/shBrushJScript.js"></script>
+  <script src="../assets/js.cookie.js"></script>
+  <script src="../assets/guide_setup.js"></script>
+  <title>Iteration: the for-loop</title>
+</head>
+<body>
+<header>
+  <div class="breadcrumbs">
+<a href="../index.html">CMPT 165 Study Guide</a>
+ &rarr; <a href="js2.html" class="xref">Working with JavaScript</a>
+ &rarr; Iteration: the for-loop
+</div>
+  <h1>Iteration: the for-loop</h1>
+</header>
+<main id="main">
+
+
+<p>By now, we have many tools to let us do stuff with JavaScript: change with jQuery, add to the page with jQuery, draw and animate shapes with Rapha&euml;l. The problem is that we have to write code to every change separately.</p>
+
+<p>We want the programming language to help us: let us express the things we need to do as concisely as possible. We also need to be able to repeat pieces of code some number of times (that we might not know exactly when writing the code).</p>
+
+<p id="iteration">The <dfn>iteration</dfn> (or <dfn>repetition</dfn> or <dfn>looping</dfn>) structures that we'll learn here will help us do just that: repeatedly execute a piece of code.</p>
+
+
+<section id="for">
+<h2>The <code class="js">for</code> Loop</h2>
+
+<p id="forloop">The <dfn>for loop</dfn> in most programming languages (including JavaScript) is used when you have a &ldquo;definite&rdquo; number of times to iterate: you know at the start of the loop that you want to repeat 10 times (or <code class="js">n</code> times with a value in a variable).</p>
+
+<p>Repeating 10 times is done by basically asking JavaScript to count from 1 to 10 (or 0 to 9 or something). The syntax for the <code class="js">for</code> loop in JavaScript is a little ugly: there's a lot of punctuation. On the bright side, it's a very common idiom and will always look the same.</p>
+
+<p>This code will count from 1 to 10, and add a paragraph to the <code class="html">id="example1"</code> element on the page each time it counts:</p>
+
+<blockquote id="code-for-loop-2">
+<pre class="brush: js">for (step = 1; step &lt;= 10; step += 1) {
+  $('#example1').append('&lt;p&gt;One more paragraph.&lt;/p&gt;')
+}</pre>
+</blockquote>
+
+<p>Here's what's happening there:</p>
+
+<dl>
+<dt><code class="js">for ( &hellip; ) { &hellip; }</code></dt>
+<dd>This is the basic structure of the <code class="js">for</code> loop. The stuff in the <code class="js">( &hellip; )</code> controls the loop, and the <code class="js">{ &hellip; }</code> is the code that repeats.</dd>
+
+<dt><code class="js">(&hellip;; &hellip;; &hellip;)</code></dt>
+<dd>There are three pieces that control the loop: where to start, the condition to keep going, and how to count.</dd>
+
+<dt id="init"><code class="js">step = 1</code></dt>
+<dd>This is how the loop starts: by setting the variable <code class="js">step</code> to one. This variable is the <dfn>loop counter</dfn>.</dd>
+
+<dt><code class="js">step &lt;= 10</code></dt>
+<dd>The loop will continue as long as this condition is true: <code class="js">step</code> is less than or equal to 10. That is, we will count up to 10.</dd>
+
+<dt id="increment"><code class="js">step += 1</code></dt>
+<dd>This is an instruction about how to count. The <code class="js dfn">+=</code> means &ldquo;add to the variable&rdquo;, so we're counting by ones here. This code is equivalent to <code class="js">step = step + 1</code>. You may also see this written <code class="js dfn" data-term="++">step++</code> which means &ldquo;add one&rdquo;.</dd>
+
+<dt id="loop-body"><code class="js">{ &hellip; }</code></dt>
+<dd>This is the <dfn>loop body</dfn>. This code will run with the variable <code class="js">step</code> equal to 1, then to 2, 3, 4, &hellip; 10.</dd>
+</dl>
+
+<p>The result: the three lines of code will add 10 paragraphs to the page.</p>
+
+<p>Realistically, this loop will always look the same, except you can change the variable name (from <code class="js">step</code> to anything descriptive); change the start/end value for the loop (<code class="js">1</code> and <code class="js">10</code> in the example, but can be anything); change the body of the loop to do the actual work you need to do.</p>
+
+<section id="for2">
+<h3>Another Example</h3>
+
+<p>Here's another example. In this code, we're counting from 1 to 6, and actually using the value in the counter variable <code class="js">n</code> as part of the paragraph.</p>
+
+<blockquote id="code-for-loop-6">
+<pre class="brush: js">for (n = 1; n &lt;= 6; n += 1) {
+  $('#example2').append('&lt;p&gt;Paragraph #' + n + '&lt;/p&gt;')
+}</pre>
+</blockquote>
+
+<p>The code in the loop body here does some work to create the string that is appended. It joins the string <code class="js">'&lt;p&gt;Paragraph&nbsp;#'</code> with the value in the variable <code class="js">n</code> and the string <code class="js">'&lt;/p&gt;'</code>. The result is that it will add these paragraphs to the page:</p>
+
+<blockquote id="code-for-result">
+<pre class="brush: html">&lt;p&gt;Paragraph #1&lt;/p&gt;
+&lt;p&gt;Paragraph #2&lt;/p&gt;
+&lt;p&gt;Paragraph #3&lt;/p&gt;
+&lt;p&gt;Paragraph #4&lt;/p&gt;
+&lt;p&gt;Paragraph #5&lt;/p&gt;
+&lt;p&gt;Paragraph #6&lt;/p&gt;</pre>
+</blockquote>
+</section>
+
+<section id="for-raphael">
+<h3>With Rapha&euml;l</h3>
+
+<p>We can do anything we want in the body of the <code class="js">for</code> loop. In this example, we will draw some shapes using Rapha&euml;l.</p>
+
+<p>We'll start by creating the paper object outside of the <code class="js">for</code> loop (because we only need one of them, not twelve) and creating some variables that we'll need inside the loop (since they're the same each time, there's no need to recreate them many times). Then each time around the loop, we'll draw two things:</p>
+
+<blockquote id="code-for-loop-10">
+<pre class="brush: js">paper = Raphael('container', 400, 200)
+circle_attrs = {
+  'stroke': '#c50',
+  'stroke-width': '2'
+}
+rect_attrs = {
+  'fill': '#292',
+  'stroke-width': '1.5'
+}
+for (count = 0; count &lt;= 11; count += 1) {
+  c = paper.circle(10 + count*14, 20 + count*12, 6)
+  c.attr(circle_attrs)
+  r = paper.rect(250, 100, 40, 40)
+  r.attr(rect_attrs)
+  r.rotate(count*3)
+  r.scale(3 - count*0.25)
+}</pre>
+</blockquote>
+
+<p>In the loop, we first draw a circle, calculating its position based on the loop counter <code class="js">count</code>. Then we draw a rectangle, with rotation and scaling calculated from <code class="js">count</code>.</p>
+
+<p>In this loop, we started counting from 0 to 11 (instead of 1 to 12). I found the calculations easier to think about that way, but the loop runs 12 times either way. The result is this:</p>
+
+<figure id="fig-for-raph" class="block"><img src="../figures/for-raph.svg" alt="Result of for-loop and Rapha&euml;l" width="400" height="200" /><figcaption>Result of for-loop and Rapha&euml;l</figcaption></figure>
+
+<p>You can also look at <a href="../files/for-loop.html">the page with all of these examples</a> to see exactly how they work.</p>
+
+<p>In some ways, this might be where programming starts to pay off: finally we can have the computer do work for us, rather than having to give every instruction very manually. Particular when we pair with Rapha&euml;l, we can get interesting results in relatively little code.</p>
+
+</section>
+
+
+
+</section>
+
+
+</main>
+<footer>
+<a href="../index.html">CMPT 165 Study Guide</a>
+<div class="license">
+Copyright &copy; 2015&ndash;2016 Greg Baker
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="CC by-SA" src="../assets/cc-by-sa.svg" /></a>
+</div>
+</footer>
+</body>
+
+<!-- Mirrored from www.cs.sfu.ca/CourseCentral/165/common/study-guide/content/js2-forloop.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 27 Feb 2018 02:41:40 GMT -->
+</html>

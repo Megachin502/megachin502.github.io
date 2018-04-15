@@ -1,0 +1,44 @@
+<!DOCTYPE html> 
+<html lang="en">
+
+<!-- Mirrored from www.cs.sfu.ca/CourseCentral/165/common/study-guide/files/animate2.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 27 Feb 2018 02:42:05 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head> 
+<meta charset="UTF-8" />
+<script src="../../../../../../cmpt165.csil.sfu.ca/js/jquery-3.2.1.js"></script>
+<script src="../../../../../../cmpt165.csil.sfu.ca/js/raphael-2.1.4.js"></script>
+<script src="animate2.js"></script>
+<title>Animating SVG Example</title>
+</head> 
+<body>
+<h1>Animating SVG Example</h1>
+
+<div id="container"></div>
+
+<p>Here is the code for this animation:</p>
+
+<blockquote id="code-animate2">
+<pre class="brush: js">anim_right = function() {
+  new_attr = {
+    'transform': 't100,0'
+  }
+  circ.animate(new_attr, 1000, 'linear', anim_left)
+}
+anim_left = function() {
+  new_attr = {
+    'transform': 't0,0'
+  }
+  circ.animate(new_attr, 1000, 'linear', anim_right)
+}
+setup = function() {
+  paper = Raphael('container', 200, 100)
+  circ = paper.circle(50, 50, 30)
+  anim_right()
+}
+$(document).ready(setup)</pre>
+</blockquote>
+
+</body>
+
+<!-- Mirrored from www.cs.sfu.ca/CourseCentral/165/common/study-guide/files/animate2.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 27 Feb 2018 02:42:06 GMT -->
+</html>

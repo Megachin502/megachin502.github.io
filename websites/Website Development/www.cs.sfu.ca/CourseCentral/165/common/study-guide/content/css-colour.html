@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en" class="section">
+
+<!-- Mirrored from www.cs.sfu.ca/CourseCentral/165/common/study-guide/content/css-colour.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 27 Feb 2018 02:41:25 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700%7CSource+Sans+Pro:400,400i,700,700i" />
+  <link rel="stylesheet" href="../assets/reset.css" />
+  <link rel="stylesheet" href="../assets/shCore.css" />
+  <link rel="stylesheet" href="../assets/shThemeDefault.css" />
+  <link rel="stylesheet" href="../style.css" />
+  <script src="../assets/shCore.js"></script>
+  <script src="../assets/shBrushXml-custom.js"></script>
+  <script src="../assets/shBrushCss.js"></script>
+  <script src="../assets/shBrushJScript.js"></script>
+  <script src="../assets/js.cookie.js"></script>
+  <script src="../assets/guide_setup.js"></script>
+  <title>Colours in CSS</title>
+</head>
+<body>
+<header>
+  <div class="breadcrumbs">
+<a href="../index.html">CMPT 165 Study Guide</a>
+ &rarr; <a href="css.html" class="xref">Stylesheets</a>
+ &rarr; Colours in CSS
+</div>
+  <h1>Colours in CSS</h1>
+</header>
+<main id="main">
+
+
+<p>We have seen a few places where we need to speficy a colour in CSS: the text colour and background colour for content (<code class="css">color</code> and <code class="css">background-color</code>), the colour of a border (<code class="css">border-color</code> or in the <code class="css">border</code> shorthand property).</p>
+
+<p>There are some built-in words in CSS that can be used to specify a colour, like <code class="css">red</code> and <code class="css">lavender</code>, but they are quite limiting since you're restricted to the colours that happen to have been assigned words.</p>
+
+<section id="basics">
+<h2>About Colours</h2>
+
+<p>Before we start giving numeric colour values, you should know at least a little about how colour works.</p>
+
+<aside><a href="https://www.youtube.com/watch?v=uNOKWoDtbSk">Does this look white to you?</a>, Physics Girl video on how colours work.</aside>
+
+<p id="subtr">If you've ever mixed colours together, you've probably done it with paint. Paints and dyes are mixed with the primary colours cyan (blue), yellow, and magenta (red) in the <dfn>CYM colour model</dfn>. With paint, the coloured surface absorbs parts of the (usually white) light that illuminates it. Since the paint removes parts of the reflected light, this is also referred to as the <dfn>subtractive colour model</dfn>.</p>
+
+<p id="addit">However, paints and computer screens create colours differently. Computer screens actually produce light. Computer screens start black, and light is added to produce a colour, using the additive colour model. The primary colours in the <dfn>additive colour model</dfn> are red, green, and blue. Additive colour is also called the <dfn>RGB colour model</dfn>.</p>
+
+<p>To mix light to produce a colour on the screen, we will have to mix various amounts of red, green, and blue to get the desired result.</p>
+
+</section>
+
+<section id="rgb">
+<h2>Working with RGB</h2>
+
+<p>We will use the three-character method of specifying a CSS colour. The amount of each primary colour is specified with a character on this scale:</p>
+<blockquote>
+<code class="css">0</code>, <code class="css">1</code>, <code class="css">2</code>, <code class="css">3</code>, <code class="css">4</code>, <code class="css">5</code>, <code class="css">6</code>, <code class="css">7</code>, <code class="css">8</code>, <code class="css">9</code>, <code class="css">a</code>, <code class="css">b</code>, <code class="css">c</code>, <code class="css">d</code>, <code class="css">e</code>, <code class="css">f</code>
+</blockquote>
+
+<p>The <code class="css">0</code> end of the scale is little of the colour (dark/off). The <code class="css">f</code> end is a lot of the colour (bright/on).</p>
+
+<p id="colour-code">The three primary colours are specified in the order red, green, blue, prefixed with a <code class="css dfn">#</code>. For example, the colour <code class="css">#f70</code> indicates a lot of red, a medium amount of green, and no blue (or <code class="css">#F70</code>: case doesn't matter in these colour codes).</p>
+
+<p>Based on this, we can guess that <code class="css">#000</code> is very dark: it is the colour code for black. If we start increasing the first character, we add red to the colour. This is the result if we increase the amount of red from <code class="css">0</code> (none) to <code class="css">f</code> (lots):</p>
+
+<figure id="fig-colour1" class="block"><img src="../figures/colour1.svg" alt="Colour scale from #000 to #f00" width="288" height="63" /><figcaption>Colour scale from #000 to #f00</figcaption></figure>
+
+<p>This should be be fairly predictable: it starts black and as you add red, it gets redder. What happens if you turn up all three (red, green, blue) values together?</p>
+
+<figure id="fig-colour2" class="block"><img src="../figures/colour2.svg" alt="Colour scale from #000 to #fff" width="288" height="63" /><figcaption>Colour scale from #000 to #fff</figcaption></figure>
+
+<p>When the three components are the same, none is brighter than the other and we end up with a shade of grey with black (<code class="css">#000</code>) and white (<code class="css">#fff</code>) at the extremes.</p>
+
+<p>If we keep experimenting, we can try a scale of colours from red (<code class="css">#f00</code>) to white (<code class="css">#fff</code>) like this:</p>
+
+<figure id="fig-colour3" class="block"><img src="../figures/colour3.svg" alt="Colour scale from #000 to #fff" width="288" height="63" /><figcaption>Colour scale from #000 to #fff</figcaption></figure>
+
+<p>Again maybe not suprpisingly, we see that between red and white are shades of pink.</p>
+
+<p>The point of these examples is not that drawing colour scales is fun, but that there is a certain logic to these colour codes. If you know a few basic ideas, you can guess what colour a particular code is, or what code you should write for a colour. You should by now be able to guess these:</p>
+
+<figure id="colour-table">
+<table>
+<thead><tr><th scope="col">Code</th><th scope="col">Colour</th><th scope="col">Rationale</th></tr></thead>
+<tbody>
+<tr><td><code class="css">#000</code></td><td>black</td><td>as dark as possible</td></tr>
+<tr><td><code class="css">#fff</code></td><td>white</td><td>as bright as possible</td></tr>
+<tr><td><code class="css">#f00</code></td><td>red</td><td>only red light</td></tr>
+<tr><td><code class="css">#0f0</code></td><td>green</td><td>only green light</td></tr>
+<tr><td><code class="css">#00f</code></td><td>blue</td><td>only blue light</td></tr>
+<tr><td><code class="css">#060</code></td><td>dark green</td><td>a little green, no red or blue</td></tr>
+<tr><td><code class="css">#99f</code></td><td>light blue</td><td>more blue than the others, closer to white</td></tr>
+</tbody>
+</table>
+<figcaption>Some colours we can guess from previous examples</figcaption>
+</figure>
+
+<p>Because the additive and subtractive colour models don't work the same way, there's one colour in particular that you might not guess: <code class="css">#ff0</code> is yellow. But armed with this fact, we can guess that a lighter yellow might be <code class="css">#ffa</code>: like yellow but closer to white.</p>
+
+<figure id="fig-colour4" class="block"><img src="../figures/colour4.svg" alt="Yellow colour samples" width="88" height="76" /><figcaption>Yellow colour samples</figcaption></figure>
+
+
+<p>You shouldn't have to memorize these colour codes. If you understand the <code class="css">0</code> to <code class="css">f</code> scale, and how the red, green, and blue values go together to make a colour, you should be able to come up with a colour code fairly quickly.</p>
+
+<p>You may also want to experiment with the <a href="css-mixer.html" class="xref">Interactive Colour Mixer</a> provided as extra content in this Guide, or <a href="https://www.youtube.com/watch?v=Ybg1V3fq0No">a video using the colour mixer</a> and talking about additive colours.</p>
+
+</section>
+
+<section id="other">
+<h2>Other Ways to Specify Colour</h2>
+
+<p>In older versions of HTML, colours could only be specified with six characters, like <code class="css">#b5123b</code>. The first two characters specify the red value (<code class="css">b5</code> in the example), the second two specify green (<code class="css">12</code>), and the last two blue (<code class="css">3b</code>). These can also be used in CSS, but we won’t go into details because they are more difficult to work with by hand. If you are using a colour selector in a graphics program, it may show you a six-character colour code: you can copy and paste this into CSS if you want to use the colour.</p>
+
+<aside>The CSS reference has a good section on <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value">CSS color values</a> that is much more complete. I actually used <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Tools/ColorPicker_Tool">Mozilla's ColorPicker</a> to produce most of these colour codes. You may also want to experiment with <a href="http://colorizer.org/">Colorizer</a>.</aside>
+
+<p>To convert from a three-character to six-character colour code, simply double the characters. For example, <code class="css">#f70</code> and <code class="css">#ff7700</code> are the same colour.
+Taking the <em>first</em> character of each pair in a six-character code will give you a similar (but probably not exactly the same) three-character colour code. For example, <code class="css">#b5123b</code> is close to <code class="css">#b13</code>.</p>
+
+<figure id="fig-colour5" class="block"><img src="../figures/colour5.svg" alt="Similar 6- and 3-character codes" width="116" height="76" /><figcaption>Similar 6- and 3-character codes</figcaption></figure>
+
+<p>There are also several other ways to specify a colour, although you won't see them used as often. Here are some examples, just so you can see some of the possibilities:</p>
+
+<figure id="fig-colour6" class="block"><img src="../figures/colour6.svg" alt="Various ways to specify the same colour" width="228" height="220" /><figcaption>Various ways to specify the same colour</figcaption></figure>
+
+<p>Any of these colour codes can be used anywhere you need to specify a colour in CSS. For example, the text colour (<code class="css">color</code>), background colour (<code class="css">background-color</code>), and border colour (<code class="css">border-color</code>).</p>
+</section>
+
+
+</main>
+<footer>
+<a href="../index.html">CMPT 165 Study Guide</a>
+<div class="license">
+Copyright &copy; 2015&ndash;2016 Greg Baker
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="CC by-SA" src="../assets/cc-by-sa.svg" /></a>
+</div>
+</footer>
+</body>
+
+<!-- Mirrored from www.cs.sfu.ca/CourseCentral/165/common/study-guide/content/css-colour.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 27 Feb 2018 02:41:26 GMT -->
+</html>

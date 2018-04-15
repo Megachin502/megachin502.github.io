@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en" class="section">
+
+<!-- Mirrored from www.cs.sfu.ca/CourseCentral/165/common/study-guide/content/css-pages.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 27 Feb 2018 02:41:26 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700%7CSource+Sans+Pro:400,400i,700,700i" />
+  <link rel="stylesheet" href="../assets/reset.css" />
+  <link rel="stylesheet" href="../assets/shCore.css" />
+  <link rel="stylesheet" href="../assets/shThemeDefault.css" />
+  <link rel="stylesheet" href="../style.css" />
+  <script src="../assets/shCore.js"></script>
+  <script src="../assets/shBrushXml-custom.js"></script>
+  <script src="../assets/shBrushCss.js"></script>
+  <script src="../assets/shBrushJScript.js"></script>
+  <script src="../assets/js.cookie.js"></script>
+  <script src="../assets/guide_setup.js"></script>
+  <title>Styling Pages with CSS</title>
+</head>
+<body>
+<header>
+  <div class="breadcrumbs">
+<a href="../index.html">CMPT 165 Study Guide</a>
+ &rarr; <a href="css.html" class="xref">Stylesheets</a>
+ &rarr; Styling Pages with CSS
+</div>
+  <h1>Styling Pages with CSS</h1>
+</header>
+<main id="main">
+
+
+<p>In this section, we will pause to work on a web page and stylesheet, so we can see how some of these ideas fit together.</p>
+
+<p>We will produce a web page with a recipe: that will give us some real content where we can make realistic decisions about the markup we use.</p> <aside>Also, it's a good recipe.</aside>
+
+<section id="html">
+<h2>HTML for Content</h2>
+
+<p>We can start with the provided HTML page skeleton in the <a href="code.html" class="xref">Code Snippets</a> appendix: it contains the basic parts we now know we need in every page.</p>
+
+<p>There are two basic parts to a recipe: a list of ingredients and a list of steps to follow to complete the dish. These are both lists, but semeantically quite different. The list of ingredients has no particular order, but the order of the steps is very important. So, we will use <code class="html">&lt;ul></code> for the list of ingredients and <code class="html">&lt;ol></code> for the list of steps to follow.</p>
+
+<p>We will also include <code class="html">&lt;section></code> elements that we haven't used before: they can be used to enclose a section of the page (or nested to indicate subsections).</p>
+
+<blockquote id="code-recipe1">
+<pre class="brush: html">&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+&lt;meta charset="UTF-8" /&gt;
+&lt;link rel="stylesheet" href="recipestyle.css" /&gt;
+&lt;title&gt;Guacamole Recipe&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h1&gt;Guacamole Recipe&lt;/h1&gt;
+&lt;p id="servings"&gt;Makes enough for a small party.&lt;/p&gt;
+
+&lt;section id="ingred"&gt;
+&lt;h2&gt;Ingredients&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;4 ripe avocados&lt;/li&gt;
+&lt;li&gt;5 cloves garlic, minced&lt;/li&gt;
+&lt;li&gt;125 mL can jalape&amp;ntilde;o peppers, minced&lt;/li&gt;
+&lt;li&gt;1 tbsp lime juice&lt;/li&gt;
+&lt;li&gt;1 tsp salt&lt;/li&gt;
+&lt;li&gt;1/2 tsp pepper&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/section&gt;
+
+&lt;section id="steps"&gt;
+&lt;h2&gt;Instructions&lt;/h2&gt;
+&lt;p&gt;This recipe is actually very easy&amp;hellip;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Scoop out the flesh of the avocados into a bowl.&lt;/li&gt;
+&lt;li&gt;Combine all of the other ingredients in the bowl.&lt;/li&gt;
+&lt;li&gt;Mash with a potato masher until the desired consistency
+is reached.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/section&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+</blockquote>
+
+<p id="fragment">The <code class="html">id</code> values can also be used as a <dfn>fragment</dfn> in a link. If we put <code class="url">#steps</code> at the end of a link to this page, the browser will scroll to the element with <code class="html">id="steps"</code>.</p>
+<aside>It's a best-practice to put an <code class="html">id</code> on each section or heading so someone can link to a position in your page.</aside>
+
+<p>Also notice that we used the <code class="html">&amp;ntilde;</code> to produce the &ldquo;&ntilde;&rdquo; character in &ldquo;jalape&ntilde;o&rdquo;.</p>
+
+<p>This is good markup for this content. We may want to refine it later, but you should start with markup that makes semantic sense for the content.</p>
+</section>
+
+<section id="css">
+<h2>CSS for Appearance</h2>
+
+<p>We will also start with the example CSS from the <a href="code.html" class="xref">Code Snippets</a> appendix. That may not be what you want for every page, but it's at least a start for us.</p>
+
+<p>The isn't much method to the other CSS changes made here: they are the result of experimenting and finding things that didn't look too bad. You may want to review some of these properties in the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference">CSS Reference</a>.</p>
+
+<blockquote id="code-recipestyle1">
+<pre class="brush: css">body {
+  font-family: "Helvetica", sans-serif;
+  color: #222;
+  line-height: 1.4;
+  padding: 0 1em;
+}
+h1 {
+  background-color: #5b5;
+  color: white;
+  text-align: center;
+}
+h2 {
+  border: thin solid #5b5;
+  border-top: thick solid #5b5;
+  padding-left: 0.25em;
+}
+ul, ol {
+  padding-left: 1.5em;
+}
+ul {
+  list-style-type: circle;
+}
+p#servings {
+  font-style: italic;
+}</pre>
+</blockquote>
+
+<p>This is what the above HTML looks like with this CSS applied, or see the <a href="../files/recipe1.html">the actual page</a>.</p>
+
+<figure id="fig-recipe1" class="block"><img src="../figures/recipe1.png" alt="Screenshot of the page at this stage" width="492" height="537" /><figcaption>Screenshot of the page at this stage</figcaption></figure>
+
+<p>At this point, the page looks much better than the default, but a few more details would be nice&hellip;</p>
+</section>
+
+
+<section id="enhance">
+<h2>More Enhancements</h2>
+
+<p>On the above page, I would like to highlight the quantities of the ingredients (e.g. in &ldquo;1 tbsp lime juice&rdquo;, the quantity is &ldquo;1 tbsp&rdquo;) so they can be visually distinguished. I also know that the last ingredient is option and would like to present it with grey text.</p>
+
+<p>With the HTML as it is, this won't be possible. We can go back to our HTML and insert markup to distinguish these pieces of content. For the optional ingredient, we can simply apply <code class="html">class="optional"</code> to the list item.</p>
+
+<p>For the quantities of ingredients, we would like to find a meaningful HTML tag for that kind of content, but don't really find anything in the reference. In that case, we use one of the generic tags with a meaningful <code class="html">class</code> or <code class="html">id</code> attribute: we will use <code class="html">&lt;span></code> in this case since it is inline content. Now our list of ingredients will become:</p>
+
+<blockquote id="code-recipe_classes">
+<pre class="brush: html">&lt;ul&gt;
+&lt;li&gt;&lt;span class="quantity"&gt;4&lt;/span&gt; ripe avocados&lt;/li&gt;
+&lt;li&gt;&lt;span class="quantity"&gt;5 cloves&lt;/span&gt; garlic, minced&lt;/li&gt;
+&lt;li&gt;&lt;span class="quantity"&gt;125 mL&lt;/span&gt; can jalape&amp;ntilde;o peppers,
+minced&lt;/li&gt;
+&lt;li&gt;&lt;span class="quantity"&gt;1 tbsp&lt;/span&gt; lime juice&lt;/li&gt;
+&lt;li&gt;&lt;span class="quantity"&gt;1 tsp&lt;/span&gt; salt&lt;/li&gt;
+&lt;li class="optional"&gt;&lt;span class="quantity"&gt;1/2 tsp&lt;/span&gt; pepper&lt;/li&gt;
+&lt;/ul&gt;</pre>
+</blockquote>
+
+<p>Then we can add CSS to select these elements and style them appropriately:</p>
+
+<blockquote id="code-recipe_extra">
+<pre class="brush: css">span.quantity {
+  font-weight: bold;
+}
+.optional {
+  color: #888;
+}</pre>
+</blockquote>
+
+<p>Now our page looks like this, or see the <a href="../files/recipe1.html">the actual page</a>.</p>
+
+<figure id="fig-recipe2" class="block"><img src="../figures/recipe2.png" alt="Screenshot of the final page" width="492" height="554" /><figcaption>Screenshot of the final page</figcaption></figure>
+
+<p>This is by no means intended to be a definitive look at things that can be done with HTML and CSS, but should give you a decent example of what you can do with the tools you have now.</p>
+</section>
+
+
+</main>
+<footer>
+<a href="../index.html">CMPT 165 Study Guide</a>
+<div class="license">
+Copyright &copy; 2015&ndash;2016 Greg Baker
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="CC by-SA" src="../assets/cc-by-sa.svg" /></a>
+</div>
+</footer>
+</body>
+
+<!-- Mirrored from www.cs.sfu.ca/CourseCentral/165/common/study-guide/content/css-pages.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 27 Feb 2018 02:41:27 GMT -->
+</html>

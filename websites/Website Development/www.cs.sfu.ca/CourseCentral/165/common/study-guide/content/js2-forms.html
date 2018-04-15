@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en" class="section">
+
+<!-- Mirrored from www.cs.sfu.ca/CourseCentral/165/common/study-guide/content/js2-forms.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 27 Feb 2018 02:41:41 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700%7CSource+Sans+Pro:400,400i,700,700i" />
+  <link rel="stylesheet" href="../assets/reset.css" />
+  <link rel="stylesheet" href="../assets/shCore.css" />
+  <link rel="stylesheet" href="../assets/shThemeDefault.css" />
+  <link rel="stylesheet" href="../style.css" />
+  <script src="../assets/shCore.js"></script>
+  <script src="../assets/shBrushXml-custom.js"></script>
+  <script src="../assets/shBrushCss.js"></script>
+  <script src="../assets/shBrushJScript.js"></script>
+  <script src="../assets/js.cookie.js"></script>
+  <script src="../assets/guide_setup.js"></script>
+  <title>HTML Forms</title>
+</head>
+<body>
+<header>
+  <div class="breadcrumbs">
+<a href="../index.html">CMPT 165 Study Guide</a>
+ &rarr; <a href="js2.html" class="xref">Working with JavaScript</a>
+ &rarr; HTML Forms
+</div>
+  <h1>HTML Forms</h1>
+</header>
+<main id="main">
+
+
+<p>Programs are boring if they just do the same thing every time. We need to respond to things the user does to make things interesting. So far, we have one way to do this: respond to user actions (clicking buttons, or moving the mouse) with jQuery.</p>
+
+<p>That's good but limited: the user clicks on something or they don't. They move the cursor somewhere or they don't. We would like to get richer input from them.</p>
+
+<section id="formtags">
+<h2>HTML Forms</h2>
+
+<p id="forms">We can have the user give us more detailed input using the <dfn>form tags</dfn> in HTML. We have already seen one of these <a href="https://developer.mozilla.org/en/docs/Web/HTML/Element/input" id="button"><code class="js dfn">&lt;button&gt;</code></a>, where the text on the button is the contents of the element:</p>
+
+<blockquote id="code-form0">
+<pre class="brush: html">&lt;p&gt;Here is &lt;button id="btn"&gt;something to click&lt;/button&gt;.&lt;/p&gt;</pre>
+</blockquote>
+
+<p>That looks like this on the page:</p>
+
+<figure id="fig-form0" class="block"><img src="../figures/form0.png" alt="Display of the button in a browser" width="214" height="23" /><figcaption>Display of the button in a browser</figcaption></figure>
+
+<p>We really only did one thing with the buttons: used <code class="js">.click()</code> to attach a function to the click event on it.</p>
+
+<p id="control">We can get richer input with <a href="https://developer.mozilla.org/en/docs/Web/HTML/Element/input"><code class="html dfn" id="input">&lt;input&gt;</code></a>. The <code class="html">&lt;input&gt;</code> element is empty (so it ends right away like <code class="html">&lt;input &hellip; /&gt;</code>) and inserts an interactive <dfn data-term="control, form">control</dfn> onto the page.</p>
+
+<p id="text">The <code class="html">type</code> attribute on <code class="html">&lt;input&gt;</code> indicates the kind of control to add to the page. Giving <code class="html dfn">type="text"</code> creates a one-line text input field. For example:</p>
+
+<blockquote id="code-form1">
+<pre class="brush: html">&lt;p&gt;Type something: &lt;input type="text" id="something" /&gt;&lt;/p&gt;</pre>
+</blockquote>
+
+<p>In the browser, that looks like this:</p>
+
+<figure id="fig-form1" class="block"><img src="../figures/form1.png" alt="Display of the form input in a browser" width="414" height="23" /><figcaption>Display of the form input in a browser</figcaption></figure>
+
+<aside>In previous versions of HTML, all inputs had to be inside a <a href="https://developer.mozilla.org/en/docs/Web/HTML/Element/form"><code class="html dfn" id="formtag">&lt;form&gt;</code></a> element. That is not true in HTML5 the way we're using inputs.</aside>
+
+<p>There are other input types that you can use: radio buttons (select one of many options), checkboxes (check on or off), password input (like text, but characters aren't visible on-screen), and several more. For now, we will only use the text input and the &ldquo;button&rdquo; in the next section.</p>
+</section>
+
+<section id="jquery-forms">
+<h2>jQuery and Forms</h2>
+
+<p>Once we have some input from the user with a form, we can access it with JavaScript and jQuery. The easiest thing to do is find the <code class="html">&lt;input&gt;</code> with jQuery (probably selecting by <code class="html">id</code>) and using the jQuery object's <code class="js">.val()</code> method that will give you what the user typed.</p>
+
+<p>In the example above, we had an input with <code class="html">id="something"</code> so we can get the string the use typed with <code class="js">$('#something').val()</code>.</p>
+
+<p>Let's expand that into a more complete example. We can add a button input to the page so the user has something obvious to click to initiate an event:</p>
+
+<blockquote id="code-form2-9">
+<pre class="brush: html">&lt;p&gt;Type something: &lt;input type="text" id="something" /&gt;
+&lt;button id="resultbutton"&gt;Go&lt;/button&gt;&lt;/p&gt;
+&lt;p id="result"&gt;&lt;/p&gt;</pre>
+</blockquote>
+
+<p>When the button is clicked, we will (in <code class="js">show_result</code>) get what they typed and report it by filling in the content of the <code class="html">&lt;p id="result"&gt;</code>.</p>
+
+<blockquote id="code-handle-form">
+<pre class="brush: js">show_result = function() {
+  typed = $('#something').val()
+  $('#result').html('You typed this: ' + typed)
+}
+setup = function() {
+  $('#resultbutton').click(show_result)
+}
+$(document).ready(setup)</pre>
+</blockquote>
+
+<p>Here's what that looks like in the browser, after I typed something and clicked the button:</p>
+
+<figure id="fig-form2" class="block"><img src="../figures/form2.png" alt="Form example after clicking" width="421" height="59" /><figcaption>Form example after clicking</figcaption></figure>
+
+<p>As before, <code class="js">$('#something')</code> gives us a jQuery object for the <code class="html">&lt;input &hellip; id="something" /&gt;</code>. The <code class="js">.val()</code> function in that object gives us the string <code class="js">'Okay I will.'</code> (in the example above). Once we have the string the user typed, we can use it any way we want.</p>
+
+<p>If you'd like to try it yourself, have a look at <a href="../files/form2.html">the page itself</a>.</p>
+
+<section id="another">
+<h3>Another Example</h3>
+
+<p>This time, let's use some form controls and Rapha&euml;l: instead of using jQuery to add the text to the page, we'll add it to an SVG.</p>
+
+<p>We will start with a container for the SVG, and the form controls:</p>
+
+<blockquote id="code-form-raph-13">
+<pre class="brush: html">&lt;div id="container"&gt;&lt;/div&gt;
+&lt;div class="form"&gt;
+Type something: &lt;input type="text" id="txt-input" /&gt;
+&lt;button id="add"&gt;Add it&lt;/button&gt;
+&lt;/div&gt;</pre>
+</blockquote>
+
+<p>We can then use jQuery <code class="js">.val()</code> to retrieve the text. The Rapha&euml;l <code class="js">.text()</code> function will add it to an SVG. We can also treat it like a string: get its length and use that number to calculate the size of a bar chart-like box.</p>
+
+<blockquote id="code-form-raph">
+<pre class="brush: js">y = 8
+add = function() {
+  entered_text = $('#txt-input').val()
+  len = entered_text.length
+  txt = paper.text(100, y, entered_text)
+  rect = paper.rect(200, y-5, len*8, 10)
+  y = y + 12
+}
+setup = function() {
+  paper = Raphael('container', 400, 100)
+  $('#add').click(add)
+}
+$(document).ready(setup)</pre>
+</blockquote>
+
+<p>Here, the variable <code class="js">y</code> ensures that each time the function <code class="js">add</code> runs, it draws the text and rectangle further down. The function adds two things: the text itself, and a rectangle with width proportionate to the length of the string. The page will look something like this after a few clicks:</p>
+
+<figure id="fig-form-raph" class="block"><img src="../figures/form-raph.png" alt="Form + SVG after a four entries" width="443" height="127" /><figcaption>Form + SVG after a four entries</figcaption></figure>
+
+<p>You can <a href="../files/form-raph.html">try out the example</a> yourself too.</p>
+
+</section>
+</section>
+
+
+<section id="controls">
+<h2>Other Form Controls</h2>
+
+<p>The <code class="js">&lt;input /&gt;</code> tag can be used to create other types of controls as well. With all of these, you can use <code class="js">.val()</code> to retrieve the value, in a way similar to a <code class="html">type="text"</code> input.</p>
+
+<aside id="widgets">The things <code class="js">&lt;input /&gt;</code> puts on the page are often called controls or <dfn>widgets</dfn>.</aside>
+
+<p id="password">Using <code class="html dfn">type="password"</code> creates a control that works just like a text input, but where what the user types isn't visible on screen, so they can type a password or other information they wouldn't want visible to someone looking over their shoulder.</p>
+
+<blockquote id="code-widgets-16">
+<pre class="brush: html">Password: &lt;input type="password" id="pw" /&gt;</pre>
+</blockquote>
+
+<p>It will look something like this. (These screenshots were taken in Windows&nbsp;7: the way the widgets look varies between operating systems, but they work the same.)</p>
+
+<figure id="fig-widgets1" class="block"><img src="../figures/widgets1.png" alt="A password input, with a few characters entered" width="216" height="21" /><figcaption>A password input, with a few characters entered</figcaption></figure>
+
+<p>Other than its on-screen appearance, it works exactly the same as <code class="html">type="text"</code>: looking at <code class="js">$('#pw').val()</code> will get the string the user typed.</p>
+
+
+
+<p id="textarea">If you want to do text input where the user has space to enter more text, you can use the <code class="html dfn">&lt;textarea&gt;</code> tag. You can specify the number of rows and columns (lines and width), and initial text as the contents (or leave it empty for none):</p>
+
+<blockquote id="code-widgets-39">
+<pre class="brush: html">Tell me more:
+&lt;textarea id="t-area" cols="30" rows="5"&gt;This has lots of
+space for text.&lt;/textarea&gt;</pre>
+</blockquote>
+
+<p>It will display like this:</p>
+
+<figure id="fig-widgets3" class="block"><img src="../figures/widgets3.png" alt="A text area control" width="346" height="99" /><figcaption>A text area control</figcaption></figure>
+
+<p>As with the <code class="html">&lt;input type="text"&gt;</code>, you can get the string the user typed with <code class="js">$('#t-area').val()</code>.</p>
+
+
+
+<p id="select">If you have a list of options that you'd like the user to be able to choose, you can use the <code class="html dfn">&lt;select&gt;</code> and <code class="html dfn">&lt;option&gt;</code> tags. The <code class="html">&lt;select&gt;</code> must be used to enclose several <code class="html">&lt;option&gt;</code>s (like <code class="html">&lt;ul&gt;</code> contains <code class="html">&lt;li&gt;</code>s):</p>
+
+<blockquote id="code-widgets-31">
+<pre class="brush: html">Choose one: &lt;select id="seldemo"&gt;
+&lt;option value="a"&gt;Apple&lt;/option&gt;
+&lt;option value="b"&gt;Banana&lt;/option&gt;
+&lt;option value="c"&gt;Cherry&lt;/option&gt;
+&lt;/select&gt;</pre>
+</blockquote>
+
+<p>It will look like this on the page when the user clicks it to make a choice:</p>
+
+<figure id="fig-widgets2" class="block"><img src="../figures/widgets2.png" alt="A select control, clicked to select" width="155" height="72" /><figcaption>A select control, clicked to select</figcaption></figure>
+
+<p>This time when you use <code class="js">$('#seldemo').val()</code>, you will get the value explicitly given in the <code class="html">&lt;option&gt;</code> tag. In this example, it will be either the string <code class="js">'a'</code> or <code class="js">'b'</code> or <code class="js">'c'</code>.</p>
+
+
+
+<p>There are several other types for <code class="html">&lt;input&gt;</code>, and other tags that can be used to create form controls. Some of them work a little differently, and some aren't supported as well by browsers. We won't be using others in this course, and you can find all of the details in the <a href="https://developer.mozilla.org/en/docs/Web/Guide/HTML/HTML5/HTML5_element_list#Forms">HTML Reference</a>.</p>
+
+</section>
+
+
+
+
+
+
+</main>
+<footer>
+<a href="../index.html">CMPT 165 Study Guide</a>
+<div class="license">
+Copyright &copy; 2015&ndash;2016 Greg Baker
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="CC by-SA" src="../assets/cc-by-sa.svg" /></a>
+</div>
+</footer>
+</body>
+
+<!-- Mirrored from www.cs.sfu.ca/CourseCentral/165/common/study-guide/content/js2-forms.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 27 Feb 2018 02:41:48 GMT -->
+</html>

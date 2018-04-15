@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" class="section">
+
+<!-- Mirrored from www.cs.sfu.ca/CourseCentral/165/common/study-guide/content/www-pillars.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 27 Feb 2018 02:41:19 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700%7CSource+Sans+Pro:400,400i,700,700i" />
+  <link rel="stylesheet" href="../assets/reset.css" />
+  <link rel="stylesheet" href="../assets/shCore.css" />
+  <link rel="stylesheet" href="../assets/shThemeDefault.css" />
+  <link rel="stylesheet" href="../style.css" />
+  <script src="../assets/shCore.js"></script>
+  <script src="../assets/shBrushXml-custom.js"></script>
+  <script src="../assets/shBrushCss.js"></script>
+  <script src="../assets/shBrushJScript.js"></script>
+  <script src="../assets/js.cookie.js"></script>
+  <script src="../assets/guide_setup.js"></script>
+  <title>HTML, CSS, and JavaScript</title>
+</head>
+<body>
+<header>
+  <div class="breadcrumbs">
+<a href="../index.html">CMPT 165 Study Guide</a>
+ &rarr; <a href="www.html" class="xref">The Internet and the World Wide Web</a>
+ &rarr; HTML, CSS, and JavaScript
+</div>
+  <h1>HTML, CSS, and JavaScript</h1>
+</header>
+<main id="main">
+
+
+<p>Now that we have seen how web pages get from the server to the browser, we should turn to how they are actually <em>made</em>. That is what we're going to be spending most of the course learning about.</p>
+
+<p>Web pages are constructed using three main technologies, each of which plays a different role in the creation of the pages.</p>
+
+<p id="html">First is <dfn>HTML</dfn>, the <dfn>HyperText Markup Language</dfn>. HTML is used to describe the <em>content</em> of pages and its usually what people are talking about when they mention &ldquo;a web page&rdquo;. In HTML, we will express things like &ldquo;this is a paragraph&rdquo; or &ldquo;this is an important word&rdquo;. We aren't concerned in HTML how those things look. We will cover the basics of HTML further in the unit <a href="html.html" class="xref">Markup and HTML</a>.</p>
+
+<p id="css">Since HTML describes only the content itself, we need some other tool to make it look a certain way: that is <dfn>CSS</dfn>, <dfn>Cascading Style Sheets</dfn>.  We can use CSS to suggest appearances for the pieces of content we have created in HTML. For example, we can express ideas like &ldquo;all paragraphs should have <em>this</em> font size&rdquo; with CSS. We will introduce CSS in the unit <a href="css.html" class="xref">Stylesheets</a>.</p>
+
+<aside>The three components of web pages are described in <a href="http://www.w3.org/community/webed/wiki/The_web_standards_model_-_HTML_CSS_and_JavaScript">The Web Standards Model</a> and are part of the <a href="http://www.w3.org/wiki/Open_Web_Platform">Open Web Platform</a>.</aside>
+
+<aside class="lynda">Lynda.com video: <a class="lynda" href="https://www.lynda.com/Web-Foundations-tutorials/Front-end-design/158666/158685-4.html" data-path="/Web-Foundations-tutorials/Front-end-design/158666/158685-4.html">Front-end design</a>. <span class="help">[<a href="../lynda.html">Lynda.com help</a>]</span> This video is from the &ldquo;Web Technology Fundamentals&rdquo; and is the first of a section that gives a great overview of these three technologies.</aside>
+
+<p id="js">With HTML and CSS we can make simple web pages, but they don't <em>do</em> anything. In order to control the behaviour of our pages, we need a third technology: <dfn>JavaScript</dfn>. JavaScript is a programming language that is embedded in web browsers. It can be used to insert logic and behaviour into web pages. We will start working with it in the unit <a href="js.html" class="xref">JavaScript Introduction</a>.</p>
+
+<p>These three technologies form the basis of what we know as &ldquo;web pages&rdquo;, and the basis for this course.</p>
+
+
+<section>
+<h2 id="why-separate">Why separate Content, Appearance, and Behaviour?</h2>
+
+<p>At this point, it might not be obvious why we need three different pieces of technology to create web pages. Hopefully, the distinct uses of these three things will become obvious as the course goes on. But for now, we can at least introduce the broad motivation.</p>
+
+<p>Maybe the best reason for separating the three concepts is efficiency: with all of our appearance information in one CSS file, it only has to be loaded by the web browser once, even if the user views many pages on our site. Since there is less to be downloaded, the pages on our site will load faster. The same thing will happen with out JavaScript: it will be in a separate file, and can be downloaded once, even if it is used on every page on our site.</p>
+
+<p>Similarly, when we are creating web sites, we can specify all of the content by itself in HTML. Then we can then worry about appearance and behaviour once in CSS and JavaScript: this information doesn't have to be included separately on each page (or even worse, we could have to specify the appearance of a paragraph on each and every paragraph on the site).</p>
+
+<p>We will also end up with web sites that are easier to maintain. For example, if there is a problem with the appearance, you know to look in the CSS file. And if you fix the problem once, it should apply to your entire site since all of the pages will use the same stylesheet. On a larger project, you can have different people working on different aspects of the site: an author working with the HTML, a designer working on the CSS, and a programmer creating the JavaScript.</p>
+
+<p>As we actually start working with these technologies, you will hopefully convince yourself that these things are true, and that there are other reasons to keep these concepts separate.</p>
+</section>
+
+
+</main>
+<footer>
+<a href="../index.html">CMPT 165 Study Guide</a>
+<div class="license">
+Copyright &copy; 2015&ndash;2016 Greg Baker
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="CC by-SA" src="../assets/cc-by-sa.svg" /></a>
+</div>
+</footer>
+</body>
+
+<!-- Mirrored from www.cs.sfu.ca/CourseCentral/165/common/study-guide/content/www-pillars.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 27 Feb 2018 02:41:19 GMT -->
+</html>

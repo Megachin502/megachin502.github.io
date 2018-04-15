@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en" class="section">
+
+<!-- Mirrored from www.cs.sfu.ca/CourseCentral/165/common/study-guide/content/css-properties.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 27 Feb 2018 02:41:23 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700%7CSource+Sans+Pro:400,400i,700,700i" />
+  <link rel="stylesheet" href="../assets/reset.css" />
+  <link rel="stylesheet" href="../assets/shCore.css" />
+  <link rel="stylesheet" href="../assets/shThemeDefault.css" />
+  <link rel="stylesheet" href="../style.css" />
+  <script src="../assets/shCore.js"></script>
+  <script src="../assets/shBrushXml-custom.js"></script>
+  <script src="../assets/shBrushCss.js"></script>
+  <script src="../assets/shBrushJScript.js"></script>
+  <script src="../assets/js.cookie.js"></script>
+  <script src="../assets/guide_setup.js"></script>
+  <title>CSS Properties</title>
+</head>
+<body>
+<header>
+  <div class="breadcrumbs">
+<a href="../index.html">CMPT 165 Study Guide</a>
+ &rarr; <a href="css.html" class="xref">Stylesheets</a>
+ &rarr; CSS Properties
+</div>
+  <h1>CSS Properties</h1>
+</header>
+<main id="main">
+
+
+<p>There are many CSS properties that you can use: too many to introduce them all right away (or even to remember them all and how they work), but we should see a few more so we can actually <em>do</em> something useful with CSS.</p>
+
+<section id="css-ref">
+<h2>CSS Reference</h2>
+
+<p>Like we did with HTML elements and the <a href="https://developer.mozilla.org/en/docs/Web/Guide/HTML/HTML5/HTML5_element_list">HTML Reference</a>, we will use a <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference"><dfn id="cssref">CSS Reference</dfn></a> for all of the parts of CSS. You should keep the references in mind, but we can introduce a few key properties now.</p>
+
+<p>We have seen <code class="css">text-align</code>: have a look at <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/text-align" id="text-align-prop"><code class="css dfn">text-align</code> in the CSS reference</a>. Like the HTML reference, you will see a basic description of the property and the values it can be given.</p>
+
+<p>You will also notice on the reference page for each CSS property a section on &ldquo;browser support&rdquo;. This wasn't much of an issue with plan HTML, but with CSS we have to be a little aware of what properties are supported by common web browsers. New features have been added with new CSS versions, and not all are prefectly supported by every browser.</p>
+
+<p>In this course, we will discuss only ones that are well supported, but if you are scanning the reference for others, have a quick look at that the compatibility table to make sure it will work as adveritised.</p>
+
+</section>
+
+<section id="useful">
+<h2>Useful CSS Properties</h2>
+
+<p>Again, we certainly won't be covering every interesting CSS property here, but can introduce a few (with links to the CSS reference for each).</p>
+
+<dl>
+<dt id="text-align"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/text-align"><code class="css dfn">text-align</code></a></dt>
+<dd>As we can seen, <code class="css">text-align</code> can be used to change the text justification. Possible values are <code class="css">left</code>, <code class="css">right</code>, <code class="css">center</code>, and <code class="css">justify</code> (for full justification with to ragged left or right margin).</dd>
+<dt id="font-style"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/font-style"><code class="css dfn">font-style</code></a></dt>
+<dd>Used to control italic text: possible values include <code class="css">italic</code> and <code class="css">normal</code> (for non-italics).</dd>
+<dt id="font-weight"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/font-weight"><code class="css dfn">font-weight</code></a></dt>
+<dd>Used to control bold text: possible values include <code class="css">bold</code> and <code class="css">normal</code> (for non-bold).</dd>
+<dt id="color"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color"><code class="css dfn">color</code></a></dt>
+<dd>Used to set the colour (usually of the text) for the element. For example, &ldquo;<code class="css">color: green;</code>&rdquo;. We will discuss colour values more in <a href="css-colour.html" class="xref">Colours in CSS</a>.</dd>
+<dt id="background-color"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/background-color"><code class="css dfn">background-color</code></a></dt>
+<dd>Used to set the background colour (behind the text) for the element. For example, &ldquo;<code class="css">background-color: black;</code>&rdquo;.</dd>
+<dt id="border-width"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/border-width"><code class="css dfn">border-width</code></a></dt>
+<dt id="border-style"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/border-style"><code class="css dfn">border-style</code></a></dt>
+<dt id="border-color"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/border-color"><code class="css dfn">border-color</code></a></dt>
+<dd>These are used to control the border around an element (width of the line, type of line, and colour of line, respectively). You can either use these properties separately or use a <dfn>shorthand property</dfn> <code class="css dfn">border</code> to combine these into one line (giving the three values in any order). These two things are equivalent:
+<blockquote id="code-border">
+<pre class="brush: css">figure {
+  border-style: solid;
+  border-width: 3px;
+  border-color: red;
+}
+figure {
+  border: solid red 3px;
+}</pre>
+</blockquote>
+</dd>
+<dt id="line-height"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/line-height"><code class="css dfn">line-height</code></a></dt>
+<dd>Controls the amount of vertical space each line of text takes up (which you might know as &ldquo;<a href="http://en.wikipedia.org/wiki/Leading">leading</a>&rdquo;). For example, &ldquo;<code class="css">line-height: 1.5;</code>&rdquo; sets the spacing between single- and double-spaced (and is probably a good default value.</dd>
+<dt id="font-family"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/font-family"><code class="css dfn">font-family</code></a></dt>
+<dd>Sets the font for the text. You should give a list of fonts that are tried in-order until the browser finds one available on the user's system. There are five generic font families and your list <strong>must</strong> end with one of them since it's guaranteed to work. For example, &ldquo;<code class="css">font-family: "Garamond", "Times", serif;</code>&rdquo;.</dd>
+</dl>
+
+
+</section>
+
+
+<section id="boxmodel">
+<h2>CSS Box Model</h2>
+
+<p id="box">There are several properties in CSS that are often grouped together as <dfn>box properties</dfn> which control the way browsers lay out the page using the CSS <dfn>box model</dfn>.</p>
+
+<p>These properties might not be immediately intuitive, but aren't too difficult. Suppose we have an element on the page (like a <code class="html">&lt;h2&gt;Element Contents&lt;/h2&gt;</code>). Here are the parts of its &ldquo;box&rdquo; when drawn:</p>
+
+<figure id="fig-boxmodel" class="block"><img src="../figures/boxmodel.svg" alt="CSS box model illustration" width="592" height="218" /><figcaption>CSS box model illustration</figcaption></figure>
+
+<p>So, this CSS code:</p>
+
+<blockquote id="code-box1">
+<pre class="brush: css">h2 {
+  padding: 1em;
+  border: medium dashed black;
+  background-color: grey;
+}</pre>
+</blockquote>
+
+<p id="padding">&hellip; will make the <code class="html">&lt;h2&gt;</code> have a grey background, with <code class="css">1em</code> of space between the text and the border. The space inside the border (even if it's invidible because you don't have one) is covered with the background colour and is controlled by the <code class="css dfn">padding</code> properties.</p>
+
+<!--
+<aside id="outline">In addition to borders, elements can also have an <dfn>outline</dfn> which is the same, but takes up no space on the page: they can overlap other elements.</aside>
+-->
+
+<p id="margin">If we want more space separating this element (and its border) from the stuff around it, we would have to increase the <code class="css dfn">margin</code> values.</p>
+
+<p>It's easy to mistake margin and padding, especially when there is no border or background colour. If you are trying to change the space around an element (especially when the browser's default CSS has some space there), try setting <em>both</em> margin and padding to zero and work from there.</p>
+
+<blockquote id="code-box2">
+<pre class="brush: css">ul {
+  margin: 0em;
+  padding: 0em;
+}</pre>
+</blockquote>
+
+</section>
+
+<section id="units">
+<h2>CSS Units</h2>
+
+<p>You probably noticed the measurement <code class="css">1em</code> above. The <code class="css">em</code> is a unit of (length) measurement in CSS. Here are some common units that need a little explanation:</p>
+
+<dl>
+<dt id="em"><code class="css dfn">em</code></dt>
+<dd>The current font size: if the current text is 12&nbsp;point then this will be 12 points. Another unit, an <code class="css dfn">ex</code> is half the text size.</dd>
+<dt id="px"><code class="css dfn">px</code></dt>
+<dd>One screen pixel (dot) on the display. (Note: for some very high resolution devices, real &ldquo;pixels&rdquo; are very small, so this length is adjusted to be close to the size of a pixel on a traditional display.)</dd>
+<dt id="mm"><code class="css dfn">mm</code></dt>
+<dd>A millimetre. There are also units for centimetre, inch, etc. (Note: this is the browsers best guess, but might be innacurate depending on the scaling of the display/projector/phone/etc. For example if you display your screen on a projector, the &ldquo;millimetre&rdquo; suddenly becomes much larger.)</dd>
+</dl>
+
+<p>As much as possible, I suggest you specify measurements using <code class="css">em</code>s and <code class="css">ex</code>s. These are the only units that don't require some kind of note describing when they are a lie. If you think in <code class="css">em</code>s, you will be thinking properly about the way a page might scale depending on the current screen/font/whatever size.</p>
+
+<p>The one exception is when dealing with bitmapped images: they are inherently sized in pixels, so that probably makes the most sense.</p>
+
+<blockquote id="code-units">
+<pre class="brush: css">p {
+  line-height: 1.5em;
+}
+blockquote {
+  margin-left: 2em;
+  border-left: 0.25em solid black; 
+}
+img#ourlogo {
+  width: 120px;
+  height: 160px;
+  float: left;
+  margin-left: 1em;
+}</pre>
+</blockquote>
+
+
+</section>
+
+
+<section id="example">
+<h2>Example</h2>
+
+<p>Here is an example page that we can style with some of the properties above:</p>
+
+<blockquote id="code-css-prop-page">
+<pre class="brush: html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset="UTF-8" /&gt;
+&lt;title&gt;CSS Properties&lt;/title&gt;
+&lt;link rel="stylesheet" href="css-prop.css" /&gt;
+&lt;/head&gt; 
+&lt;body&gt;
+&lt;h1&gt;CSS Properties&lt;/h1&gt;
+
+&lt;h2&gt;Goals&lt;/h2&gt;
+&lt;p&gt;This is a page that we're using to demonstrate various CSS
+properties and techniques. Because of that, it's probably going
+to be ugly.&lt;/p&gt;
+
+&lt;h2&gt;Results&lt;/h2&gt;
+&lt;p&gt;Yup, it's turning out rather ugly, but it's important to
+demonstrate some CSS stuff. Here are some of the new things:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;more CSS properties&lt;/li&gt;
+&lt;li&gt;the box model&lt;/li&gt;
+&lt;li&gt;the units of length used&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+</blockquote>
+
+<p>&hellip; and a CSS to go with it:</p>
+
+<blockquote id="code-css-prop">
+<pre class="brush: css">body {
+  font-family: "Helvetica", sans-serif;
+}
+h1 {
+  text-align: center;
+  font-weight: bold;
+  background-color: silver;
+  color: teal;
+  padding: 0.25em;
+}
+h2 {
+  border: medium dotted teal;
+  font-weight: normal;
+  padding: 0.1em;
+}</pre>
+</blockquote>
+
+
+<p>You can look at <a href="../files/css-prop-page.html">that page with the stylesheet</a> yourself, or in my browser it looks like this:</p>
+
+<figure id="fig-css-prop-result" class="block"><img src="../figures/css-prop-result.png" alt="Screenshot of the example page" width="610" height="374" /><figcaption>Screenshot of the example page</figcaption></figure>
+
+<p>When creating a stylesheet for a page, remember that you're always adding to the browser's default style. In this example, setting <code class="css">font-weight: bold;</code> for the <code class="html">&lt;h1&gt;</code> probably doesn't have any effect since the default is bold, but it doesn't hurt either. In this example, we removed the bold font from the <code class="html">&lt;h2&gt;</code>.</p>
+
+<aside>There are various <a href="http://meyerweb.com/eric/tools/css/reset/"><dfn id="reset" data-term="reset stylesheet">reset stylesheets</dfn></a> that will remove browser defaults and give you a very boring (but predictable) starting point for your page.</aside>
+
+<p>The width of the border was specified as <code class="css">medium</code> but could also have been a length like <code class="css">0.1em</code>.</p>
+
+<p>Try experimenting with CSS on this page (or one you have created). There is no substitute for trying out some stuff and seeing how it affects the page.</p>
+</section>
+
+
+
+
+
+</main>
+<footer>
+<a href="../index.html">CMPT 165 Study Guide</a>
+<div class="license">
+Copyright &copy; 2015&ndash;2016 Greg Baker
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="CC by-SA" src="../assets/cc-by-sa.svg" /></a>
+</div>
+</footer>
+</body>
+
+<!-- Mirrored from www.cs.sfu.ca/CourseCentral/165/common/study-guide/content/css-properties.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 27 Feb 2018 02:41:24 GMT -->
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en" class="section">
+
+<!-- Mirrored from www.cs.sfu.ca/CourseCentral/165/common/study-guide/content/jssvg-morejquery.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 27 Feb 2018 02:41:37 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700%7CSource+Sans+Pro:400,400i,700,700i" />
+  <link rel="stylesheet" href="../assets/reset.css" />
+  <link rel="stylesheet" href="../assets/shCore.css" />
+  <link rel="stylesheet" href="../assets/shThemeDefault.css" />
+  <link rel="stylesheet" href="../style.css" />
+  <script src="../assets/shCore.js"></script>
+  <script src="../assets/shBrushXml-custom.js"></script>
+  <script src="../assets/shBrushCss.js"></script>
+  <script src="../assets/shBrushJScript.js"></script>
+  <script src="../assets/js.cookie.js"></script>
+  <script src="../assets/guide_setup.js"></script>
+  <title>More jQuery</title>
+</head>
+<body>
+<header>
+  <div class="breadcrumbs">
+<a href="../index.html">CMPT 165 Study Guide</a>
+ &rarr; <a href="jssvg.html" class="xref">JavaScript and Graphics</a>
+ &rarr; More jQuery
+</div>
+  <h1>More jQuery</h1>
+</header>
+<main id="main">
+
+
+
+
+<section id="dollar">
+<h2>jQuery $ Shortcut</h2>
+
+<p id="jq-dollar">In jQuery code written by others, you may have seen the <code class="js dfn" data-term="$">$</code> a lot. It's time we explained that, and maybe save ourselves a few keystrokes along the way&hellip;</p>
+
+<p>When you imported the jQuery library, it creates the <code class="js">jQuery</code> function that we have used a lot (first in <a href="js-jquerymore.html" class="xref">Working with jQuery</a>). When you use jQuery, it also creates a shortcut for <code class="js">jQuery</code> named <code class="js">$</code>.</p>
+
+<p>In JavaScript, <code class="js">$</code> is just a variable name, just like <code class="js">count</code> or <code class="js">length</code>: it just look funny. The jQuery library uses <code class="js">$</code> to mean <em>exactly</em> the same thing as <code class="js">jQuery</code>. That means that the pairs here do exactly the same thing, just spelled differently:</p>
+
+<blockquote id="code-jquery-dollar">
+<pre class="brush: js">jQuery('p').click(say_hello)
+$('p').click(say_hello)
+
+jQuery('#changeme').html('Somebody clicked me.')
+$('#changeme').html('Somebody clicked me.')</pre>
+</blockquote>
+
+<p>Whether you use <code class="js">jQuery</code> or <code class="js">$</code> is up to you. We will use <code class="js">$</code> in examples from now on: it's shorter to type, and a more common in jQuery code.</p>
+
+</section>
+
+
+<section id="more-mod">
+<h2>More Ways to Modify the Page</h2>
+
+<p>We have seen <code class="js">.html()</code> as a way to modify the contents of a page. We can use it to change the HTML that is inside an element:</p>
+
+<blockquote id="code-modify1">
+<pre class="brush: js">$('#changeme').html('Somebody &lt;em&gt;clicked&lt;/em&gt; me.')</pre>
+</blockquote>
+
+<p>There are other ways we can modify the page with JavaScript and jQuery. They are used in similar ways, but deserve a little explanation.</p>
+
+<section id="attr">
+<h3><code class="js dfn">.attr()</code></h3>
+<p>The <code class="js">.attr()</code> function can be used to change attributes on an element. For example, suppose we wanted to change the class of an element from whatever it was before to <code class="html">class="active"</code>.</p>
+
+<blockquote id="code-modify2">
+<pre class="brush: js">$('#changeme').attr('class', 'active')</pre>
+</blockquote>
+
+<p>After this code runs, the browser will display as if the tag contained <code class="html">class="active"</code> in the actual HTML: if you have some CSS that makes that class look different, the appearance of the page will change.</p>
+
+<p>This could also be used to change the source of an image:</p>
+<blockquote id="code-modify3">
+<pre class="brush: js">$('img#changeme').attr('src', 'other_img.png')</pre>
+</blockquote>
+
+</section>
+
+<section id="append">
+<h3><code class="js dfn">.append()</code></h3>
+
+<p>The <code class="js">.append()</code> function will add content at the end of an element. For example, if we have a <code class="html">&lt;section id="expanding"&gt;</code> on our page, we can add a new paragraph at the end of the section like this:</p>
+
+<blockquote id="code-modify4">
+<pre class="brush: js">$('section#expanding').append('&lt;p&gt;I am a new paragraph.&lt;/p&gt;')</pre>
+</blockquote>
+
+</section>
+
+<section id="css">
+<h3><code class="js dfn">.css()</code></h3>
+
+<p>You can specifically modify the style if an element with the  <code class="js">.css()</code> function.</p>
+
+<p id="object">We have to specify the collection of CSS changes that we want to be applied to the element, which we will do with a JavaScript <dfn>object</dfn>. For example,</p>
+
+<blockquote id="code-modify5">
+<pre class="brush: js">newstyle = {
+  'font-family': 'sans-serif',
+  'color': '#f60'
+}
+$('#styling').css(newstyle)</pre>
+</blockquote>
+
+<p>Here, the <code class="js">newstyle</code> variable is assigned a JavaScript object. The object in <code class="js">newstyle</code> contains <code class="js">color</code>: a variable holding a string <code class="js">'#f60'</code>.</p>
+
+<p>We didn't really have to use the variable <code class="js">newstyle</code>: we could have written the object directly inline where we need it. This style is more common for jQuery code, but you are welcome to use either.</p>
+<blockquote id="code-modify5a">
+<pre class="brush: js">$('#styling').css({
+  'font-family': 'sans-serif',
+  'color': '#f60'
+})</pre>
+</blockquote>
+</section>
+
+<section id="animate">
+<h3><code class="js dfn">.animate()</code></h3>
+
+<p>The <code class="js">.animate()</code> function works like <code class="js">.css()</code>, but will animate from the current style to the new ones given.</p>
+
+<p>For example, this code will change the element's font size and left margin from the current value (as the page was before this code ran) to the values given:</p>
+
+<blockquote id="code-modify6">
+<pre class="brush: js">newstyle = {
+  'font-size': '1.5em',
+  'margin-left': '2em'
+}
+$('#styling').animate(newstyle, 2000)</pre>
+</blockquote>
+
+<p>The animation will take 2 seconds (2000 milliseconds).</p>
+
+<p>The <code class="js">.animate()</code> function can only animate CSS properties that are &ldquo;numeric&rdquo;. For example, it can animate <code class="css">border-width</code> from <code class="css">1px</code> to <code class="css">1em</code>, but <strong>cannot</strong> animate <code class="css">font-weight</code> from normal to bold, or colour values.</p>
+
+<aside>There are extensions to jQuery that can animate colours, but stock jQuery can't.</aside>
+
+</section>
+
+</section>
+
+
+
+</main>
+<footer>
+<a href="../index.html">CMPT 165 Study Guide</a>
+<div class="license">
+Copyright &copy; 2015&ndash;2016 Greg Baker
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="CC by-SA" src="../assets/cc-by-sa.svg" /></a>
+</div>
+</footer>
+</body>
+
+<!-- Mirrored from www.cs.sfu.ca/CourseCentral/165/common/study-guide/content/jssvg-morejquery.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 27 Feb 2018 02:41:37 GMT -->
+</html>

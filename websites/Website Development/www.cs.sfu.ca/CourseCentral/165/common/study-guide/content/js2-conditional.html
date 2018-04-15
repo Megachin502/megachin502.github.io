@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en" class="section">
+
+<!-- Mirrored from www.cs.sfu.ca/CourseCentral/165/common/study-guide/content/js2-conditional.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 27 Feb 2018 02:41:48 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700%7CSource+Sans+Pro:400,400i,700,700i" />
+  <link rel="stylesheet" href="../assets/reset.css" />
+  <link rel="stylesheet" href="../assets/shCore.css" />
+  <link rel="stylesheet" href="../assets/shThemeDefault.css" />
+  <link rel="stylesheet" href="../style.css" />
+  <script src="../assets/shCore.js"></script>
+  <script src="../assets/shBrushXml-custom.js"></script>
+  <script src="../assets/shBrushCss.js"></script>
+  <script src="../assets/shBrushJScript.js"></script>
+  <script src="../assets/js.cookie.js"></script>
+  <script src="../assets/guide_setup.js"></script>
+  <title>Making Decisions</title>
+</head>
+<body>
+<header>
+  <div class="breadcrumbs">
+<a href="../index.html">CMPT 165 Study Guide</a>
+ &rarr; <a href="js2.html" class="xref">Working with JavaScript</a>
+ &rarr; Making Decisions
+</div>
+  <h1>Making Decisions</h1>
+</header>
+<main id="main">
+
+
+<p>We need one last way to control the way our code executes: we need to be able to make decisions based on something the user enters (or some value we calculate, or the time of day, or &hellip;).</p>
+
+<p>As an example, let's imagine we want to present the user with a choice of which direction to move a shape in a SVG image:</p>
+
+<blockquote id="code-select-if-16">
+<pre class="brush: html">&lt;select id="direction"&gt;
+&lt;option value="up"&gt;Up&lt;/option&gt;
+&lt;option value="down"&gt;Down&lt;/option&gt;
+&lt;/select&gt;
+&lt;button id="move"&gt;Move&lt;/button&gt;</pre>
+</blockquote>
+
+<p>We will need to do something different depending on the user's selection: either up (probably a smaller <code class="js">y</code> value) or down (a larger <code class="js">y</code>).</p>
+
+
+<section id="if">
+<h2>The <code class="js">if</code> Statement</h2>
+
+<p id="if-stmt">We can use the <code class="js dfn">if</code> statement in JavaScript to make decisions about what code to run, depending on the situation we're in. The basic decision we make with the <code class="js">if</code> is &ldquo;should this block of code run or not?&rdquo;</p>
+
+<p>Suppose we have a value <code class="js">count</code> that is something the user entered (in a <code class="html">&lt;input /&gt;</code>). We want to decide if they have entered a number too large for what we're doing. The code will be something like this:</p>
+
+<blockquote id="code-if1">
+<pre class="brush: js">if (count &gt; 100) {
+  $('#error').html('That is too many.')
+}</pre>
+</blockquote>
+
+<p>Here are the part of the <code class="js">if</code> statement's structure:</p>
+
+<dl>
+<dt><code class="js">if ( &hellip; ) { &hellip; }</code></dt>
+<dd>This is the basic structure of the <code class="js">if</code> statement. The <code class="js">( &hellip; )</code> controls the behaviour, and the <code class="js">{ &hellip; }</code> is the conditional code.</dd>
+<dt id="condition"><code class="js">( &hellip; )</code></dt>
+<dd>This is the <dfn>condition</dfn> of the <code class="js">if</code>. It is an expression that evaluates to either true or false.</dd>
+<dt id="body"><code class="js">{ &hellip; }</code></dt>
+<dd>This is the <dfn>body</dfn> of the <code class="js">if</code>. This code runs only when the condition evaluated to true.</dd>
+</dl>
+</section>
+
+
+<section id="conditionals">
+<h2>Conditionals</h2>
+
+<p>The condition can be any expression that results in a true or false result. There are several ways to get a true/false, but we will only worry about comparisons. Here are the comparison operators that we can use:</p>
+
+
+<figure id="comparison-table">
+<table>
+<thead><tr><th scope="col">Comparison</th><th scope="col">Meaning</th><th scope="col">Example is&hellip;</th></tr></thead>
+<tbody>
+<tr><td><code class="js">23 == 3</code></td><td>is equal to</td><td>false</td></tr>
+<tr><td><code class="js">23 != 3</code></td><td>is not equal to</td><td>true</td></tr>
+<tr><td><code class="js">4 &lt; 9</code></td><td>less than</td><td>true</td></tr>
+<tr><td><code class="js">4 &gt; 9</code></td><td>greater than</td><td>false</td></tr>
+<tr><td><code class="js">8 &lt;= 6</code></td><td>less than or equal</td><td>false</td></tr>
+<tr><td><code class="js">8 &gt;= 6</code></td><td>greater than or equal</td><td>true</td></tr>
+</tbody>
+</table>
+<figcaption>JavaScript comparison operators</figcaption>
+</figure>
+
+<p>As you can see, the example above used a greater-than comparison: the code in the <code class="js">{ &hellip; }</code> will only run if the variable <code class="js">count</code> was holding a value greater than 100.</p>
+
+<p>The same conditional expressions were used in the <code class="js">for</code> loop to express when the loop should continue. In this example, we keep going as long as the condition <code class="js">n &lt;= 6</code> is true:</p>
+
+<blockquote id="code-for-loop-6">
+<pre class="brush: js">for (n = 1; n &lt;= 6; n += 1) {</pre>
+</blockquote>
+
+<p>As this loop ran, the condition would have evaluated to true for <code class="js">n</code> as 1, 2, 3, 4, 5, 6, but false for 7: that is where the loop stopped.</p>
+
+
+<section id="example1">
+<h3>Example</h3>
+
+<p>We can now return to the example with the <code class="html">&lt;select&gt;</code> above. In this case, we know that <code class="js">$('#direction')&ZeroWidthSpace;.val()</code> will get us the string <code class="js">'up'</code> or <code class="js">'down'</code>.</p>
+
+<p>We can use that string, and a comparison, to set a variable appropriately to what we want to do:</p>
+
+<blockquote id="code-select-if-1">
+<pre class="brush: js">move = function() {
+  dir = $('#direction').val()
+  if ( dir == 'up' ) {
+    trans = 't0,-20'
+  }
+  if ( dir == 'down' ) {
+    trans = 't0,20'
+  }
+  
+  attr = {
+    'transform': trans
+  }
+  shape.animate(attr, 500)
+}</pre>
+</blockquote>
+
+<p>The two <code class="js">if</code> statements here check that the selected direction is <code class="js">'up'</code> and <code class="js">'down'</code>, respectively. Because of the way the <code class="html">&lt;select&gt;</code> is written, we know that one of them will run its body. In the <code class="js">if</code> body, the code sets the <code class="js">trans</code> variable so it can be used below.</p>
+
+<p>You can try <a href="../files/select-if.html">this example</a>. When playing with it, you may notice that clicking &ldquo;Move&rdquo; multiple times doesn't move the circle more up or down. We can fix that and clean up our code a little more in the next topic&hellip;</p>
+</section>
+</section>
+
+
+<section id="else">
+<h2>Adding <code class="js">else</code></h2>
+
+<p>The above code was a little clumsy. We did this:</p>
+
+<blockquote id="code-select-if-condensed">
+<pre class="brush: js">if ( dir == 'up' ) { … }
+if ( dir == 'down' ) { … }</pre>
+</blockquote>
+
+<p>The hope was that <code class="js">dir</code> would be one of <code class="js">'up'</code> or <code class="js">'down'</code>. But in that case, there wasn't any point to the second condition: if it wasn't <code class="js">'up'</code>, it must have been <code class="js">'down'</code>.</p>
+
+<p>We could also run into problems with this code if we added a third option to the <code class="html">&lt;select&gt;</code>: we could fall through all of the <code class="js">if</code>s without ever setting the variable <code class="js">trans</code>. That would have broken the rest of the code.</p>
+
+<p>What we need is a way to express &ldquo;do <em>this</em> if the condition is true, but <em>that</em> if it isn't&rdquo;. The <code class="js">else</code> which can be added to an <code class="js">if</code> lets us do exactly that: code that will run if the condition is <strong>false</strong>.</p>
+
+<blockquote id="code-select-else-condensed">
+<pre class="brush: js">if ( dir == 'up' ) {
+  …
+} else {
+  …
+}</pre>
+</blockquote>
+
+<p>The code in the second <code class="js">{ &hellip; }</code> will run if <code class="js">dir</code> is anything besides <code class="js">'up'</code></p>
+
+<section id="example2">
+<h3>Example</h3>
+
+<p>We can return to our example to clean up the code with an <code class="js">else</code> and fix the behaviour to be nicer.</p>
+
+<p>The problem with the behaviour was that the Rapha&euml;l <code class="js">'transform'</code> is relative to the shape's <em>original</em> position, not where it is now. So, if we animate up multiple times, we ask to animate from (0,-20) to (0,-20), which has no effect.</p>
+
+<p>We can instead keep track of the <code class="js">y</code> value where we would like the circle to be, and adjust that accordingly. The variable <code class="js">y</code> here keeps track of the desired vertical position. We change it as the user asks and animate to the new position:</p>
+
+<blockquote id="code-select-if2-1">
+<pre class="brush: js">y = 0
+move = function() {
+  dir = $('#direction').val()
+  if ( dir == 'up' ) {
+    y = y - 20
+  } else {
+    y = y + 20
+  }
+  
+  attr = {
+	'transform': 't0,' + y
+  }
+  shape.animate(attr, 500)
+}</pre>
+</blockquote>
+
+<p>You can try the <a href="../files/select-if2.html">fixed example</a> with this behaviour.</p>
+</section>
+</section>
+
+
+<section id="another">
+<h2>Another Example</h2>
+
+<p>In this example, our goal is to imitate the behaviour of the jQuery <code class="js">.toggle()</code> function which alternately makes content appear and disappear. We will create a button: the first time it's clicked, any content with <code class="html">class="optional"</code> should disappear; when it's clicked again, it should reappear.</p>
+
+<p>In order to do this, we need to keep track of the current status: is the content visible or not? We will need a variable for that, and we will need to maintain its value so we know what to do next time.</p>
+
+<blockquote id="code-toggle-if-1">
+<pre class="brush: js">visible = 'yes'
+toggle = function() {
+  if ( visible == 'yes' ) {
+    $('.optional').css({'display': 'none'})
+    visible = 'no'
+  } else {
+    $('.optional').css({'display': 'block'})
+    visible = 'yes'
+  }
+}</pre>
+</blockquote>
+
+<p>Each path through the <code class="js">if</code>/<code class="js">else</code> here does two things: set the CSS <code class="css">display</code> property, and set the <code class="js">visible</code> variable so we know the current state of the page. This variable is used to make sure we do the opposite action next time.</p>
+
+<p>As always, you can <a href="../files/toggle-if.html">see this example working</a>.</p>
+
+
+</section>
+
+
+
+
+
+</main>
+<footer>
+<a href="../index.html">CMPT 165 Study Guide</a>
+<div class="license">
+Copyright &copy; 2015&ndash;2016 Greg Baker
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="CC by-SA" src="../assets/cc-by-sa.svg" /></a>
+</div>
+</footer>
+</body>
+
+<!-- Mirrored from www.cs.sfu.ca/CourseCentral/165/common/study-guide/content/js2-conditional.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 27 Feb 2018 02:41:49 GMT -->
+</html>

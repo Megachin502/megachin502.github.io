@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en" class="section">
+
+<!-- Mirrored from www.cs.sfu.ca/CourseCentral/165/common/study-guide/content/graphics-formats.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 27 Feb 2018 02:41:33 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700%7CSource+Sans+Pro:400,400i,700,700i" />
+  <link rel="stylesheet" href="../assets/reset.css" />
+  <link rel="stylesheet" href="../assets/shCore.css" />
+  <link rel="stylesheet" href="../assets/shThemeDefault.css" />
+  <link rel="stylesheet" href="../style.css" />
+  <script src="../assets/shCore.js"></script>
+  <script src="../assets/shBrushXml-custom.js"></script>
+  <script src="../assets/shBrushCss.js"></script>
+  <script src="../assets/shBrushJScript.js"></script>
+  <script src="../assets/js.cookie.js"></script>
+  <script src="../assets/guide_setup.js"></script>
+  <title>Image Formats</title>
+</head>
+<body>
+<header>
+  <div class="breadcrumbs">
+<a href="../index.html">CMPT 165 Study Guide</a>
+ &rarr; <a href="graphics.html" class="xref">Graphics</a>
+ &rarr; Image Formats
+</div>
+  <h1>Image Formats</h1>
+</header>
+<main id="main">
+
+
+<p>There are several different ways to represent images in a computer (and on web pages). In this section, we will discuss some common choices for the web, and how you would choose between them.</p>
+
+<section id="bitmap-vector">
+<h2>Bitmap and Vector Images</h2>
+
+<p>There are two fundamental ways images can be represented in computers, and we should start there.</p>
+
+<aside class="lynda">Lynda.com course: <a class="lynda" href="https://www.lynda.com/Sketch-tutorials/Creating-Optimized-Web-Graphics/480956-2.html" data-path="/Sketch-tutorials/Creating-Optimized-Web-Graphics/480956-2.html">Creating Optimized Web Graphics</a>. <span class="help">[<a href="../lynda.html">Lynda.com help</a>]</span> This course is a great introduction to web graphics and the issues that are discussed in the next sections.</aside>
+
+<p>Let's start with a very simple image to use as an example. It's not a complicated image: a red circle with a black outline, but it will be enough to highlight the difference.</p>
+
+<figure id="fig-vector-bitmap1" class="block"><img src="../figures/vector-bitmap1.svg" alt="A simple image" width="50" height="50" /><figcaption>A simple image</figcaption></figure>
+
+<p id="vector-img">A <dfn>vector image</dfn> is represented as a collection of shapes: lines, curves, circles, squares, etc. This example image is particularly well suited to representation as a vector image: the computer can store information equivalent to &ldquo;a circle with a black outline and red fill, with centre at &hellip; and radius &hellip;&rdquo; and that will represent this image perfectly.</p>
+
+<p id="bitmap-img">A <dfn>bitmap image</dfn> is represented as a grid of <dfn>pixels</dfn> each of which is given a particular colour. Here is the same image represented as both a vector and bitmap image:</p>
+
+<figure id="fig-vector-bitmap2" class="block"><img src="../figures/vector-bitmap2.svg" alt="A vector (left) and bitmap image (right)" width="104" height="50" /><figcaption>A vector (left) and bitmap image (right)</figcaption></figure>
+
+<p>Those probably look just about the same to you. If you're looking at this page on a very high resolution display like a modern smartphone or tablet, you might see that the vector representation on the left is slightly clearer, but otherwise they're likely identical.</p>
+
+<p>The bitmap image looks good here because the pixels are very small: small enough to fool your eye into not seeing them as little squares, but as a smooth image.</p>
+
+<p>If we zoom in on that image, you'll be able to see the difference between the two more clearly:</p>
+
+<figure id="fig-vector-bitmap3" class="block"><img src="../figures/vector-bitmap3.svg" alt="Enlargements of a vector (left) and bitmap image (right)" width="302" height="102" /><figcaption>Enlargements of a vector (left) and bitmap image (right)</figcaption></figure>
+
+<p>Now the difference is obvious. The vector image contains the information &ldquo;this is a circle&rdquo;, so when we zoom in it can be scaled smoothly: it's just a bigger circle. On the other hand, the bitmap image is just a collection of coloured square pixels, so fundamentally that's all we can work with when scaling the image.</p>
+
+<p>In this case, the vector image will look nicer when printed or displayed on a high-resolution display. It will also be easier to edit it (for example, stretch it or change the fill colour).</p>
+
+<p>For a more realistic example, consider this icon:</p>
+<figure id="fig-phone-icon" class="block"><img src="../figures/phone-icon.svg" alt="An illustration" width="228" height="228" /><figcaption>An illustration&nbsp;<a href="../references.html">*</a></figcaption></figure>
+
+<p>When saved as a vector image, the file is is about 2&nbsp;kilobytes. When saved as a bitmap image, the best I could do is 11&nbsp;kilobytes, so it would take about five times longer to download. Also remember that the vector image will scale more smoothly when being printed, or on high-resolution displays.</p>
+
+<aside>To be fair, the difference between download times for 2 and 11&nbsp;kilobytes is tiny. The effect would be more severe for larger images.</aside>
+
+<p>On the other hand, not all images make sense as a vector image. Since vector formats are best at the shapes they can represent (curves, lines, circles, etc.), images that aren't made up of those shapes might not be a good fit in a vector image.</p>
+
+<p>For example, consider this photograph:</p>
+
+<figure id="fig-phone-pic" class="block"><img src="../figures/phone-pic.jpg" alt="A photograph" width="320" height="212" /><figcaption>A photograph&nbsp;<a href="../references.html">*</a></figcaption></figure>
+
+<p id="trace">As it is, the image is about 12&nbsp;kilobytes and looks nice. In an attempt to make a vector image, I have <dfn>traced</dfn> (or <dfn>vectorized</dfn>) the image in a vector editing program. This is an automatic attempt to turn the image into vector shapes:</p>
+
+<figure id="fig-phone-pic-traced" class="block"><img src="../figures/phone-pic-traced.svg" alt="A vectorized photograph" width="320" height="212" /><figcaption>A vectorized photograph</figcaption></figure>
+
+<p>As you can see, it didn't go well. Even with all of the lost detail, the image grew to 54&nbsp;kilobytes.</p>
+
+<aside>It is possible to embed a bitmap in a vector image and retain all of the detail, but that's not really a vector image: just a bitmap image wrapped up.</aside>
+
+<p>It often makes sense to use a bitmap image because of the technology involved. For example, digital cameras inherently produce grids of pixels because of the way their <a href="https://en.wikipedia.org/wiki/Image_sensor">image sensors</a> work. Also, computer displays display grids of pixels so screen captures (like those in this course showing how web pages display on-screen) will inherently be bitmap images.</p>
+
+<p id="svg">There is really only one vector image format that is relevant to the web. <dfn>SVG</dfn> (or <dfn data-term="scalable vector graphics">Scalable Vector Graphics</dfn>) is a vector image format designed for use on the web. We will work more with SVG later in the course.</p>
+
+
+</section>
+
+<section id="summary">
+<h2>Summary</h2>
+
+<p>Hopefully the lesson is clear: choose vector images when the image is made of of &ldquo;shapes&rdquo; and bitmap images when it isn't.</p>
+
+<p>Often the choice is clear, but there are cases where it's not as obvious. For example, hand-drawn illustrations are usually scanned (or drawn originally) as bitmap images. They may be nicer if traced to vectors, but it depends on the details of the image and may require some experimentation.</p>
+
+<p>When creating vector images for the web, you don't really have much choice: you're going to save as SVG. There are a few options when saving an SVG, but none that have a serious effect on the file size.</p>
+
+<p>We will discuss bitmap file formats as we cover concepts that distinguish them in the next section.</p>
+
+</section>
+
+
+
+
+</main>
+<footer>
+<a href="../index.html">CMPT 165 Study Guide</a>
+<div class="license">
+Copyright &copy; 2015&ndash;2016 Greg Baker
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="CC by-SA" src="../assets/cc-by-sa.svg" /></a>
+</div>
+</footer>
+</body>
+
+<!-- Mirrored from www.cs.sfu.ca/CourseCentral/165/common/study-guide/content/graphics-formats.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 27 Feb 2018 02:41:35 GMT -->
+</html>

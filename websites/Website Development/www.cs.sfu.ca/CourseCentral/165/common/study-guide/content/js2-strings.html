@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en" class="section">
+
+<!-- Mirrored from www.cs.sfu.ca/CourseCentral/165/common/study-guide/content/js2-strings.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 27 Feb 2018 02:41:40 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700%7CSource+Sans+Pro:400,400i,700,700i" />
+  <link rel="stylesheet" href="../assets/reset.css" />
+  <link rel="stylesheet" href="../assets/shCore.css" />
+  <link rel="stylesheet" href="../assets/shThemeDefault.css" />
+  <link rel="stylesheet" href="../style.css" />
+  <script src="../assets/shCore.js"></script>
+  <script src="../assets/shBrushXml-custom.js"></script>
+  <script src="../assets/shBrushCss.js"></script>
+  <script src="../assets/shBrushJScript.js"></script>
+  <script src="../assets/js.cookie.js"></script>
+  <script src="../assets/guide_setup.js"></script>
+  <title>Working with Strings</title>
+</head>
+<body>
+<header>
+  <div class="breadcrumbs">
+<a href="../index.html">CMPT 165 Study Guide</a>
+ &rarr; <a href="js2.html" class="xref">Working with JavaScript</a>
+ &rarr; Working with Strings
+</div>
+  <h1>Working with Strings</h1>
+</header>
+<main id="main">
+
+
+<section id="review">
+<h2>String Review</h2>
+
+<p>We first saw strings in the section <a href="js-varfunc.html#strings" class="xref">Variables and Functions</a>. There we said that they represent text, and that when we want to write a literal string in our JavaScript code, it's wrapped in either single or double quotes: <code class="js">"I'm a string"</code>, <code class="js">'And so am I'</code>.</p>
+
+<p>It's important to understand (and notice) what parts of your code are a string like this, and what is other parts of the code. For example, the variables created in these two lines are <em>not the same</em>:</p>
+
+<blockquote id="code-string1">
+<pre class="brush: js">a = '12'
+b = 12</pre>
+</blockquote>
+
+<p>The first variable holds a <strong>string</strong> with two characters: a digit <code class="js">1</code> followed by a digit <code class="js">2</code>. The second holds the <strong>number</strong> twelve (i.e. the next integer after eleven). Those two things look similar to us, but are treated differently in JavaScript calculations.</p>
+
+<p>We can see this difference more clearly if we do some operations on the values:</p>
+
+<blockquote id="code-string2">
+<pre class="brush: js">c = a + '34'
+d = b + 34</pre>
+</blockquote>
+
+<p id="plus">The first line creates the variable <code class="js">c</code> holding the string <code class="js">'1234'</code>: when the <code class="js">+</code> is applied to strings, it joins them together (or <dfn data-term="concatenate">concatenates</dfn> them). The second line creates <code class="js">d</code> holding the number forty-six: <code class="js">+</code> applied to numbers does addition.</p>
+</section>
+
+<section id="building">
+<h2>Building Strings</h2>
+
+<p>We often need strings to pass along as arguments to functions, especially when doing CSS and SVG manipulations (with jQuery and Rapha&euml;l). For example, we used <code class="js">.append()</code> in an example introducing <a href="js2-forloop.html#for" class="xref">the <code class="js">for</code> loop</a>:</p>
+
+<blockquote id="code-for-loop-3">
+<pre class="brush: js">$('#example1').append('&lt;p&gt;One more paragraph.&lt;/p&gt;')</pre>
+</blockquote>
+
+<p>The argument to <code class="js">.append()</code> is a string: the HTML code for the content to be inserted. If we want to have any control over these arguments (such as having them different each time around a <code class="js">for</code> loop), we need to build them as the code runs, as opposed to just typing in the string literally.</p>
+
+<p>If we have a variable holding a string (that's created somehow), we can join various pieces together to get the final string we want, something like this:</p>
+
+<blockquote id="code-build1">
+<pre class="brush: js">r = 'f'
+g = '5'
+b = '0'
+newstyle = {
+  'color': '#' + r + g + b
+}</pre>
+</blockquote>
+
+<p>That would create an object that we could use as an argument for jQuery <code class="js">.css()</code> with color value <code class="js">'#f50'</code>. In our code so far, we haven't had string variable, we have had numbers. For example, in the next example on <a href="js2-forloop.html#for2" class="xref">the <code class="js">for</code> loop</a>, we did something a little different:</p>
+
+<blockquote id="code-for-loop-6">
+<pre class="brush: js">for (n = 1; n &lt;= 6; n += 1) {
+  $('#example2').append('&lt;p&gt;Paragraph #' + n + '&lt;/p&gt;')
+}</pre>
+</blockquote>
+
+<p>Here, <code class="js">n</code> is a number (like all loop counters), but we added it to strings.</p>
+
+<p>When you try to add a string and a number together in JavaScript, the number is automatically converted to a string, and the strings are joined. That means that the three variables here will end up with <em>the same value</em> after the assignment:</p>
+
+<blockquote id="code-build2">
+<pre class="brush: js">a1 = 'abc' + 123
+a2 = 'abc' + '123'
+a3 = 'abc123'</pre>
+</blockquote>
+
+<p>So in our example code above, the argument to <code class="js">.append()</code> was evaluated like this (for example, the third time around the loop when <code class="js">n</code> was 3):</p>
+
+<blockquote id="code-build3">
+<pre class="brush: js">'&lt;p&gt;Paragraph #' + n + '&lt;/p&gt;'
+'&lt;p&gt;Paragraph #' + 3 + '&lt;/p&gt;'
+'&lt;p&gt;Paragraph #' + '3' + '&lt;/p&gt;'
+'&lt;p&gt;Paragraph #3&lt;/p&gt;'</pre>
+</blockquote>
+
+<p>We can do the same thing with any number in JavaScript, so we can do some calculation before building the string. For example, it's often useful to be able to build attribute values for Rapha&euml;l.</p>
+
+<p>The <code class="js">.scale()</code> and <code class="js">.rotate()</code> functions are convenient, but they won't let us animate either scaling or rotation. To do that. we need <code class="js">.animate()</code> and the <code class="js">'transform'</code> attribute.</p>
+
+<p>With <code class="js">'transform'</code>, we can give strings like <code class="js">'r30'</code> to indicate a rotation of 30&deg; or <code class="js">'s2'</code> to indicate scaling of two times. If we want to create several rectangles with different rotations, we can do something like this:</p>
+
+<blockquote id="code-for-build-22">
+<pre class="brush: js">for (count = 1; count &lt;= 6; count += 1) {
+  r = paper.rect(30, 30, 90, 90)
+  animation_attrs = {
+    'transform': 'r' + (count*15)
+  }
+  r.attr(animation_attrs)
+}</pre>
+</blockquote>
+
+<p>This draws six squares, rotated by 15&deg;, 30&deg;, 45&deg;, 60&deg;, 75&deg;, and 90&deg;. The result is this:</p>
+
+<figure id="fig-for-build-result" class="block"><img src="../figures/for-build-result.svg" alt="Result of transformed shapes" width="150" height="150" /><figcaption>Result of transformed shapes</figcaption></figure>
+
+<p>For a complex example, we can recreate part of the image from <a href="js2-forloop.html#for-raphael" class="xref">the last section</a> and animate it into existence while we're at it:</p>
+
+<blockquote id="code-for-build-3">
+<pre class="brush: js">paper = Raphael('container2', 140, 140)
+rect_attrs = {
+  'fill': '#292',
+  'stroke-width': '1.5'
+}
+for (count = 0; count &lt;= 11; count += 1) {
+  r = paper.rect(50, 50, 40, 40)
+  r.attr(rect_attrs)
+  angle = count*3
+  scale = 3 - count*0.25
+  anim_attrs = {
+    'transform': 'r' + angle + 's' + scale
+  }
+  r.animate(anim_attrs, 2000)
+}</pre>
+</blockquote>
+
+<p>Instead of using <code class="js">.attr()</code>, this uses <code class="js">.animate()</code> to rotate and scale the squares as they are created. Have a look at <a href="../files/for-build.html">the page with both of these examples on it</a> to see the animation.</p>
+
+</section>
+
+
+<section id="object">
+<h2>Strings as Objects</h2>
+
+<p>Strings we have been using in JavaScript have the fundamental job of holding characters. They also behave as objects: they hold variables (including functions) that do useful things wit the contents of the string.</p>
+
+<p>For example, every string contains a function <code class="js">.toLowerCase()</code> that gives back a copy of itself converted to entirely lowercase:</p>
+
+<blockquote id="code-string-methods2">
+<pre class="brush: js">greeting = 'Hello World!'
+lower_greeting = greeting.toLowerCase()</pre>
+</blockquote>
+
+<p>After this code, the variable <code class="js">greeting</code> contains <code class="js">'Hello World!'</code> and <code class="js">lower_greeting</code> contains <code class="js">'hello world!'</code>. The original string didn't get changed, but the function returned a copy of itself with uppercase letters converted to lowercase.</p>
+
+<p>Strings also contain a <code class="js">.charAt()</code> function that can be used to extract individual characters from a string (counting from zero). It is used like this:</p>
+
+<blockquote id="code-string-methods1">
+<pre class="brush: js">letters = 'abcdefg'
+third = letters.charAt(2)</pre>
+</blockquote>
+
+<p>After this code, the variable <code class="js">third</code> will contain the character <code class="js">'c'</code>: <code class="js">'a'</code> is character 0 in that string, <code class="js">'b'</code> is character 1, <code class="js">'c'</code> is character 2.</p>
+
+<p>We can do something a little more interesting: in <a href="css-colour.html" class="xref">Colours in CSS</a>, we first saw the <code class="css">0</code> to <code class="css">f</code> scale for colour components. There are 16 possible values there, which we'll think of as 0 to 15.</p>
+
+<p>If we create the string <code class="js">'0123456789abcdef'</code>, then it has characters 0 to 15 that we can extract to create color codes <code class="css">#000</code> to <code class="css">#f00</code> like this:</p>
+
+<blockquote id="code-for-build-2-2">
+<pre class="brush: js">color_values = '0123456789abcdef'
+paper = Raphael('container', 350, 120)
+for (red = 0; red &lt;= 15; red += 1) {
+  r = paper.rect(red*20, red*5, 30, 30)
+  rect_attrs = {
+    'fill': '#' + color_values.charAt(red) + '00'
+  }
+  r.attr(rect_attrs)
+}</pre>
+</blockquote>
+
+<figure id="fig-for-build-2-result" class="block"><img src="../figures/for-build-2-result.svg" alt="Result of generated colours" width="350" height="120" /><figcaption>Result of generated colours</figcaption></figure>
+
+<p>You can also view <a href="../files/for-build-2.html">the page with this example</a>.</p>
+
+<p>We will be able to do more interesting things with string methods once we can get strings from the user in the next section&hellip;</p>
+
+</section>
+
+
+
+
+</main>
+<footer>
+<a href="../index.html">CMPT 165 Study Guide</a>
+<div class="license">
+Copyright &copy; 2015&ndash;2016 Greg Baker
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="CC by-SA" src="../assets/cc-by-sa.svg" /></a>
+</div>
+</footer>
+</body>
+
+<!-- Mirrored from www.cs.sfu.ca/CourseCentral/165/common/study-guide/content/js2-strings.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 27 Feb 2018 02:41:41 GMT -->
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html> 
+<html lang="en">
+
+<!-- Mirrored from www.cs.sfu.ca/CourseCentral/165/common/study-guide/files/for-build.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 27 Feb 2018 02:42:06 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head> 
+<meta charset="UTF-8" />
+<script src="../../../../../../cmpt165.csil.sfu.ca/js/jquery-3.2.1.js"></script>
+<script src="../../../../../../cmpt165.csil.sfu.ca/js/raphael-2.1.4.js"></script>
+<script src="for-build.js"></script>
+<title>String Building Example</title>
+</head>
+<body>
+<h1>String Building Example</h1>
+
+<div id="container1"></div>
+
+<p>Here's the code that draws that image:</p>
+
+<blockquote id="code-for-build-22">
+<pre class="brush: js">for (count = 1; count &lt;= 6; count += 1) {
+  r = paper.rect(30, 30, 90, 90)
+  animation_attrs = {
+    'transform': 'r' + (count*15)
+  }
+  r.attr(animation_attrs)
+}</pre>
+</blockquote>
+
+
+<div id="container2"></div>
+<button>Re-Animate</button>
+
+<p>Here's the code that draws (and animates) that image:</p>
+
+<blockquote id="code-for-build-3">
+<pre class="brush: js">paper = Raphael('container2', 140, 140)
+rect_attrs = {
+  'fill': '#292',
+  'stroke-width': '1.5'
+}
+for (count = 0; count &lt;= 11; count += 1) {
+  r = paper.rect(50, 50, 40, 40)
+  r.attr(rect_attrs)
+  angle = count*3
+  scale = 3 - count*0.25
+  anim_attrs = {
+    'transform': 'r' + angle + 's' + scale
+  }
+  r.animate(anim_attrs, 2000)
+}</pre>
+</blockquote>
+
+<p>Transform strings generated in the loop:</p>
+
+<blockquote><pre id="transforms"></pre></blockquote>
+
+</body>
+
+<!-- Mirrored from www.cs.sfu.ca/CourseCentral/165/common/study-guide/files/for-build.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 27 Feb 2018 02:42:06 GMT -->
+</html>

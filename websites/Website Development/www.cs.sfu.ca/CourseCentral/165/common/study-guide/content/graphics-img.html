@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en" class="section">
+
+<!-- Mirrored from www.cs.sfu.ca/CourseCentral/165/common/study-guide/content/graphics-img.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 27 Feb 2018 02:41:33 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700%7CSource+Sans+Pro:400,400i,700,700i" />
+  <link rel="stylesheet" href="../assets/reset.css" />
+  <link rel="stylesheet" href="../assets/shCore.css" />
+  <link rel="stylesheet" href="../assets/shThemeDefault.css" />
+  <link rel="stylesheet" href="../style.css" />
+  <script src="../assets/shCore.js"></script>
+  <script src="../assets/shBrushXml-custom.js"></script>
+  <script src="../assets/shBrushCss.js"></script>
+  <script src="../assets/shBrushJScript.js"></script>
+  <script src="../assets/js.cookie.js"></script>
+  <script src="../assets/guide_setup.js"></script>
+  <title>Using Images on Web Pages</title>
+</head>
+<body>
+<header>
+  <div class="breadcrumbs">
+<a href="../index.html">CMPT 165 Study Guide</a>
+ &rarr; <a href="graphics.html" class="xref">Graphics</a>
+ &rarr; Using Images on Web Pages
+</div>
+  <h1>Using Images on Web Pages</h1>
+</header>
+<main id="main">
+
+
+<section id="img">
+<h2>The <code class="html">&lt;img&gt;</code> Tag</h2>
+
+<p>In the section <a href="html-urls.html" class="xref">URLs: Links and Images</a>, we briefly saw how to use the <code class="html">&lt;img&gt;</code> tag to embed images in web pages, but this topic deserves a little more attention. We started with elements like this:</p>
+
+<blockquote id="code-img1">
+<pre class="brush: html">&lt;p&gt;&lt;img src="http://example.com/vacation.jpg" alt="My vacation" /&gt;&lt;/p&gt;</pre>
+</blockquote>
+
+<p>Then when talking about relative URLs, we saw the (probably more useful) form with those URLs:</p>
+<blockquote id="code-img2">
+<pre class="brush: html">&lt;p&gt;&lt;img src="pics/vacation.jpg" alt="My vacation" /&gt;&lt;/p&gt;</pre>
+</blockquote>
+
+<p>If we look at the <a href="https://developer.mozilla.org/en/docs/Web/HTML/Element/img">HTML reference for <code class="html">&lt;img&gt;</code></a>, we see that only the <code class="html">src</code> attribute is really required (at least as of HTML5).</p>
+
+<p>The <code class="html">alt</code> attribute isn't entirely required, but it should be included if the image actually conveys any <em>content</em>. That is, if the image actually has some meaning, then <code class="html">alt</code> should be a text-equivalent of that meaning.</p>
+
+<p>Other attributes that you can (and generally should) include are <code class="html">width</code> and <code class="html">height</code>. These are used to give the browser a hint about how big the image is: how much space it will take up on the page. Both values are given in pixels.</p>
+<p>This way, the browser can display the HTML before it loads the image and discovers how large it is. That will make the page appear to load faster to the user: they will quickly see the page with an empty rectangle where the image goes, and the image will be drawn as it loads.</p>
+
+<blockquote id="code-img3">
+<pre class="brush: html">&lt;img src="pics/vacation.jpg" alt="Us on vacation"
+width="320" height="240" /&gt;</pre>
+</blockquote>
+
+<p>You should <strong>not</strong> use <code class="html">width</code> and <code class="html">height</code> to change the size of an image. If you make <code class="html">width</code> and <code class="html">height</code> different than the actual image size, then the browser will have to scale it and might not do it well. If you want the image to be a different size, then it should be scaled in an image editor.</p>
+</section>
+
+<section id="files">
+<h2>Image Files</h2>
+
+<p>When adding images to your page, you have to remember that the image files become part of your web site, as well as the HTML and CSS files. That means that they must be uploaded to the web server the same way as everything else.</p>
+
+<p>For example, if you have an image tag like our example:</p>
+<blockquote id="code-img2b">
+<pre class="brush: html">&lt;p&gt;&lt;img src="pics/vacation.jpg" alt="My vacation" /&gt;&lt;/p&gt;</pre>
+</blockquote>
+<p>&hellip; then you must have a folder <code class="file">pics</code> with a file <code class="file">vacation.jpg</code> inside. When you upload files to the web server, you should have the same structure.</p>
+
+<p>Again, URLs are case sensitive, so these are all different URLs: <code class="url">vacation.jpg</code>, <code class="url">Vacation.jpg</code>, <code class="url">vacation.JPG</code>. Make sure your URL matches the name of the file you're uploading: if not, the image won't load in the browser.</p>
+
+</section>
+
+<section id="filesize">
+<h2>File Sizes</h2>
+
+<p>When adding images to your web pages, it can be very easy to create pages that take an annoying amount of time to load.</p>
+
+<p>For example, suppose you want make an image gallery and include five images taken with your phone. If you use the images directly from your phone, then you are probably creating a page that is more than 10 megabytes. That page will probably load just fine when you're testing on your computer since it doesn't take a human-measurable amount of time to load that much data from your computer's disks.</p>
+
+<aside>I have included more information on <a href="../references.html#bandwidth">the download time calculation in the references</a>. More information on bits and bytes can be found later in the <a href="epilogue-bits.html" class="xref">Bits and Transmitting Information</a> section.</aside>
+
+<p>But after uploading the page and images to the web server, you might find that it takes 2&ndash;4 seconds to load the page on your home computer, which is pretty long to wait for a page. Then on your phone, you'd likely find that the page takes more like eight seconds to load (when you have a decent signal, and longer if you don't).</p>
+
+<p>The problem is simply that the total amount of data that must be downloaded is too large. Having five full-camera-sized images on one page just isn't a good idea.</p>
+
+<p>The most likely solution is the scale-down the images: you likely aren't displaying that many eight-megapixel images on one page. You probably want them to be scaled down, at least by half in each dimension leaving you with a quarter the total image size. A page with 2.5&nbsp;MB worth of image would still be large, but it's at least sane.</p>
+
+<p>When creating pages, keep the total size (HTML + CSS + images + JavaScript + &hellip;) in mind. If the total is more than <a href="http://css-tricks.com/poll-results-ideal-page-size/">about one megabyte</a>, you should start asking yourself if it's a good idea and looking for ways to shrink things. In general, it's a good idea to have pages as small as possible so they load quickly.</p>
+
+</section>
+
+
+</main>
+<footer>
+<a href="../index.html">CMPT 165 Study Guide</a>
+<div class="license">
+Copyright &copy; 2015&ndash;2016 Greg Baker
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="CC by-SA" src="../assets/cc-by-sa.svg" /></a>
+</div>
+</footer>
+</body>
+
+<!-- Mirrored from www.cs.sfu.ca/CourseCentral/165/common/study-guide/content/graphics-img.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 27 Feb 2018 02:41:33 GMT -->
+</html>

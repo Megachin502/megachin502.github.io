@@ -1,0 +1,15 @@
+# HTTrack Website Copier Cookie File
+# This file format is compatible with Netscape cookies
+en.wikipedia.org	TRUE	/	FALSE	1999999999	WMF-Last-Access	27-Feb-2018
+.wikipedia.org	TRUE	/	FALSE	1999999999	GeoIP	CA:BC:Township_of_Langley:49.17:-122.58:v4
+.wikimedia.org	TRUE	/	FALSE	1999999999	GeoIP	CA:BC:Township_of_Langley:49.17:-122.58:v4
+commons.wikimedia.org	TRUE	/	FALSE	1999999999	WMF-Last-Access	27-Feb-2018
+en.wikipedia.org	TRUE	/	FALSE	1999999999	enwikiSession	arq22fpdj3icso3o0qqalkh2gncsi6n0
+en.wikipedia.org	TRUE	/	FALSE	1999999999	forceHTTPS	true
+commons.wikimedia.org	TRUE	/	FALSE	1999999999	commonswikiSession	njqr7h80fi7gi0t8qrc4jemr4vfpni64
+commons.wikimedia.org	TRUE	/	FALSE	1999999999	forceHTTPS	true
+.wikipedia.org	TRUE	/	FALSE	1999999999	WMF-Last-Access-Global	27-Feb-2018
+.github.com	TRUE	/	FALSE	1999999999	logged_in	no
+github.com	TRUE	/	FALSE	1999999999	_gh_sess	eyJzZXNzaW9uX2lkIjoiMmMwYjQ5YmJkMjVlZmNkNTVhN2Y2MGY5NjNlZTBhOTYiLCJsYXN0X3JlYWRfZnJvbV9yZXBsaWNhcyI6MTUxOTY5OTQzNzA4MywicmVmZXJyYWxfY29kZSI6Imh0dHA6Ly93d3cuY3Muc2Z1LmNhL0NvdXJzZUNlbnRyYWwvMTY1L2NvbW1vbi9zdHVkeS1ndWlkZS9yZWZlcmVuY2VzLmh0bWwiLCJzcHlfcmVwbyI6Img1YnAvaHRtbDUtYm9pbGVycGxhdGUiLCJzcHlfcmVwb19hdCI6MTUxOTY5OTQzNiwiX2NzcmZfdG9rZW4iOiJLQTRGSUp1WXlFVmE2QjRzdGFPNzFoUTZ6Mk1rYSt1U3JTNUpnUFZHL0Q0PSIsInJldHVybl90byI6Ii9oNWJwL2h0bWw1LWJvaWxlcnBsYXRlL2Jsb2IvbWFzdGVyL3NyYy9jc3MvbWFpbi5jc3MifQ%3D%3D--ee73e3b869f09be10fd8e79242bfb808f67564c3
+upload.wikimedia.org	TRUE	/	FALSE	1999999999	WMF-Last-Access	27-Feb-2018
+

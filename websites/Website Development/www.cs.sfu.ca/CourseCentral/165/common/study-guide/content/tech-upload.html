@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" class="appendix">
+
+<!-- Mirrored from www.cs.sfu.ca/CourseCentral/165/common/study-guide/content/tech-upload.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 27 Feb 2018 02:42:10 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700%7CSource+Sans+Pro:400,400i,700,700i" />
+  <link rel="stylesheet" href="../assets/reset.css" />
+  <link rel="stylesheet" href="../assets/shCore.css" />
+  <link rel="stylesheet" href="../assets/shThemeDefault.css" />
+  <link rel="stylesheet" href="../style.css" />
+  <script src="../assets/shCore.js"></script>
+  <script src="../assets/shBrushXml-custom.js"></script>
+  <script src="../assets/shBrushCss.js"></script>
+  <script src="../assets/shBrushJScript.js"></script>
+  <script src="../assets/js.cookie.js"></script>
+  <script src="../assets/guide_setup.js"></script>
+  <title>Uploading Files</title>
+</head>
+<body>
+<header>
+  <div class="breadcrumbs">
+<a href="../index.html">CMPT 165 Study Guide</a>
+ &rarr; <a href="tech.html" class="xref">Technical Instructions</a>
+ &rarr; Uploading Files
+</div>
+  <h1>Uploading Files</h1>
+</header>
+<main id="main">
+
+
+<section id="cyberduck">
+<h2>Uploading with CyberDuck</h2>
+
+<p>These instructions will be for uploading with <a href="https://cyberduck.io/">CyberDuck</a>. It is available for both Windows and OSX. The screenshots here are OSX, but it looks similar in Windows
+</p>
+<p>You can also watch the <a href="https://www.youtube.com/watch?v=oTQiGJ2E_ig">video tutorial on uploading files</a>. It follows the same steps as the instructions here: use whichever instructions you prefer (or both).</p>
+
+<p>First, you'll need to install CyberDuck (you can accept all of the defaults in the installer) and start the program. Once the program is started, &ldquo;Open Connection&rdquo;.</p>
+<figure id="fig-cd1" class="block"><img src="../figures/cd1.png" alt="Starting CyberDuck" width="550" height="281" /><figcaption>Starting CyberDuck</figcaption></figure>
+
+<p>Select the &ldquo;SFTP (SSH File Transfer Protocol)&rdquo; option, because that's how you need to connect to the server.</p>
+<figure id="fig-cd2" class="block"><img src="../figures/cd2.png" alt="Selecting Connection Protocol" width="512" height="178" /><figcaption>Selecting Connection Protocol</figcaption></figure>
+
+<p>For the connection, use the server <code class="ip">cmpt165.csil.sfu.ca</code>, and your usual SFU username and password.</p>
+<figure id="fig-cd3" class="block"><img src="../figures/cd3.png" alt="Connection Details" width="471" height="269" /><figcaption>Connection Details</figcaption></figure>
+
+<p>The first time you connect, you'll be asked to verify the server's &ldquo;fingerprint&rdquo;. You can accept the one given.</p>
+
+<p>In your home directory, you'll see a folder <code class="file">public_html</code>. All of your web content must go in there: double-click to go into that folder.</p>
+<figure id="fig-cd4" class="block"><img src="../figures/cd4.png" alt="Home Directory" width="550" height="171" /><figcaption>Home Directory</figcaption></figure>
+
+<p>When you start the course, you should see a file <code class="file">index.html</code> in there.</p>
+<figure id="fig-cd5" class="block"><img src="../figures/cd5.png" alt="Initial public_html" width="550" height="170" /><figcaption>Initial public_html</figcaption></figure>
+
+<p>From the &ldquo;actions&rdquo; menu, select &ldquo;Upload&hellip;&rdquo;.</p>
+<figure id="fig-cd6" class="block"><img src="../figures/cd6.png" alt="Uploading a file" width="198" height="285" /><figcaption>Uploading a file</figcaption></figure>
+
+<p>Find the <code class="file">.html</code> file on your computer and upload it. After that, you should see it in the folder.</p>
+<figure id="fig-cd7" class="block"><img src="../figures/cd7.png" alt="After Uploading" width="551" height="189" /><figcaption>After Uploading</figcaption></figure>
+
+<p>Then you should be able to open a web browser, and type the URL of that resource to find it. It should be <code class="url">http://cmpt165.csil.sfu.ca/~<var>userid</var>/<var>filename.html</var></code>&nbsp;. (Substitute your SFU userid for <code class="url"><var>userid</var></code> and your filename for <code class="url"><var>filename.html</var></code>.)</p>
+<figure id="fig-cd8" class="block"><img src="../figures/cd8.png" alt="The URL in a Browser" width="520" height="181" /><figcaption>The URL in a Browser</figcaption></figure>
+
+<p>In URLs, <strong>case matters</strong>, so <code class="file">filename.html</code> and <code class="file">FILEname.html</code> will have <strong>different</strong> URLs. Make sure your URL matches your filename.</p>
+
+</section>
+
+
+</main>
+<footer>
+<a href="../index.html">CMPT 165 Study Guide</a>
+<div class="license">
+Copyright &copy; 2015&ndash;2016 Greg Baker
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="CC by-SA" src="../assets/cc-by-sa.svg" /></a>
+</div>
+</footer>
+</body>
+
+<!-- Mirrored from www.cs.sfu.ca/CourseCentral/165/common/study-guide/content/tech-upload.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 27 Feb 2018 02:42:12 GMT -->
+</html>

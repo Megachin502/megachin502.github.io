@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg style="position:relative" xmlns="http://www.w3.org/2000/svg" height="62.5" width="288" version="1.1" overflow="hidden">
+ <desc>Created with Raphaël 2.1.2</desc>
+ <rect style="" rx="0" ry="0" height="24" width="18" r="0" y="0" x="0" fill="#f00"/>
+ <text font-size="14px" font-family='&quot;Source Code Pro&quot;,monospace' transform="matrix(0,1,-1,0,54,32)" style='font:14px &quot;Source Code Pro&quot;,monospace' y="44" x="-5" font='10px &quot;Arial&quot;' fill="#000000">
+  <tspan dy="4.5">#f00</tspan>
+ </text>
+ <rect style="" rx="0" ry="0" height="24" width="18" r="0" y="0" x="18" fill="#f11"/>
+ <text font-size="14px" font-family='&quot;Source Code Pro&quot;,monospace' transform="matrix(0,1,-1,0,72,14)" style='font:14px &quot;Source Code Pro&quot;,monospace' y="44" x="13" font='10px &quot;Arial&quot;' fill="#000000">
+  <tspan dy="4.5">#f11</tspan>
+ </text>
+ <rect style="" rx="0" ry="0" height="24" width="18" r="0" y="0" x="36" fill="#f22"/>
+ <text font-size="14px" font-family='&quot;Source Code Pro&quot;,monospace' transform="matrix(0,1,-1,0,90,-4)" style='font:14px &quot;Source Code Pro&quot;,monospace' y="44" x="31" font='10px &quot;Arial&quot;' fill="#000000">
+  <tspan dy="4.5">#f22</tspan>
+ </text>
+ <rect style="" rx="0" ry="0" height="24" width="18" r="0" y="0" x="54" fill="#f33"/>
+ <text font-size="14px" font-family='&quot;Source Code Pro&quot;,monospace' transform="matrix(0,1,-1,0,108,-22)" style='font:14px &quot;Source Code Pro&quot;,monospace' y="44" x="49" font='10px &quot;Arial&quot;' fill="#000000">
+  <tspan dy="4.5">#f33</tspan>
+ </text>
+ <rect style="" rx="0" ry="0" height="24" width="18" r="0" y="0" x="72" fill="#f44"/>
+ <text font-size="14px" font-family='&quot;Source Code Pro&quot;,monospace' transform="matrix(0,1,-1,0,126,-40)" style='font:14px &quot;Source Code Pro&quot;,monospace' y="44" x="67" font='10px &quot;Arial&quot;' fill="#000000">
+  <tspan dy="4.5">#f44</tspan>
+ </text>
+ <rect style="" rx="0" ry="0" height="24" width="18" r="0" y="0" x="90" fill="#f55"/>
+ <text font-size="14px" font-family='&quot;Source Code Pro&quot;,monospace' transform="matrix(0,1,-1,0,144,-58)" style='font:14px &quot;Source Code Pro&quot;,monospace' y="44" x="85" font='10px &quot;Arial&quot;' fill="#000000">
+  <tspan dy="4.5">#f55</tspan>
+ </text>
+ <rect style="" rx="0" ry="0" height="24" width="18" r="0" y="0" x="108" fill="#f66"/>
+ <text font-size="14px" font-family='&quot;Source Code Pro&quot;,monospace' transform="matrix(0,1,-1,0,162,-76)" style='font:14px &quot;Source Code Pro&quot;,monospace' y="44" x="103" font='10px &quot;Arial&quot;' fill="#000000">
+  <tspan dy="4.5">#f66</tspan>
+ </text>
+ <rect style="" rx="0" ry="0" height="24" width="18" r="0" y="0" x="126" fill="#f77"/>
+ <text font-size="14px" font-family='&quot;Source Code Pro&quot;,monospace' transform="matrix(0,1,-1,0,180,-94)" style='font:14px &quot;Source Code Pro&quot;,monospace' y="44" x="121" font='10px &quot;Arial&quot;' fill="#000000">
+  <tspan dy="4.5">#f77</tspan>
+ </text>
+ <rect style="" rx="0" ry="0" height="24" width="18" r="0" y="0" x="144" fill="#f88"/>
+ <text font-size="14px" font-family='&quot;Source Code Pro&quot;,monospace' transform="matrix(0,1,-1,0,198,-112)" style='font:14px &quot;Source Code Pro&quot;,monospace' y="44" x="139" font='10px &quot;Arial&quot;' fill="#000000">
+  <tspan dy="4.5">#f88</tspan>
+ </text>
+ <rect style="" rx="0" ry="0" height="24" width="18" r="0" y="0" x="162" fill="#f99"/>
+ <text font-size="14px" font-family='&quot;Source Code Pro&quot;,monospace' transform="matrix(0,1,-1,0,216,-130)" style='font:14px &quot;Source Code Pro&quot;,monospace' y="44" x="157" font='10px &quot;Arial&quot;' fill="#000000">
+  <tspan dy="4.5">#f99</tspan>
+ </text>
+ <rect style="" rx="0" ry="0" height="24" width="18" r="0" y="0" x="180" fill="#faa"/>
+ <text font-size="14px" font-family='&quot;Source Code Pro&quot;,monospace' transform="matrix(0,1,-1,0,234,-148)" style='font:14px &quot;Source Code Pro&quot;,monospace' y="44" x="175" font='10px &quot;Arial&quot;' fill="#000000">
+  <tspan dy="4.5">#faa</tspan>
+ </text>
+ <rect style="" rx="0" ry="0" height="24" width="18" r="0" y="0" x="198" fill="#fbb"/>
+ <text font-size="14px" font-family='&quot;Source Code Pro&quot;,monospace' transform="matrix(0,1,-1,0,252,-166)" style='font:14px &quot;Source Code Pro&quot;,monospace' y="44" x="193" font='10px &quot;Arial&quot;' fill="#000000">
+  <tspan dy="4.5">#fbb</tspan>
+ </text>
+ <rect style="" rx="0" ry="0" height="24" width="18" r="0" y="0" x="216" fill="#fcc"/>
+ <text font-size="14px" font-family='&quot;Source Code Pro&quot;,monospace' transform="matrix(0,1,-1,0,270,-184)" style='font:14px &quot;Source Code Pro&quot;,monospace' y="44" x="211" font='10px &quot;Arial&quot;' fill="#000000">
+  <tspan dy="4.5">#fcc</tspan>
+ </text>
+ <rect style="" rx="0" ry="0" height="24" width="18" r="0" y="0" x="234" fill="#fdd"/>
+ <text font-size="14px" font-family='&quot;Source Code Pro&quot;,monospace' transform="matrix(0,1,-1,0,288,-202)" style='font:14px &quot;Source Code Pro&quot;,monospace' y="44" x="229" font='10px &quot;Arial&quot;' fill="#000000">
+  <tspan dy="4.5">#fdd</tspan>
+ </text>
+ <rect style="" rx="0" ry="0" height="24" width="18" r="0" y="0" x="252" fill="#fee"/>
+ <text font-size="14px" font-family='&quot;Source Code Pro&quot;,monospace' transform="matrix(0,1,-1,0,306,-220)" style='font:14px &quot;Source Code Pro&quot;,monospace' y="44" x="247" font='10px &quot;Arial&quot;' fill="#000000">
+  <tspan dy="4.5">#fee</tspan>
+ </text>
+ <rect style="" rx="0" ry="0" height="24" width="18" r="0" y="0" x="270" fill="#fff"/>
+ <text font-size="14px" font-family='&quot;Source Code Pro&quot;,monospace' transform="matrix(0,1,-1,0,324,-238)" style='font:14px &quot;Source Code Pro&quot;,monospace' y="44" x="265" font='10px &quot;Arial&quot;' fill="#000000">
+  <tspan dy="4.5">#fff</tspan>
+ </text>
+</svg>

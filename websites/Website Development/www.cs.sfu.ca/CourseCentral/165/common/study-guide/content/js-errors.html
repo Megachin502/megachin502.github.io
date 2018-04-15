@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" class="section">
+
+<!-- Mirrored from www.cs.sfu.ca/CourseCentral/165/common/study-guide/content/js-errors.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 27 Feb 2018 02:41:33 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700%7CSource+Sans+Pro:400,400i,700,700i" />
+  <link rel="stylesheet" href="../assets/reset.css" />
+  <link rel="stylesheet" href="../assets/shCore.css" />
+  <link rel="stylesheet" href="../assets/shThemeDefault.css" />
+  <link rel="stylesheet" href="../style.css" />
+  <script src="../assets/shCore.js"></script>
+  <script src="../assets/shBrushXml-custom.js"></script>
+  <script src="../assets/shBrushCss.js"></script>
+  <script src="../assets/shBrushJScript.js"></script>
+  <script src="../assets/js.cookie.js"></script>
+  <script src="../assets/guide_setup.js"></script>
+  <title>Why doesn't my code work?</title>
+</head>
+<body>
+<header>
+  <div class="breadcrumbs">
+<a href="../index.html">CMPT 165 Study Guide</a>
+ &rarr; <a href="js.html" class="xref">JavaScript Introduction</a>
+ &rarr; Why doesn't my code work?
+</div>
+  <h1>Why doesn't my code work?</h1>
+</header>
+<main id="main">
+
+
+
+<section id="correct">
+<h2>Step 1: What's my code supposed to do?</h2>
+
+<p>If you have any hope of getting your code to work, you'd better know what you expect it to do in order to get the right results.</p>
+
+<p>If you don't know what you want your code to do, take your hands away from the keyboard and figure it out. There's no hope if you don't have a plan for how to get your result.</p>
+
+<p>Ask yourself how the computer can get to the result you want: what steps need to be taken? What needs to happen? What do you need to do with the results?</p>
+
+<p>Once you have that clear for yourself, you can start to figure out why the code you have written isn't doing that.</p>
+
+</section>
+
+
+
+<section id="inspecting">
+<h2>Step 2: What's my code doing?</h2>
+
+<p>Assuming you know what you <em>want</em> your code to do, you can start asking where things diverge. In order to do that, you need to be able to look at see what's happening in your code.</p>
+
+<p>First, if your code doesn't seem to be doing <em>anything</em>, then you may have an error in your code that's preventing the browser from running it. The &ldquo;Console&rdquo; tab of your browser's developer tools will show you any errors with your code. (See <a href="tech-devtools.html" class="xref">Browser Developer Tools</a> for more info on the developer tools.). You'll see a description of the error, and the line number in the console.</p>
+
+<p>The easiest way to start diagnosing problems with your logic is the <code class="js">alert()</code> function, which we have already seen. You can insert an <code class="js">alert()</code> to confirm that a particular function is running when you expect. Since you can see the alert window and message, you know that line of code ran.</p>
+
+<p>Having a lot of alerts popping up can make it difficult to work with your page, even for debugging. A cleaner alternative is the <code class="js">console.log()</code> function. This takes whatever you give it as an argument and displays it in the &ldquo;Console&rdquo; tab.</p>
+
+<p>For example, if you are trying to connect a click event but can't tell if your code is running, you can add a couple of <code class="js">console.log()</code> calls like this.</p>
+
+<blockquote id="code-error1">
+<pre class="brush: js">something_click = function() {
+  console.log('something_click running')
+  ⋮
+}
+setup = function() {
+  console.log('setup running')
+  jQuery('#something').click(something_click)
+}
+jQuery(document).ready(setup)</pre>
+</blockquote>
+
+<p>You would then <em>hope</em> that after loading the pack and clicking to trigger the event, you would see something like this in the console:</p>
+d
+<figure id="fig-console1" class="block"><img src="../figures/console1.png" alt="Dev tools console after producing some logs" width="369" height="92" /><figcaption>Dev tools console after producing some logs</figcaption></figure>
+
+<p>By adding these log outputs, you have learned something: maybe the <code class="js">setup</code> function never ran and you need to figure out why; maybe <code class="js">something_click</code> didn't run because the event wasn't connected property; maybe it ran but didn't have the desired outcome. In any case, you have narrowed down where to look for the problem.</p>
+
+<p>If you're unsure on the value of a variable at a certain point, you can log their values as well to see if they are what you expect:</p>
+
+<blockquote id="code-error2">
+<pre class="brush: js">console.log('x and y are...')
+console.log(x)
+console.log(y)</pre>
+</blockquote>
+
+<p>You can use these tools (like these examples or other ways) to figure out where the difference is between your expectations and what's actually happening in your code.</p>
+
+</section>
+
+
+
+</main>
+<footer>
+<a href="../index.html">CMPT 165 Study Guide</a>
+<div class="license">
+Copyright &copy; 2015&ndash;2016 Greg Baker
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="CC by-SA" src="../assets/cc-by-sa.svg" /></a>
+</div>
+</footer>
+</body>
+
+<!-- Mirrored from www.cs.sfu.ca/CourseCentral/165/common/study-guide/content/js-errors.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 27 Feb 2018 02:41:33 GMT -->
+</html>

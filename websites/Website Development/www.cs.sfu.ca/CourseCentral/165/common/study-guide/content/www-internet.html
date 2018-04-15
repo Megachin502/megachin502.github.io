@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en" class="section">
+
+<!-- Mirrored from www.cs.sfu.ca/CourseCentral/165/common/study-guide/content/www-internet.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 27 Feb 2018 02:41:18 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700%7CSource+Sans+Pro:400,400i,700,700i" />
+  <link rel="stylesheet" href="../assets/reset.css" />
+  <link rel="stylesheet" href="../assets/shCore.css" />
+  <link rel="stylesheet" href="../assets/shThemeDefault.css" />
+  <link rel="stylesheet" href="../style.css" />
+  <script src="../assets/shCore.js"></script>
+  <script src="../assets/shBrushXml-custom.js"></script>
+  <script src="../assets/shBrushCss.js"></script>
+  <script src="../assets/shBrushJScript.js"></script>
+  <script src="../assets/js.cookie.js"></script>
+  <script src="../assets/guide_setup.js"></script>
+  <title>The Internet</title>
+</head>
+<body>
+<header>
+  <div class="breadcrumbs">
+<a href="../index.html">CMPT 165 Study Guide</a>
+ &rarr; <a href="www.html" class="xref">The Internet and the World Wide Web</a>
+ &rarr; The Internet
+</div>
+  <h1>The Internet</h1>
+</header>
+<main id="main">
+
+<p id="internet">You probably know what <dfn>the Internet</dfn> is, at least somewhat.</p>
+
+<p>But there are more details to what &ldquo;the Internet&rdquo; is than most people know about. It makes sense to start with a little bit of an introduction into what the Internet actually <em>is</em>.</p>
+
+<p>Fundamentally, the Internet is a collection of computer that are connected: they can exchange information. Every computer &ldquo;on the Internet&rdquo; is connected to one or more other computers. There are many ways to connect</p>
+
+<section id="connections">
+<h2>How Computers Are Connected</h2>
+
+<p>Computers on the Internet can be connected to each other so they can exchange information in many different ways. This is part of what makes the Internet so flexible: different devices can connect to it in different ways, but still all work together.</p>
+
+<section id="in-home-connection">
+<h3>Network Connections At Home</h3>
+
+<p>Let's start with the kinds of connections you might actually deal with. On home computers, you probably have computers connected by one of two methods: Ethernet or Wi-Fi.</p>
+
+<figure id="fig-ethernet" class="floating"><img src="../floats/ethernet.jpg" alt="An Ethernet cable connected to a laptop" width="160" height="120" /><figcaption>An Ethernet cable connected to a laptop&nbsp;<a href="../references.html">*</a></figcaption></figure>
+
+<p id="ethernet">If there is an actual cable connecting to your computer, it is probably <dfn>Ethernet</dfn>. An Ethernet connection is used over relatively short distances (up to 100 metres) but can transmit data very quickly (probably up to 100 or 1000 Mbits/s in home networks). This makes Ethernet very good for homes and offices: everything is close enough together, and its fast enough to stream video at home or move large files between computers in an office.</p>
+
+<p id="wifi">If a home computer (or phone or tablet: they're the same as any other computer in this context) doesn't have a wired Ethernet connection, it probably uses <dfn>Wi-Fi</dfn> connection (also called <dfn>802.11</dfn>). Wi-Fi uses radio waves to transmit information. Like Ethernet, it is used over relatively short distances (maybe up to 100 metres, depending how many walls are in the way) and transmits data quickly (up to 54 Mbits/s or even 150 Mbits/s, but usually less because of interference from other wireless signals, loss from going through walls, etc).</p>
+
+<figure id="fig-router" class="floating"><img src="../floats/router.jpg" alt="A home router" width="160" height="114" /><figcaption>A home router&nbsp;<a href="../references.html">*</a></figcaption></figure>
+
+<p id="home-router">But in order to be connected <em>to the Internet</em>, a home computer must be connected to <em>another computer</em>. Most homes have a <dfn>router</dfn> which all of the computers (and phones and other devices) connect to. The router is actually a small computer whose job it is to connect to other devices and in turn connect them to the outside Internet.</p>
+
+<p>Most home routers connect to a few computer inside the house (usually up to four computers with Ethernet and more by Wi-Fi). They also connect to the outside Internet: usually over a wired Ethernet connection.</p>
+</section>
+
+<section id="home-internet-connection">
+<h3>Connections from Home to the Internet</h3>
+
+<p id="isp">A home router (or a home computer without a router) must be connected to the outside Internet somehow. This is the part that costs money: you pay an <dfn>ISP</dfn> (<dfn>Internet Service Provider</dfn>) to connect your home.</p>
+
+<p>Depending where you live, there are probably a few options of ISP. The limiting factor is essentially the number of ways to get data to every home: running new wires to every house is prohibitively expensive, so ISPs are traditionally companies that <em>already</em> had some connectivity to homes.</p>
+
+<p id="cable">Cable television companies (Shaw or a reseller for Vancouverites) can transmit data to and from your home over their television cables. This is done with the help of a <dfn>cable modem</dfn> which converts the signals of your home network (Ethernet) to and from a signal that can be carried by their cables.</p>
+
+<p id="dsl">Phone companies (Telus or a reseller) can use their phone network for data. Again, customers have a <dfn>DSL modem</dfn> which connects the home network to the phone lines.</p>
+
+<p>These are probably the most common, but there may be other options available to you as well. If you live in a recently-built high-rise building, the building may have had high-speed Internet installed when it was built. In rural areas, long-distance wireless or even satellite technologies might be more cost-effective than installing phyisical connections to each home.</p>
+</section>
+
+<section id="phone-internet">
+<h3>Mobile Internet</h3>
+
+<p>We also shouldn't forget the way that many people connect to the Internet: with their phones.</p>
+
+<p>Modern mobile phones can sent Internet data to and from the tower they are connected to wirelessly. The specific technologies aren't important, but you may have heard of these, from slowest to fastest: GSM, EDGE, 3G, HSPA, LTE.</p>
+
+<p>Phones will often use both Wi-Fi (when it's available) and the mobile network when it isn't. In either case, the result is the same: they can send and receive information over the Internet. Even though the transition from mobile network to and from Wi-Fi is transparent to the user, they are very different ways to transmit Internet data.</p>
+</section>
+
+<section id="internet-infrastructure">
+<h3>Internet Infrastructure</h3>
+
+<figure id="fig-optical-fibre" class="floating"><img src="../floats/optical-fibre.jpg" alt="Strands of optical fibre (with no connector on the end)" width="159" height="240" /><figcaption>Strands of optical fibre (with no connector on the end)&nbsp;<a href="../references.html">*</a></figcaption></figure>
+
+<p>None of the connections mentioned above can do something that is very important to the infrastructure of the Internet: send lots of data quickly over long distances. That's not something that the average home user worries about, but it's critical to actually get information across the planet.</p>
+
+<p id="fibre">These connections are done with <dfn>fibre optic</dfn> cables. These cables use long strands of glass or plastic to transmit light pulses that are used to encode data. These can transmit incredible amounts of data and over very long distances (up to 100 km without any amplifiers).</p>
+
+<p>Because they work so well over long distances, fibre optic cables can be buried to make Internet connections between cities, or sunk to cross oceans.</p>
+
+<aside>The <a href="http://www.submarinecablemap.com/">Submarine Cable Map</a> has information about the major underseas cables that carry data between continents.</aside>
+
+</section>
+</section>
+
+<section id="routing">
+<h2>How Information Travels</h2>
+
+<p>In order to pass information between two distant computers, the message is passed along from the computer where it originates to a computer it is connected to. From there, it is passed to another computer, and another, and so on until it reaches its destination. Each of these steps could be any of the connection methods described above, or something else entirely.</p>
+
+<p>Let's look at a simplified example of the way some computer might be connected:</p>
+<figure id="fig-internet" class="block"><img src="../figures/internet.svg" alt="Examples of how computers might be connected" width="588" height="311" /><figcaption>Examples of how computers might be connected&nbsp;<a href="../references.html">*</a></figcaption></figure>
+
+<p>We might imagine that A&ndash;D are the computers in one house connected by some combination of Ethernet and Wi-Fi to a router (D). Computers E&ndash;H might be a house next door.</p>
+
+<p>There are a few things we can notice right away here. First, not everything we're calling a &ldquo;computer&rdquo; is something that looks like what you would call a computer: phones, tablets, and even things like printers that are network-connected take on the same role as anything else on the network (but maybe with different functionality). The routers (D and H) are connected to all of the devices in each house, as well as to something outside.</p>
+
+<p>Computers with a single connection (at one time: like pretty much every computer, phone, or tablet you have used) have a very simple job: all information they want to send out is sent along the one connection.</p>
+
+<p id="router">Some computers have multiple connections. These computers have to be a little smarter about how they send out information and must pass the information along in the correct &ldquo;direction&rdquo;. These are <dfn>routers</dfn> (because they know how to &ldquo;route&rdquo; information).</p>
+
+<p>Also notice in the above figure that there are multiple paths between some computers: if A wants to communicate with P, information can be passed either through J/M or K/N. That gives the network fault tolerance: if computer J has a power failure, or the cable between J and M is severed by a backhoe, then communications can continue using the other path. They may slower because the remaining link is overloaded, but everything is still connected.</p>
+
+<p>Of course, the actual Internet is bigger than that figure: there are millions of computers connected and there are typically 15&ndash;20 hops between two computers at the edges. There is also more redundancy: there may be many ways to get information between two cities. Usually the fastest one is used, but if it stops working there are slightly-slower alternatives that can share the traffic.</p>
+
+</section>
+
+
+
+
+</main>
+<footer>
+<a href="../index.html">CMPT 165 Study Guide</a>
+<div class="license">
+Copyright &copy; 2015&ndash;2016 Greg Baker
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="CC by-SA" src="../assets/cc-by-sa.svg" /></a>
+</div>
+</footer>
+</body>
+
+<!-- Mirrored from www.cs.sfu.ca/CourseCentral/165/common/study-guide/content/www-internet.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 27 Feb 2018 02:41:19 GMT -->
+</html>

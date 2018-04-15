@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg style="position:relative;top:-0.866669px" xmlns="http://www.w3.org/2000/svg" height="270" width="400" version="1.1" overflow="hidden">
+ <desc>Created with Raphaël 2.1.2</desc>
+ <path stroke="#f00" stroke-width="3" style="" d="m50 20l340 10" fill="none"/>
+ <path stroke="#0c0" stroke-width="3" style="" d="m50 40l210-30 20 30h110" fill="none"/>
+ <path stroke="#00d" stroke-width="3" style="" d="m50 60l210-30 20 30z" fill="none"/>
+ <path stroke="#f70" stroke-width="3" style="" d="m50 80t100 0 0 20 240-20" fill="none"/>
+ <circle style="" stroke="#000" cy="80" cx="150" r="3" fill="#f70"/>
+ <circle style="" stroke="#000" cy="100" cx="150" r="3" fill="#f70"/>
+ <path stroke="#a0f" stroke-width="3" style="" d="m50 120q100 60 100 0" fill="none"/>
+ <circle style="" stroke="#000" cy="180" cx="150" r="3" fill="#a0f"/>
+ <path stroke="#cc0" stroke-width="3" style="" d="m200 120q180 50 100 0" fill="none"/>
+ <circle style="" stroke="#000" cy="170" cx="380" r="3" fill="#cc0"/>
+ <path stroke="#000" stroke-width="3" style="" d="m50 220l130 40q40 0 40-40 130 0 80 20z" fill="none"/>
+ <text style='font:10px &quot;Arial&quot;;text-anchor:middle' text-anchor="middle" y="20" x="30" font='10px &quot;Arial&quot;' fill="#000000">
+  <tspan dy="3.5">p1</tspan>
+ </text>
+ <text style='font:10px &quot;Arial&quot;;text-anchor:middle' text-anchor="middle" y="40" x="30" font='10px &quot;Arial&quot;' fill="#000000">
+  <tspan dy="3.5">p2</tspan>
+ </text>
+ <text style='font:10px &quot;Arial&quot;;text-anchor:middle' text-anchor="middle" y="60" x="30" font='10px &quot;Arial&quot;' fill="#000000">
+  <tspan dy="3.5">p3</tspan>
+ </text>
+ <text style='font:10px &quot;Arial&quot;;text-anchor:middle' text-anchor="middle" y="80" x="30" font='10px &quot;Arial&quot;' fill="#000000">
+  <tspan dy="3.5">p4</tspan>
+ </text>
+ <text style='font:10px &quot;Arial&quot;;text-anchor:middle' text-anchor="middle" y="120" x="30" font='10px &quot;Arial&quot;' fill="#000000">
+  <tspan dy="3.5">p5</tspan>
+ </text>
+ <text style='font:10px &quot;Arial&quot;;text-anchor:middle' text-anchor="middle" y="120" x="180" font='10px &quot;Arial&quot;' fill="#000000">
+  <tspan dy="3.5">p6</tspan>
+ </text>
+ <text style='font:10px &quot;Arial&quot;;text-anchor:middle' text-anchor="middle" y="220" x="30" font='10px &quot;Arial&quot;' fill="#000000">
+  <tspan dy="3.5">p7</tspan>
+ </text>
+</svg>

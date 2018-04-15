@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en" class="section">
+
+<!-- Mirrored from www.cs.sfu.ca/CourseCentral/165/common/study-guide/content/css2-responsive.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 27 Feb 2018 02:41:51 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700%7CSource+Sans+Pro:400,400i,700,700i" />
+  <link rel="stylesheet" href="../assets/reset.css" />
+  <link rel="stylesheet" href="../assets/shCore.css" />
+  <link rel="stylesheet" href="../assets/shThemeDefault.css" />
+  <link rel="stylesheet" href="../style.css" />
+  <script src="../assets/shCore.js"></script>
+  <script src="../assets/shBrushXml-custom.js"></script>
+  <script src="../assets/shBrushCss.js"></script>
+  <script src="../assets/shBrushJScript.js"></script>
+  <script src="../assets/js.cookie.js"></script>
+  <script src="../assets/guide_setup.js"></script>
+  <title>Responsive Design</title>
+</head>
+<body>
+<header>
+  <div class="breadcrumbs">
+<a href="../index.html">CMPT 165 Study Guide</a>
+ &rarr; <a href="css2.html" class="xref">More CSS</a>
+ &rarr; Responsive Design
+</div>
+  <h1>Responsive Design</h1>
+</header>
+<main id="main">
+
+
+<p>One of the difficult things about designing for the web is that we don't get to really control the way our content is viewed: the user's web browser is responsible for processing our HTML, CSS, and JavaScript.</p>
+
+<p id="responsive">When designing web pages, you should try to create <dfn data-term="responsive design">responsive designs</dfn>. That is, make sure your pages are nicely readable on a wide variety of devices.</p>
+
+
+<section id="sizes">
+<h2>Device Sizes</h2>
+
+<p>Recall the page from <a href="css2-positioning.html#position" class="xref">Positioning in CSS</a> that used <code class="css">position: absolute</code>. We showed this screenshot of the page (scaled for comparison with the later screenshots):</p>
+
+<figure id="fig-position3" class="block"><img src="../figures/position3.png" alt="Page with positioning" width="280" height="53" /><figcaption>Page with positioning</figcaption></figure>
+
+<p>But if you were working with the same stylesheet, that's probably not exactly what the page would look like: your screen is probably larger than that. (The screenshots here are taken in quite small browser windows, so they are readable.) Your view of the same page would have been more like this, a screenshot from a (not particularly large) desktop display:</p>
+
+<figure id="fig-position3-wide" class="block"><img src="../figures/position3-wide.png" alt="Page with positioning: desktop screen" width="523" height="88" /><figcaption>Page with positioning: desktop screen</figcaption></figure>
+
+<p>This page <strong>looks perfectly fine with that window size</strong>. When working on the page, it would be very easy to look at it and conclude that everything fits together with no overlap. Unfortunately, that would only be true with that window size (or in this case, anything larger).</p>
+
+<p>On a phone, the same page would look something like this, again depending on the exact screen size. The overlap is even worse.</p>
+
+<figure id="fig-position3-small" class="block"><img src="../figures/position3-small.png" alt="Page with positioning: phone-sized window" width="180" height="126" /><figcaption>Page with positioning: phone-sized window</figcaption></figure>
+
+<p>Many beginners to web design make the mistake of only looking at their pages on their own screen, and never test on larger or smaller screens. Be careful not to fall into his trap.</p>
+
+<p>Since most people create web pages on desktop computer or laptops, larger screens aren't usually the problem: they are working on a large screen already. Here are some ways that every web developer should test their pages:</p>
+
+<ul>
+<li>Resize your browser window: not everybody has the same screen, or keeps their browser maximized.</li>
+<li>Shrink your browser window to a phone-like size to see how the elements of your page fit with smaller space. Even better: actually try the page on a smartphone.</li>
+<li>Try the largest browser window you can (and scale the page with <kbd>ctrl-minus</kbd>/<kbd>⌘-minus</kbd> and <kbd>ctrl-plus</kbd>/<kbd>⌘-plus</kbd> to get an even wider range), to make sure things are still readable.</li>
+</ul>
+
+<p>One common problem on larger screens is long lines: lines of text that extend all the way across a large display are very difficult to read. It may be wise to start with CSS like this, to help keep things readable:&nbsp;<a href="../references.html#css-template">*</a></p>
+
+<blockquote id="code-css-template">
+<pre class="brush: css">body {
+  max-width: 40em;
+  line-height: 1.4;
+  margin: 1em auto;
+  color: #333;
+}</pre>
+</blockquote>
+
+<p>This makes sure lines aren't too long (up to <code class="css">40em</code>, depending on device width) and that lines have a reasonable spacing (<code class="css">line-height</code>) to keep even that width easily readable. The third line sets a <code class="css">1em</code> margin on the top and bottom, and an automatically-maximum margin on the left and right: that centres the text. Finally, the dark-grey text colour is common advice to slightly reduce the contrast to make text more readable.</p>
+
+<p>The style for this Guide includes most of the above, except with maximum line length <code class="css">50em</code> to create enough width for code examples.</p>
+
+</section>
+
+
+<section id="mobile">
+<h2>Being Mobile-Friendly</h2>
+
+<p>Making your pages look good on small-screen mobile browsers isn't always easy. In part, this is because mobile browsers are trying to outsmart you: they might get a beautiful mobile-friendly design, or they might have to display a desktop-only site as best they can, and have to detect which situation they're in.</p>
+
+<p>Often, phone browsers will decide that your page isn't mobile-friendly and display it with a desktop-like width like this:</p>
+
+<figure id="fig-viewport-without" class="block"><img src="../figures/viewport-without.png" alt="Phone screenshot without  viewport meta" width="351" height="33" /><figcaption>Phone screenshot without  viewport meta</figcaption></figure>
+
+<p>You have to take one small step to tell mobile browsers you know what you're doing. Add this to the <code class="html">&lt;head&gt;</code> of your pages:</p>
+
+<blockquote id="code-viewport">
+<pre class="brush: html">&lt;meta name="viewport" content="width=device-width,initial-scale=1" /&gt;</pre>
+</blockquote>
+
+<p>The details aren't important, only that this line tells mobile browsers that your page can be displayed nicely on small screens, and that you'll take responsibility for having a responsive design. The result is that pages are displayed on phones with a reasonable page with. This is the same page (on the same phone) with the <code class="html">&lt;meta&gt;</code> above added:</p>
+
+<figure id="fig-viewport-with" class="block"><img src="../figures/viewport-with.png" alt="Phone screenshot with viewport meta" width="351" height="129" /><figcaption>Phone screenshot with viewport meta</figcaption></figure>
+
+<p>That <code class="html">&lt;meta&gt;</code> tag, combined with the the basic CSS above, will make a page that is readable on any device. Design decisions you make after that might break on different browser sizes, but at least things have started well.</p>
+
+</section>
+
+
+<section id="media">
+<h2>Media Queries</h2>
+
+<p>It's often possible to adapt your design to different screen sizes by just testing on different windows sizes and tweaking your HTML. If you can do this, it's probably easiest.</p>
+
+<p>Situations can arise where you need a page to look very different on smaller screens: the way things were arranged make sense on larger screens, but not on smaller ones. This is especially true if you have elements arranged beside one another with <code class="css">float</code> or <code class="css">position</code>.</p>
+
+<p>For example, consider our first example with the <code class="css">float</code> property. It looked okay in the screenshot (if we ignore the float-beside-heading problem for now):</p>
+
+<figure id="fig-position1" class="block"><img src="../figures/position1.png" alt="Page with float applied" width="276" height="104" /><figcaption>Page with float applied</figcaption></figure>
+
+<p>But if we look at the same page on a phone-sized window, the paragraph beside the floating figure is a little too narrow (or certainly would be if the figure was much larger):</p>
+
+<figure id="fig-position1-small" class="block"><img src="../figures/position1-small.png" alt="Page with float: phone-sized window" width="176" height="132" /><figcaption>Page with float: phone-sized window</figcaption></figure>
+
+<p id="media-sel">In this case, we might want to completely change the way the figure is positioned on small screens. We can use CSS <dfn>media queries</dfn> to do this. They give us a way to express &ldquo;on a smaller screen, do this&hellip;&rdquo; in our style.</p>
+
+<p>For example, we can say that if the screen is smaller than 480 pixels (a common dividing line for phone-like screens: tablets and computer displays are typically larger than that), we don't want to float the figure, but want to style it differently:</p>
+
+<blockquote id="code-position6-9">
+<pre class="brush: css">#happy {
+  float: right;
+}
+@media (max-width: 480px) {
+  #happy {
+    float: none;
+    text-align: center;
+  }
+}</pre>
+</blockquote>
+
+<p>In larger browser windows, the page will look as above. On a phone-sized screen, it will now look like this:</p>
+
+<figure id="fig-position6-small" class="block"><img src="../figures/position6-small.png" alt="Page with media query: phone-sized window" width="174" height="171" /><figcaption>Page with media query: phone-sized window</figcaption></figure>
+
+<p>You can <a href="../files/position738c.html?style=6">try this example</a>: the size selector on the page won't trigger the media query if the window size is still large. You'll have to resize your browser window to see the change.</p>
+
+<p>It's also possible to modify your style for other situations. For example, you might decide that if pages are being printed, you don't want the figures to display at all. This expresses that:</p>
+
+<blockquote id="code-position6-18">
+<pre class="brush: css">@media print {
+  figure {
+    display: none;
+  }
+}</pre>
+</blockquote>
+
+<p>If you do a &ldquo;Print Preview&rdquo; on that <a href="../files/position738c.html?style=6">same example</a>, you shouldn't see the image (but should see it in all cases for on-screen browsing).</p>
+
+<p>Another example: the text of this Guide is usually <a href="https://en.wikipedia.org/wiki/Typographic_alignment#Justified">full justified</a>. That doesn't look great on a small screens since the spaces between words become very large. The CSS for the Guide includes this:</p>
+
+<blockquote id="code-media-justify">
+<pre class="brush: css">body {
+  text-align: justify;
+}
+@media (max-width: 480px) {
+  body {
+    text-align: left;
+  }
+}</pre>
+</blockquote>
+
+<p>The <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries#width">media queries</a> in CSS give you a lot of power to adapt your design to different situations, both screen sizes and other considerations. They require you to actually <em>think</em> about those situations, which is often the hard part.</p>
+
+</section>
+
+
+
+
+</main>
+<footer>
+<a href="../index.html">CMPT 165 Study Guide</a>
+<div class="license">
+Copyright &copy; 2015&ndash;2016 Greg Baker
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="CC by-SA" src="../assets/cc-by-sa.svg" /></a>
+</div>
+</footer>
+</body>
+
+<!-- Mirrored from www.cs.sfu.ca/CourseCentral/165/common/study-guide/content/css2-responsive.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 27 Feb 2018 02:41:53 GMT -->
+</html>

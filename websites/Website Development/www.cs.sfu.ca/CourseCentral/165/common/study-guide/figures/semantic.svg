@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.w3.org/2000/svg" height="70.836" width="265" version="1.1" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/">
+ <metadata>
+  <rdf:RDF>
+   <cc:Work rdf:about="">
+    <dc:format>image/svg+xml</dc:format>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:title/>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <g font-size="14px" fill="#000000" font-family="FreeSans,sans-serif" transform="translate(-51.475 -57.398)">
+  <text style="word-spacing:0px;letter-spacing:0px" xml:space="preserve" y="68.771698" x="52.265335" line-height="125%"><tspan x="52.265335" y="68.771698">Why do <tspan font-weight="600" font-size="14px" line-height="125%" font-family="FreeSans,sans-serif">you</tspan> think that is interesting?</tspan></text>
+  <text style="word-spacing:0px;letter-spacing:0px" xml:space="preserve" y="87.327888" x="52.265335" line-height="125%"><tspan x="52.265335" y="87.327888">You must <tspan font-weight="600" font-size="14px" line-height="125%" font-family="FreeSans,sans-serif">never</tspan> let that happen.</tspan></text>
+  <text style="word-spacing:0px;letter-spacing:0px" xml:space="preserve" y="125.17527" x="51.915337" line-height="125%"><tspan x="51.915337" y="125.17527">Oh well, <tspan font-style="italic">c&apos;est la vie</tspan>.</tspan></text>
+  <text style="word-spacing:0px;letter-spacing:0px" xml:space="preserve" y="105.98208" x="51.075336" line-height="125%"><tspan x="51.075336" y="105.98208">I used the <tspan font-family="FreeMono,monospace">&lt;li&gt;</tspan> tag for each item.</tspan></text>
+ </g>
+</svg>

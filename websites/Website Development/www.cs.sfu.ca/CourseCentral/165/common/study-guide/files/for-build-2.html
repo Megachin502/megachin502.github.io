@@ -1,0 +1,35 @@
+<!DOCTYPE html> 
+<html lang="en">
+
+<!-- Mirrored from www.cs.sfu.ca/CourseCentral/165/common/study-guide/files/for-build-2.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 27 Feb 2018 02:42:06 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head> 
+<meta charset="UTF-8" />
+<script src="../../../../../../cmpt165.csil.sfu.ca/js/jquery-3.2.1.js"></script>
+<script src="../../../../../../cmpt165.csil.sfu.ca/js/raphael-2.1.4.js"></script>
+<script src="for-build-2.js"></script>
+<title>String Character Example</title>
+</head>
+<body>
+<h1>String Character Example</h1>
+
+<div id="container"></div>
+
+<p>Here's the code that draws that image:</p>
+
+<blockquote id="code-for-build-2-2">
+<pre class="brush: js">color_values = '0123456789abcdef'
+paper = Raphael('container', 350, 120)
+for (red = 0; red &lt;= 15; red += 1) {
+  r = paper.rect(red*20, red*5, 30, 30)
+  rect_attrs = {
+    'fill': '#' + color_values.charAt(red) + '00'
+  }
+  r.attr(rect_attrs)
+}</pre>
+</blockquote>
+
+</body>
+
+<!-- Mirrored from www.cs.sfu.ca/CourseCentral/165/common/study-guide/files/for-build-2.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 27 Feb 2018 02:42:07 GMT -->
+</html>
