@@ -1,0 +1,24 @@
+body{
+    margin-left:20%;
+    margin-right:20%;
+    border: 1px solid white;
+    margin-top:0;
+    background-color: black;
+    margin-bottom: 0;
+}
+html{
+    background-color: #F5F2F2;
+}
+header{
+    text-align: center;
+    text-decoration: underline;
+    background-color: black;
+}
+article#map{
+    background-color: beige;
+}
+footer{
+    background-color: black;
+    color:white;
+}
+
