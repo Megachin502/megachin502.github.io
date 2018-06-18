@@ -4,6 +4,7 @@ nav ul{
     list-style: none;
     text-align: center;
     background-color:black;
+	
 }
 nav{
     margin-top:-7px;
@@ -11,6 +12,9 @@ nav{
 nav li{
     display: inline;
     padding:50px;
+}
+nav li a:hover{
+    color:pink;
 }
 li a{
     color:white;
@@ -46,4 +50,9 @@ article h1{
 }
 th{
     font-weight: normal;
+}
+#dropCap:first-letter{
+    font-weight: bold;
+    color: green;
+    font-size: 30px;
 }

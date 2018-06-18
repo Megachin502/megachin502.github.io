@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Elvis Lam | COMP 2681 Final Project</title>
+        <link rel="stylesheet" href="style.css"/>
+    </head>
+    <body>
+        <header>
+            <p id="time">The time has not updated yet</p>
+            <img src="banner.jpg" width="100%">     
+        </header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="websitelinks.html" >Web Site Links</a></li>
+                <li><a href="otherrequirements.html" style="color:red;">Other Requirements</a></li>
+                <li><a href="crossreference.html">Cross Reference</a></li>
+                <li><a href="evaluationform.html">Evaluation Form</a></li>
+            </ul>
+        </nav>
+        <section>
+            <article>
+                <h1>Hot Spots/Image Maps</h1>
+                <img src="guy.jpg" alt="child" usemap="#map"/>
+                <map name="map">
+                    <area shape="poly" coords="139,78,173,79,173,159,139,162" href="http://www.dictionary.com/browse/guy" alt="Guy"/>
+                </map>
+                <p>Click the guy in the middle</p>
+                <hr>
+                <table>
+                    <tr>
+                        <th>
+                            <h1>Unordered List</h1>
+                            <ul>
+                                <li>Coffee</li>
+                                <li>Tea</li>
+                                <li>Milk</li>
+                            </ul>
+                        </th>
+                        <th>
+                            <h1>Ordered List</h1>
+                            <ol>
+                                <li>Coffee</li>
+                                <li>Tea</li>
+                                <li>Milk</li>
+                            </ol>
+                        </th>
+                        <th>
+                            <h1>Description List</h1>
+                            <dl>
+                                <dt>Coffee</dt>
+                                <dd>- black hot drink</dd>
+                                <dt>Milk</dt>
+                                <dd>- white cold drink</dd>
+                            </dl>
+                        </th>
+                    </tr>
+                </table>
+                <hr>
+                <h1>Special Characters</h1>
+                <p id="specialChars">&copy;&euro;&forall;&isin;&sum;</p>
+                <hr>
+                <h1>Drop Cap</h1>
+                <p id="dropCap">Once upon a time...</p>
+                <hr>
+                <table>
+                    <tr>
+                        <th><h1>Text Shadow</h1>
+                            <p id="textShadow" style="text-shadow: 3px 3px blue;">Shadowy Mcgee</p></th>  
+                        <th><h1>Box Shadow</h1>
+                            <p id="boxShadow" style="box-shadow: 3px 3px blue;border:1px solid;">Hey, how is it going?</p></th>
+                    </tr>
+                </table>
+                <hr>
+                <table>
+
+                    <tr>
+                        <th><h1>Skew</h1>
+                            <br>
+                            <img src="tusk.png" width="30%" id="transform" style="transform: skewY(30deg);"></th>  
+                        <th><h1>Rotate</h1>
+                            <img src="tusk.png" width="30%" id="rotate" style="transform: rotate(160deg);"></th>
+                    </tr>
+                </table>
+                <br><br>
+                <hr>
+                <h1>Opacity</h1>
+
+                <img src="me.jpg" width="50%">
+                <img src="me2.jpg" width="30%" style="opacity:.5;">
+                <hr>
+                <h1>Multimedia</h1>
+                <audio controls>
+                    <source src="music.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio><br>
+                <video width="400" controls>
+                    <source src="video.webm" type="video/webm">
+                    Your browser does not support HTML5 video.
+                </video><br>
+                <object width="200" height="200" data="frog.swf">
+                </object>
+            </article>
+        </section>
+        <aside>
+        </aside>
+        <footer>
+            <em>Updated May 2018</em>
+        </footer>
+    </body>
+    <script src="main.js"></script>
+</html>
