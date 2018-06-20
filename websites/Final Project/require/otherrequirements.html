@@ -1,14 +1,18 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <meta charset="UTF-8"/>
         <title>Elvis Lam | COMP 2681 Final Project</title>
-        <link rel="stylesheet" href="style.css"/>
+        <link rel="stylesheet" href="css/style.css"/>
+        <style>
+            #textShadow{text-shadow: 3px 3px blue;}
+        </style>
     </head>
     <body>
         <header>
             <p id="time">The time has not updated yet</p>
-            <img src="banner.jpg" width="100%">     
+            <img src="images/banner.jpg" style="width:100%;" alt="logo">    
+            <script src="js/main.js"></script>
         </header>
         <nav>
             <ul>
@@ -19,19 +23,18 @@
                 <li><a href="evaluationform.html">Evaluation Form</a></li>
             </ul>
         </nav>
-        <section>
-            <article>
+        <div>
                 <h1>Hot Spots/Image Maps</h1>
-                <img src="guy.jpg" alt="child" usemap="#map"/>
+                <img src="images/guy.jpg" alt="child" usemap="#map" id="hotspot"/>
                 <map name="map">
                     <area shape="poly" coords="139,78,173,79,173,159,139,162" href="http://www.dictionary.com/browse/guy" alt="Guy"/>
                 </map>
                 <p>Click the guy in the middle</p>
-                <hr>
-                <table>
+                <hr id="linebreak">
+                <table id="list">
                     <tr>
                         <th>
-                            <h1>Unordered List</h1>
+                            <b>Unordered List</b>
                             <ul>
                                 <li>Coffee</li>
                                 <li>Tea</li>
@@ -39,7 +42,7 @@
                             </ul>
                         </th>
                         <th>
-                            <h1>Ordered List</h1>
+                            <b>Ordered List</b>
                             <ol>
                                 <li>Coffee</li>
                                 <li>Tea</li>
@@ -47,7 +50,7 @@
                             </ol>
                         </th>
                         <th>
-                            <h1>Description List</h1>
+                            <b>Description List</b>
                             <dl>
                                 <dt>Coffee</dt>
                                 <dd>- black hot drink</dd>
@@ -58,56 +61,56 @@
                     </tr>
                 </table>
                 <hr>
-                <h1>Special Characters</h1>
+                <b>Special Characters</b>
                 <p id="specialChars">&copy;&euro;&forall;&isin;&sum;</p>
                 <hr>
-                <h1>Drop Cap</h1>
+                <b>Drop Cap</b>
                 <p id="dropCap">Once upon a time...</p>
+                <hr>
+                <b id="webFont">Web Font</b>
+                <p style="font-family:Courier New, Courier, monospace;">This is a monospace font</p>
                 <hr>
                 <table>
                     <tr>
-                        <th><h1>Text Shadow</h1>
-                            <p id="textShadow" style="text-shadow: 3px 3px blue;">Shadowy Mcgee</p></th>  
-                        <th><h1>Box Shadow</h1>
+                        <th><b>Text Shadow</b>
+                            <p id="textShadow">Shadowy Mcgee</p></th>  
+                        <th><b>Box Shadow</b>
                             <p id="boxShadow" style="box-shadow: 3px 3px blue;border:1px solid;">Hey, how is it going?</p></th>
                     </tr>
                 </table>
                 <hr>
-                <table>
+                <table id="transforms">
 
                     <tr>
-                        <th><h1>Skew</h1>
+                        <th><b>Skew</b>
                             <br>
-                            <img src="tusk.png" width="30%" id="transform" style="transform: skewY(30deg);"></th>  
-                        <th><h1>Rotate</h1>
-                            <img src="tusk.png" width="30%" id="rotate" style="transform: rotate(160deg);"></th>
+                            <img src="images/tusk.png" id="transform" style="transform: skewY(30deg);width:30%;" alt="skew image"></th>  
+                        <th><b>Rotate</b>
+                            <img src="images/tusk.png" id="rotate" style="transform: rotate(160deg);width:30%;" alt="rotate image"></th>
                     </tr>
                 </table>
                 <br><br>
                 <hr>
-                <h1>Opacity</h1>
+                <h1 id="opac">Opacity</h1>
 
-                <img src="me.jpg" width="50%">
-                <img src="me2.jpg" width="30%" style="opacity:.5;">
+                <img class="2img" src="images/me.jpg" style="opacity:.5;z-index: 1;position: absolute;width:20%;" alt="1">
+                <img class="2img" src="images/me2.jpg" style="opacity:.5;position: absolute;z-index: 2;width:10%;" alt="2"><br><br><br><br><br><br><br><br><br><br><br>
                 <hr>
                 <h1>Multimedia</h1>
                 <audio controls>
-                    <source src="music.mp3" type="audio/mpeg">
+                    <source src="media/music.mp3" type="audio/mpeg">
                     Your browser does not support the audio element.
                 </audio><br>
                 <video width="400" controls>
-                    <source src="video.webm" type="video/webm">
+                    <source src="media/video.webm" type="video/webm">
                     Your browser does not support HTML5 video.
                 </video><br>
-                <object width="200" height="200" data="frog.swf">
+                <object width="200" height="200" data="media/frog.swf">
                 </object>
-            </article>
-        </section>
-        <aside>
-        </aside>
+            </div><br>
         <footer>
             <em>Updated May 2018</em>
         </footer>
     </body>
-    <script src="main.js"></script>
+    
 </html>
