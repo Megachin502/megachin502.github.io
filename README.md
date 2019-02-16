@@ -9,4 +9,4 @@
 
 [Archived](https://megachin502.github.io/websites/index.html)
 
-[Codes](https://github.com/Megachin502)
+[Github](https://github.com/Megachin502)
