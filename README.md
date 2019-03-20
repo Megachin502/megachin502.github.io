@@ -1,9 +1,9 @@
 # Elvis Lam
 <img src="https://raw.githubusercontent.com/Megachin502/megachin502.github.io/master/websites/blue%20portfolio/profile.jpg" alt="me" width="220"/>
 ```
-Email: elvislam502@gmail.com<br>
-Facebook: elvis.lam.100<br>
->Instagram: kill_hacker5
+Email: elvislam502@gmail.com
+Facebook: elvis.lam.100
+Instagram: kill_hacker5
 ```
 <hr>
 <a href="https://docs.google.com/document/d/e/2PACX-1vSnavpZfQekWbDnxqKuk29q_2rwAGsHqcZFUjSORzmMLdE0I5hvWUaIYCSaIolRwLXOQc_3PxpcINfx/pub" target="_blank" style="text-decoration:none">Books</a><br>
