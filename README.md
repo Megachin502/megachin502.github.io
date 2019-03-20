@@ -10,7 +10,7 @@ Instagram: kill_hacker5
 
 
 * [Books](https://docs.google.com/document/d/e/2PACX-1vSnavpZfQekWbDnxqKuk29q_2rwAGsHqcZFUjSORzmMLdE0I5hvWUaIYCSaIolRwLXOQc_3PxpcINfx/pub)
-⋅⋅⋅
+<br>
 * [Projects](https://docs.google.com/document/d/e/2PACX-1vTnDO_hotbN3bt4jg1GHH6EgCvj8603bCiHJ4J9xeCCTJizjOw9OluyiCG18HxAujKfa3Lq5-yYRqpq/pub)
 
 * [Archived](https://megachin502.github.io/websites/index.html)
