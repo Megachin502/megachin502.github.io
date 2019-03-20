@@ -13,3 +13,10 @@ Instagram: kill_hacker5
 <a href="https://megachin502.github.io/websites/index.html" target="_blank" style="text-decoration:none">Archived</a><br>
 <a href="https://github.com/Megachin502" target="_blank" style="text-decoration:none">Github</a><br>
 <a href="https://megachin502.github.io" target="_blank" style="text-decoration:none">Resume</a><br>
+
+
+| Tables        | Are           | Cool  |
+| ------------- |:-------------:| -----:|
+| col 3 is      | right-aligned | $1600 |
+| col 2 is      | centered      |   $12 |
+| zebra stripes | are neat      |    $1 |
