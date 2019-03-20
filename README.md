@@ -8,10 +8,8 @@ Instagram: kill_hacker5
 ```
 
 <hr>
-<a href="https://docs.google.com/document/d/e/2PACX-1vTnDO_hotbN3bt4jg1GHH6EgCvj8603bCiHJ4J9xeCCTJizjOw9OluyiCG18HxAujKfa3Lq5-yYRqpq/pub" target="_blank" style="text-decoration:none">Projects</a><br>
-<a href="https://megachin502.github.io/websites/index.html" target="_blank" style="text-decoration:none">Archived</a><br>
-<a href="https://github.com/Megachin502" target="_blank" style="text-decoration:none">Github</a><br>
-<a href="https://megachin502.github.io" target="_blank" style="text-decoration:none">Resume</a><br>
-
 * [Books](https://docs.google.com/document/d/e/2PACX-1vSnavpZfQekWbDnxqKuk29q_2rwAGsHqcZFUjSORzmMLdE0I5hvWUaIYCSaIolRwLXOQc_3PxpcINfx/pub)
 * [Projects](https://docs.google.com/document/d/e/2PACX-1vTnDO_hotbN3bt4jg1GHH6EgCvj8603bCiHJ4J9xeCCTJizjOw9OluyiCG18HxAujKfa3Lq5-yYRqpq/pub)
+* [Archived](https://megachin502.github.io/websites/index.html)
+* [Github](https://github.com/Megachin502)
+* [Resume](https://megachin502.github.io)
