@@ -1,5 +1,5 @@
 # Elvis Lam - BCS UG
-<img src="https://raw.githubusercontent.com/Megachin502/megachin502.github.io/master/websites/blue%20portfolio/profile.jpg" alt="me" width="300"/>
+<img src="https://raw.githubusercontent.com/Megachin502/megachin502.github.io/master/websites/blue%20portfolio/profile.jpg" alt="me" width="290"/>
 
 ```
 Email: elvislam502@gmail.com
