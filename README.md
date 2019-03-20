@@ -14,4 +14,4 @@ Instagram: kill_hacker5
 <a href="https://github.com/Megachin502" target="_blank" style="text-decoration:none">Github</a><br>
 <a href="https://megachin502.github.io" target="_blank" style="text-decoration:none">Resume</a><br>
 
-[Books](https://docs.google.com/document/d/e/2PACX-1vSnavpZfQekWbDnxqKuk29q_2rwAGsHqcZFUjSORzmMLdE0I5hvWUaIYCSaIolRwLXOQc_3PxpcINfx/pub)
+*[Books](https://docs.google.com/document/d/e/2PACX-1vSnavpZfQekWbDnxqKuk29q_2rwAGsHqcZFUjSORzmMLdE0I5hvWUaIYCSaIolRwLXOQc_3PxpcINfx/pub)
