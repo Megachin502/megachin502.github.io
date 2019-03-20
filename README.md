@@ -1,4 +1,4 @@
-# Elvis Lam - Computing Science
+# Elvis Lam
 <img src="https://raw.githubusercontent.com/Megachin502/megachin502.github.io/master/websites/blue%20portfolio/profile.jpg" alt="me" width="220"/>
 <b>Email:</b> elvislam502@gmail.com<br>
 <b>Facebook:</b> elvis.lam.100<br>
