@@ -1,4 +1,4 @@
-# Elvis Lam - BCS
+# Elvis Lam - BCS UG
 <img src="https://raw.githubusercontent.com/Megachin502/megachin502.github.io/master/websites/blue%20portfolio/profile.jpg" alt="me" width="220"/>
 
 ```
