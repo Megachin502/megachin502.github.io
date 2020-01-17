@@ -10,3 +10,9 @@ function copy2() {
   document.execCommand("copy");
   alert("Phone Number Copied to Clipboard");
 }
+html {
+    -moz-filter: grayscale(100%);
+    -webkit-filter: grayscale(100%);
+    filter: gray; /* IE6-9 */
+    filter: grayscale(100%);
+}
