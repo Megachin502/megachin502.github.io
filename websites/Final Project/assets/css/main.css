@@ -44,8 +44,4 @@ a{
 }
 #start{
     margin-top:243px;margin-left:10%;margin-right:10%;
-    -moz-filter: grayscale(100%);
-    -webkit-filter: grayscale(100%);
-    filter: gray; /* IE6-9 */
-    filter: grayscale(100%);
 }
