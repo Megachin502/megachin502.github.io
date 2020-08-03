@@ -1,0 +1,176 @@
+/*global*/
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+  line-height: 1.2;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #e2e2e2;
+}
+h1,
+h2 {
+  margin: 0;
+}
+span#uppercase {
+  text-transform: uppercase;
+}
+span.current {
+  color: #ea104c;
+}
+/*container*/
+.container {
+  width: 80%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  overflow: hidden;
+}
+/*update*/
+#update {
+  text-align: center;
+  line-height: 1;
+  font-size: 16px;
+}
+/*header*/
+header {
+  background-color: #191919;
+  padding: 10px;
+  border-bottom: 2px solid #ea104c;
+}
+/*branding*/
+#branding {
+  white-space: nowrap;
+}
+#branding h1 {
+  color: #ea104c;
+  -webkit-text-fill-color: #ea104c;
+  -webkit-text-stroke-color: white;
+  -webkit-text-stroke-width: 0.5px;
+}
+#branding h2 {
+  color: white;
+}
+/*nav*/
+nav ul {
+  padding-top: 10px;
+  white-space: nowrap;
+}
+nav li {
+  display: inline;
+  margin: 0 20px 0 20px;
+}
+nav a {
+  text-decoration: none;
+  color: white;
+}
+nav a:visited {
+  color: white;
+}
+nav a:hover {
+  color: #ea104c;
+}
+/*showcase*/
+#showcase {
+  background-image: url("/images/showcase2.JPG");
+  min-height: 400px;
+  background-position-y: -300px;
+  background-size: cover;
+}
+#showcase-content {
+  margin: auto;
+  text-align: center;
+}
+#showcase-content h2 {
+  font-size: 60px;
+  color: #ea104c;
+  text-shadow: 1px 1px 10px black, 1px 1px 10px black;
+  margin-top: 120px;
+}
+#showcase-content p {
+  color: yellow;
+  text-shadow: 1px 1px 10px white, 1px 1px 10px white;
+  font-size: 25px;
+}
+/*store-info*/
+#store-info {
+  background-color: black;
+}
+#store-info p {
+  color: white;
+  font-size: 27px;
+}
+#addresss-phone {
+  background-color: #ea104c;
+  text-align: center;
+  padding: 0 20px 0 20px;
+}
+#addresss-phone p:first-child {
+  margin-top: 55px;
+}
+/*container-images*/
+.container-images {
+  overflow-y: hidden;
+  overflow-x: scroll;
+  white-space: nowrap;
+  height: 400px;
+}
+.container-images img {
+  height: 100%;
+  margin-right: -6px;
+}
+/*footer*/
+footer {
+  background-color: #191919;
+  padding: 1px;
+  text-align: center;
+  color: white;
+}
+/*services*/
+#services{
+  margin-top: 25px;
+}
+.container-services {
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: -50px;
+}
+.container-services ul{
+  list-style:none;
+}
+.container-services h1{
+  text-decoration: underline;
+  font-size:50px;
+}
+.container-services p{
+  font-size: 70px;
+}
+/*call*/
+#call h1{
+  margin-top: 50px;
+  font-size:60px;
+}
+/*media query*/
+@media (max-width: 768px) {
+  .container,
+  .container-services {
+    display: block;
+    text-align: center;
+    margin: auto;
+    width: 100%;
+  }
+  nav {
+    margin: 0 0 0 -35px;
+  }
+  #showcase {
+    background-position: 0;
+  }
+  #showcase-content h2 {
+    margin-top: 60px;
+  }
+  #shoe-gif {
+    display: none;
+  }
+  #addresss-phone {
+    margin-top: -30px;
+  }
+}
