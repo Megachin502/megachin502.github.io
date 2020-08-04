@@ -91,6 +91,7 @@ nav a:hover {
   color: yellow;
   text-shadow: 1px 1px 10px white, 1px 1px 10px white;
   font-size: 25px;
+  margin-top:10px;
 }
 /*store-info*/
 #store-info {
@@ -176,7 +177,6 @@ footer {
   #showcase-content h2 {
     margin-top: 60px;
   }
-
   #shoe-gif {
     display: none;
   }
