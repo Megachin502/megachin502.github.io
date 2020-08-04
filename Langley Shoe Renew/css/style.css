@@ -71,7 +71,7 @@ nav a:hover {
 }
 /*showcase*/
 #showcase {
-  background-image: url("/images/showcase2.JPG");
+  background-image: url("../images/showcase2.JPG");
   min-height: 400px;
   background-position-y: -300px;
   background-size: cover;
