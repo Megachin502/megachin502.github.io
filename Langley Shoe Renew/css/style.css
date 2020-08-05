@@ -162,7 +162,7 @@ footer {
     width: 100%;
   }
   nav {
-    margin: 0 0 0 -35px;
+    margin: -20px 0 0 -35px;
   }
   nav li:first-child,
   nav li:nth-child(2) {
