@@ -91,7 +91,7 @@ nav a:hover {
   color: yellow;
   text-shadow: 1px 1px 10px white, 1px 1px 10px white;
   font-size: 25px;
-  margin-top:10px;
+  margin-top: 10px;
 }
 /*store-info*/
 #store-info {
@@ -186,10 +186,23 @@ footer {
   #addresss-phone p:first-child {
     padding-top: 10px;
   }
-  #addresss-phone p:last-child{
+  #addresss-phone p:last-child {
     padding-bottom: 10px;
   }
   .container-images {
     height: 150px;
+  }
+  .mapouter,
+  .gmap_canvas {
+    height: 300px;
+  }
+  .container-services{
+    margin-bottom:-45px;
+  }
+  .container-services p{
+    padding: 0 20px 0 20px;
+  }
+  #call{
+    margin-top:-25px;
   }
 }
