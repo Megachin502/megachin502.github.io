@@ -178,8 +178,9 @@ footer {
   #showcase-content h2 {
     margin-top: 20px;
   }
-  #shoe-gif {
-    display: none;
+  #store-info-image{
+    margin-top:-65px;
+    margin-bottom: -95px;
   }
   #addresss-phone {
     margin-top: -30px;
