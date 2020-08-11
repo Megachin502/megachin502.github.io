@@ -101,9 +101,9 @@ nav a:hover {
   color: white;
   font-size: 27px;
 }
-#store-info-image img{
-  margin-top:15px;
-  height:180px;
+#store-info-image img {
+  margin-top: 15px;
+  height: 180px;
 }
 #addresss-phone {
   background-color: #ea104c;
@@ -182,10 +182,10 @@ footer {
   #showcase-content h2 {
     margin-top: 20px;
   }
-  #store-info-image img{
-    margin-top:-12px;
+  #store-info-image img {
+    margin-top: -12px;
     margin-bottom: -19px;
-    margin-left:-25px;
+    margin-left: -25px;
   }
   #addresss-phone {
     margin-top: -30px;
