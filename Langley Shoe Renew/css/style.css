@@ -135,6 +135,9 @@ footer {
   text-align: center;
   color: white;
 }
+footer a{
+  color:#74C3E5;
+}
 /*services*/
 #services {
   margin-top: 130px;
@@ -228,5 +231,8 @@ footer {
   }
   #update{
     margin-top:-58px;
+  }
+  footer a{
+    display:block;
   }
 }
