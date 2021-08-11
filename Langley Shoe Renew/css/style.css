@@ -36,7 +36,7 @@ span.current {
 header {
   background-color: #191919;
   padding: 10px;
-  border-bottom: 2px solid #ea104c;
+  border-bottom: 2px solid #00ff00;
   position:fixed;
   width:100%;
   top:0;
@@ -106,7 +106,7 @@ nav a:hover {
   font-size: 27px;
 }
 #store-info-image img {
-  margin-top: 15px;
+  margin-top: 40px;
   height: 180px;
 }
 #addresss-phone {
@@ -115,7 +115,7 @@ nav a:hover {
   padding: 0 20px 0 20px;
 }
 #addresss-phone p:first-child {
-  margin-top: 55px;
+  margin-top: 85px;
 }
 /*container-images*/
 .container-images {
@@ -141,6 +141,7 @@ footer a{
 /*services*/
 #services {
   margin-top: 130px;
+  margin-bottom: 80px;
 }
 .container-services {
   display: flex;
