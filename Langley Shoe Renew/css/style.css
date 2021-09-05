@@ -81,7 +81,7 @@ nav a:hover {
 }
 /*showcase*/
 #showcase {
-  background-image: url("https://raw.githubusercontent.com/Megachin502/megachin502.github.io/master/Langley%20Shoe%20Renew/images/showcase2.jpg");
+  background-image: url("../images/showcase2.jpg");
   min-height: 400px;
   background-position-y: -300px;
   background-size: cover;
