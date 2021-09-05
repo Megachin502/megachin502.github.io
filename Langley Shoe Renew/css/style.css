@@ -225,7 +225,7 @@ footer a{
     margin-left: -25px;
   }
   #addresss-phone {
-    margin-top: -30px;
+    margin-top: -51px;
   }
   #addresss-phone p:first-child {
     padding-top: 10px;
@@ -269,5 +269,11 @@ footer a{
   }
   footer a{
     display:block;
+  }
+  #s{
+	  margin-bottom:-105px;
+  }
+  #s p{
+	  margin-top:25px;
   }
 }
