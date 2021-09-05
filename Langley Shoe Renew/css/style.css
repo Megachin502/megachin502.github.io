@@ -181,8 +181,23 @@ footer a{
     border-top: 5px solid #191919;
 	margin-bottom:-5px;
 }
+/*container-images-mobile*/
+.container-images-mobile{
+	display:none;
+}
 /*media query*/
 @media (max-width: 768px) {
+  .container-images{
+	  display:none;
+  }
+  .container-images-mobile img{
+	margin-bottom:-6px;
+	width:100%
+}
+  .container-images-mobile{
+	display: block;
+	min-width:100%;
+}
   .container,
   .container-services,
   nav li {
