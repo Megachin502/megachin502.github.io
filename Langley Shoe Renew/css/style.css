@@ -267,14 +267,14 @@ footer a{
 	  margin-right:20px;
 	  color: black;
 	  border:5px solid black;
+          font-size:27px;
 	  
   }
   .info a{
 	  text-decoration:none;
   }
   .info a:hover{
-	  text-decoration:underline;
-	  text-decoration-color: black;
+           background-color:yellow;
   }
   .container-services .s{
     padding-top:20px;
