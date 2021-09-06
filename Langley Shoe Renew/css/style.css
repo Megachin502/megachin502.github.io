@@ -269,9 +269,6 @@ footer a{
 	  border:5px solid black;
           font-size:27px;
   }
-  .info p:hover{
-      background-color:yellow;
-  }
   .info a{
 	  text-decoration:none;
   }
